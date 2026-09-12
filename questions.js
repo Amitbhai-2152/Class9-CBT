@@ -1,0 +1,72 @@
+const QUESTIONS = [
+// गणित — संख्या पद्धति + बहुपद
+{ id: 1, subject: "गणित", type: "mcq", marks: 1, question: "निम्नलिखित में से कौन-सी संख्या अपरिमेय है?", options: ["0.25", "√2", "7/8", "0.121212..."], correct: 1 },
+{ id: 2, subject: "गणित", type: "mcq", marks: 1, question: "यदि x = √5 + √2 और y = √5 − √2, तो xy का मान क्या होगा?", options: ["7", "3", "√3", "10"], correct: 1 },
+{ id: 3, subject: "गणित", type: "mcq", marks: 1, question: "0.272727... का परिमेय रूप क्या है?", options: ["3/11", "27/100", "27/99", "11/27"], correct: 0 },
+{ id: 4, subject: "गणित", type: "mcq", marks: 1, question: "यदि p(x)=x²−5x+6 है, तो p(2) का मान क्या होगा?", options: ["0", "2", "4", "6"], correct: 0 },
+{ id: 5, subject: "गणित", type: "mcq", marks: 1, question: "बहुपद 4x³−7x+9 की घात क्या है?", options: ["1", "2", "3", "9"], correct: 2 },
+{ id: 6, subject: "गणित", type: "mcq", marks: 1, question: "यदि x−3, बहुपद p(x) का गुणनखंड है, तो निम्न में से कौन-सा कथन सही है?", options: ["p(0)=3", "p(3)=0", "p(−3)=0", "p(3)=3"], correct: 1 },
+{ id: 7, subject: "गणित", type: "subjective", marks: 4, question: "√5 को संख्या रेखा पर निरूपित करने की रचना विधि क्रमबद्ध चरणों में समझाइए।" },
+{ id: 8, subject: "गणित", type: "subjective", marks: 4, question: "0.1666... को p/q के रूप में व्यक्त कीजिए तथा बताइए कि आपका उत्तर परिमेय संख्या क्यों है।" },
+{ id: 9, subject: "गणित", type: "subjective", marks: 4, question: "यदि p(x)=2x²−7x+3 है, तो p(3) ज्ञात कीजिए और जाँच कीजिए कि x−3 इसका गुणनखंड है या नहीं।" },
+
+// विज्ञान — हमारे आसपास के पदार्थ + क्या हमारे आसपास के पदार्थ शुद्ध हैं?
+{ id: 10, subject: "विज्ञान", type: "mcq", marks: 1, question: "वाष्पीकरण की दर बढ़ाने के लिए निम्न में से कौन-सा संयोजन सबसे प्रभावी है?", options: ["कम तापमान और कम सतह क्षेत्र", "अधिक तापमान और अधिक सतह क्षेत्र", "अधिक आर्द्रता और कम तापमान", "हवा रोक देना"], correct: 1 },
+{ id: 11, subject: "विज्ञान", type: "mcq", marks: 1, question: "गैस को दबाने पर उसके कणों के बीच की दूरी सामान्यतः क्या होती है?", options: ["बढ़ती है", "घटती है", "समान रहती है", "शून्य हो जाती है"], correct: 1 },
+{ id: 12, subject: "विज्ञान", type: "mcq", marks: 1, question: "निम्नलिखित में से कौन-सा विषमांगी मिश्रण है?", options: ["नमक का जल में विलयन", "हवा", "रेत और पानी", "पीतल"], correct: 2 },
+{ id: 13, subject: "विज्ञान", type: "mcq", marks: 1, question: "दूध से क्रीम अलग करने के लिए मुख्यतः कौन-सी विधि उपयोगी है?", options: ["निस्यंदन", "अपकेंद्रण", "उर्ध्वपातन", "क्रिस्टलीकरण"], correct: 1 },
+{ id: 14, subject: "विज्ञान", type: "mcq", marks: 1, question: "टिंडल प्रभाव किस प्रकार के मिश्रण की पहचान में सहायक है?", options: ["सच्चा विलयन", "कोलाइड", "शुद्ध तत्व", "यौगिक"], correct: 1 },
+{ id: 15, subject: "विज्ञान", type: "mcq", marks: 1, question: "नमक और अमोनियम क्लोराइड के मिश्रण से अमोनियम क्लोराइड अलग करने के लिए कौन-सी विधि उपयुक्त है?", options: ["उर्ध्वपातन", "निस्यंदन", "अपकेंद्रण", "अवसादन"], correct: 0 },
+{ id: 16, subject: "विज्ञान", type: "subjective", marks: 4, question: "वाष्पीकरण को प्रभावित करने वाले चार कारकों को उदाहरण सहित समझाइए।" },
+{ id: 17, subject: "विज्ञान", type: "subjective", marks: 4, question: "विलयन, कोलाइड और निलंबन में कणों के आकार, स्थायित्व तथा निस्यंदन के आधार पर अंतर स्पष्ट कीजिए।" },
+
+// सामाजिक विज्ञान — भौगोलिक खोजें + अमेरिकी स्वतंत्रता संग्राम + स्थिति एवं विस्तार
+{ id: 18, subject: "सामाजिक विज्ञान", type: "mcq", marks: 1, question: "भारत के लिए समुद्री मार्ग की खोज से यूरोपीय व्यापारिक प्रतिस्पर्धा पर क्या प्रभाव पड़ा?", options: ["समाप्त हो गई", "तेज हुई", "भारत से व्यापार बंद हुआ", "कोई प्रभाव नहीं पड़ा"], correct: 1 },
+{ id: 19, subject: "सामाजिक विज्ञान", type: "mcq", marks: 1, question: "बोस्टन टी पार्टी किस औपनिवेशिक नीति के विरोध का प्रतीक बनी?", options: ["कर और व्यापार नियंत्रण", "शिक्षा नीति", "कृषि सुधार", "धार्मिक सुधार"], correct: 0 },
+{ id: 20, subject: "सामाजिक विज्ञान", type: "mcq", marks: 1, question: "अमेरिकी स्वतंत्रता की घोषणा किस वर्ष हुई?", options: ["1773", "1776", "1781", "1783"], correct: 1 },
+{ id: 21, subject: "सामाजिक विज्ञान", type: "mcq", marks: 1, question: "भारत का मानक मध्याह्न किस देशांतर पर आधारित है?", options: ["68°7′E", "82°30′E", "97°25′E", "23°30′N"], correct: 1 },
+{ id: 22, subject: "सामाजिक विज्ञान", type: "mcq", marks: 1, question: "भारत के उत्तर में कौन-सी प्रमुख भौगोलिक विशेषता प्राकृतिक सीमा का कार्य करती है?", options: ["हिंद महासागर", "हिमालय", "अरब सागर", "दक्कन का पठार"], correct: 1 },
+{ id: 23, subject: "सामाजिक विज्ञान", type: "mcq", marks: 1, question: "यदि किसी स्थान का स्थानीय समय भारत के मानक समय से आगे है, तो वह स्थान सामान्यतः किस दिशा में स्थित होगा?", options: ["पश्चिम", "पूर्व", "दक्षिण", "दक्षिण-पश्चिम"], correct: 1 },
+{ id: 24, subject: "सामाजिक विज्ञान", type: "subjective", marks: 4, question: "भौगोलिक खोजों के तीन प्रमुख परिणामों का वर्णन कीजिए। केवल घटनाएँ न लिखकर उनके आर्थिक या राजनीतिक प्रभाव भी बताइए।" },
+{ id: 25, subject: "सामाजिक विज्ञान", type: "subjective", marks: 4, question: "अमेरिकी स्वतंत्रता संग्राम के प्रमुख कारणों को कराधान, राजनीतिक अधिकार और उपनिवेशवाद के संदर्भ में समझाइए।" },
+
+// हिन्दी — कहानी का प्लॉट + नालंदा + रैदास + बिहार का लोकगायन
+{ id: 26, subject: "हिन्दी", type: "mcq", marks: 1, question: "'कहानी का प्लॉट' में लेखक किस सामाजिक वास्तविकता को प्रभावशाली ढंग से सामने लाते हैं?", options: ["धन और गरीबी का अंतर", "केवल प्रकृति-सौंदर्य", "युद्ध का वर्णन", "वैज्ञानिक प्रगति"], correct: 0 },
+{ id: 27, subject: "हिन्दी", type: "mcq", marks: 1, question: "नालंदा को प्राचीन भारत का महत्वपूर्ण विद्यापीठ बनाने वाली विशेषता कौन-सी थी?", options: ["केवल सैनिक प्रशिक्षण", "अंतरराष्ट्रीय स्तर का ज्ञान-केंद्र", "केवल व्यापारिक केंद्र", "केवल धार्मिक उत्सव"], correct: 1 },
+{ id: 28, subject: "हिन्दी", type: "mcq", marks: 1, question: "रैदास के पदों में 'चंदन' और 'पानी' का संबंध किस भाव को व्यक्त करता है?", options: ["भय", "भक्त और भगवान की आत्मीयता", "क्रोध", "वियोग"], correct: 1 },
+{ id: 29, subject: "हिन्दी", type: "mcq", marks: 1, question: "बिहार के लोकगायन की प्रमुख विशेषता क्या मानी जाती है?", options: ["लोकजीवन से जुड़ाव", "केवल शास्त्रीय संगीत", "केवल विदेशी प्रभाव", "केवल वाद्य-संगीत"], correct: 0 },
+{ id: 30, subject: "हिन्दी", type: "mcq", marks: 1, question: "लोकगीतों में किसी क्षेत्र की संस्कृति किस माध्यम से सबसे अधिक प्रकट होती है?", options: ["लोकजीवन और परंपराओं", "केवल गणित", "केवल राजनीति", "केवल विज्ञान"], correct: 0 },
+{ id: 31, subject: "हिन्दी", type: "mcq", marks: 1, question: "'प्रभु जी तुम चंदन हम पानी' में कवि का मूल भाव क्या है?", options: ["ईश्वर से दूरी", "पूर्ण समर्पण और आत्मीय संबंध", "धन की इच्छा", "राजकीय प्रशंसा"], correct: 1 },
+{ id: 32, subject: "हिन्दी", type: "subjective", marks: 4, question: "'कहानी का प्लॉट' के आधार पर मुंशी जी के जीवन की आर्थिक विवशता और उसके मानवीय प्रभाव को स्पष्ट कीजिए।" },
+{ id: 33, subject: "हिन्दी", type: "subjective", marks: 4, question: "नालंदा को केवल एक विश्वविद्यालय नहीं, बल्कि अंतरराष्ट्रीय ज्ञान-केंद्र क्यों कहा जा सकता है? पाठ के आधार पर तर्क दीजिए।" },
+
+// संस्कृत — ईशस्तुति + लोभविष्टः चक्रधरः
+{ id: 34, subject: "संस्कृत", type: "mcq", marks: 1, question: "'ईशस्तुतिः' पाठ का मुख्य उद्देश्य क्या है?", options: ["ईश्वर की स्तुति", "युद्ध का वर्णन", "व्यापार का वर्णन", "क्रीड़ा का वर्णन"], correct: 0 },
+{ id: 35, subject: "संस्कृत", type: "mcq", marks: 1, question: "'लोभविष्टः चक्रधरः' में चक्रधर के पतन का मुख्य कारण क्या था?", options: ["परिश्रम", "लोभ", "साहस", "विद्या"], correct: 1 },
+{ id: 36, subject: "संस्कृत", type: "mcq", marks: 1, question: "'लोभविष्टः चक्रधरः' कथा का प्रमुख संदेश क्या है?", options: ["लोभ का त्याग", "धन ही सर्वोच्च है", "जोखिम लेना ही सफलता है", "ज्ञान अनावश्यक है"], correct: 0 },
+{ id: 37, subject: "संस्कृत", type: "mcq", marks: 1, question: "'ईशस्तुतिः' में ईश्वर के प्रति कौन-सा भाव प्रमुख है?", options: ["भक्ति", "ईर्ष्या", "भय से पलायन", "उपेक्षा"], correct: 0 },
+{ id: 38, subject: "संस्कृत", type: "mcq", marks: 1, question: "'चक्रधरः' शब्द में 'धर' धातु से कौन-सा अर्थ प्रकट होता है?", options: ["धारण करना", "जाना", "देखना", "खाना"], correct: 0 },
+{ id: 39, subject: "संस्कृत", type: "subjective", marks: 4, question: "'लोभविष्टः चक्रधरः' कथा के आधार पर स्पष्ट कीजिए कि विवेक के बिना प्राप्त ज्ञान या साधन किस प्रकार हानिकारक हो सकते हैं।" },
+{ id: 40, subject: "संस्कृत", type: "subjective", marks: 4, question: "'ईशस्तुतिः' के आधार पर ईश्वर के प्रति भक्त के भाव को संस्कृत पाठ के संदर्भ में अपने शब्दों में स्पष्ट कीजिए।" },
+
+// English — I'm going to dance again + Scaling Great Heights + Dharam Juddha + The Grandmother
+{ id: 41, subject: "English", type: "mcq", marks: 1, question: "In 'I'm going to dance again', what does Sudha Chandran's determination mainly demonstrate?", options: ["Fear of failure", "Resilience and determination", "Desire for fame only", "Avoidance of challenges"], correct: 1 },
+{ id: 42, subject: "English", type: "mcq", marks: 1, question: "In 'Scaling Great Heights', the idea of reaching great heights is most closely associated with:", options: ["giving up early", "courage, effort and achievement", "wealth alone", "luck alone"], correct: 1 },
+{ id: 43, subject: "English", type: "mcq", marks: 1, question: "In 'Dharam Juddha', Padma's conflict is connected with her desire for:", options: ["education and dignity", "wealth only", "travel only", "political power only"], correct: 0 },
+{ id: 44, subject: "English", type: "mcq", marks: 1, question: "In 'The Grandmother', the grandmother is remembered primarily through:", options: ["a distant visual image and memory", "a newspaper report", "a school examination", "a scientific experiment"], correct: 0 },
+{ id: 45, subject: "English", type: "mcq", marks: 1, question: "Which word best describes Sudha Chandran's attitude after adversity?", options: ["Defeated", "Determined", "Careless", "Indifferent"], correct: 1 },
+{ id: 46, subject: "English", type: "mcq", marks: 1, question: "Which theme connects 'Scaling Great Heights' with 'I'm going to dance again'?", options: ["Overcoming obstacles", "Avoiding responsibility", "Fear of learning", "Material wealth"], correct: 0 },
+{ id: 47, subject: "English", type: "subjective", marks: 4, question: "How does Sudha Chandran turn a major setback into a reason to pursue her goal? Answer with reference to her determination and attitude." },
+{ id: 48, subject: "English", type: "subjective", marks: 4, question: "What message about courage and perseverance can a reader draw from 'Scaling Great Heights'? Explain with reference to the chapter." },
+
+// Reasoning — Number Series in Hindi
+{ id: 49, subject: "तार्किक क्षमता", type: "mcq", marks: 1, question: "शृंखला पूरी करें: 3, 7, 15, 31, 63, ?", options: ["95", "127", "125", "129"], correct: 1 },
+{ id: 50, subject: "तार्किक क्षमता", type: "mcq", marks: 1, question: "शृंखला पूरी करें: 2, 6, 12, 20, 30, ?", options: ["40", "42", "44", "46"], correct: 1 },
+{ id: 51, subject: "तार्किक क्षमता", type: "mcq", marks: 1, question: "शृंखला पूरी करें: 81, 27, 9, 3, ?", options: ["1", "0", "2", "−1"], correct: 0 },
+{ id: 52, subject: "तार्किक क्षमता", type: "mcq", marks: 1, question: "शृंखला पूरी करें: 5, 8, 14, 23, 35, ?", options: ["48", "50", "51", "52"], correct: 1 },
+{ id: 53, subject: "तार्किक क्षमता", type: "mcq", marks: 1, question: "शृंखला में अगली संख्या ज्ञात करें: 1, 2, 6, 24, 120, ?", options: ["240", "360", "720", "840"], correct: 2 },
+
+// अतिरिक्त उच्च-स्तरीय subjective — कुल 15 subjective बनाए रखने के लिए
+{ id: 54, subject: "गणित", type: "subjective", marks: 4, question: "दो संख्याएँ ऐसी हैं कि उनका योग 7 और गुणनफल 10 है। क्या आप इनके आधार पर ऐसा द्विघात बहुपद बना सकते हैं जिसके शून्यक वही संख्याएँ हों? प्रक्रिया समझाइए।" },
+{ id: 55, subject: "सामाजिक विज्ञान", type: "subjective", marks: 4, question: "भारत की विशाल पूर्व-पश्चिम देशांतर सीमा के कारण समय में अंतर क्यों उत्पन्न होता है? भारतीय मानक समय की आवश्यकता को उदाहरण सहित समझाइए।" }
+];
