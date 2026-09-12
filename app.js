@@ -13,7 +13,8 @@ window.onload = () => {
   studentResponses = QUESTIONS.map(q => ({ id: q.id, selectedOption: null, writtenInCopy: false, status: 'not-visited' }));
 };
 
-let totalSeconds = 150 * 60; // 2 घंटा 30 मिनट
+// परीक्षा अवधि: 3 घंटे = 180 मिनट
+let totalSeconds = 3 * 60 * 60;
 let timerInterval = null;
 let timeElapsedSeconds = 0;
 let selectedSubjectFilter = "All";
