@@ -94,7 +94,32 @@ function loadQuestion(index) {
 
   document.getElementById('questionTitle').innerText = `प्रश्न ${q.id} [${q.subject}]`;
   document.getElementById('questionMarksTag').innerText = `${q.marks} अंक`;
-  document.getElementById('questionText').innerText = q.question;
+
+  const questionText = document.getElementById('questionText');
+  questionText.innerHTML = "";
+  if (q.passage) {
+    const passageBox = document.createElement('div');
+    passageBox.className = 'passage-box';
+
+    const passageLabel = document.createElement('div');
+    passageLabel.className = 'passage-label';
+    passageLabel.innerText = q.subject === 'हिन्दी' ? 'अपठित गद्यांश' : 'READING PASSAGE';
+
+    const passageText = document.createElement('div');
+    passageText.className = 'passage-text';
+    passageText.innerText = q.passage;
+
+    passageBox.appendChild(passageLabel);
+    passageBox.appendChild(passageText);
+    questionText.appendChild(passageBox);
+
+    const prompt = document.createElement('div');
+    prompt.className = 'question-prompt';
+    prompt.innerText = q.question;
+    questionText.appendChild(prompt);
+  } else {
+    questionText.innerText = q.question;
+  }
 
   const area = document.getElementById('answerInteractionArea');
   area.innerHTML = "";
@@ -170,6 +195,8 @@ function buildSubmissionPayload() {
     return {
       id: q.id,
       subject: q.subject,
+      section: q.section || "",
+      passage: q.passage || "",
       question: q.question,
       selectedIndex: selected,
       selectedText: selected !== null && selected !== undefined ? q.options[selected] : "",
