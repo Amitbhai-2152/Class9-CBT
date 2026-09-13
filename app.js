@@ -8,9 +8,93 @@ const userProfile = { name: "", parent: "", location: "", roll: "", mobile: "" }
 let currentIndex = 0;
 let studentResponses = [];
 
-// Initialize responses once QUESTIONS array is available from questions.js
+// Phase 1: local auto-recovery. This keeps an unfinished exam on the same device.
+const RECOVERY_KEY = "class9_cbt_active_exam_v1";
+const RECOVERY_VERSION = 1;
+let examStarted = false;
+let examDeadlineMs = null;
+let recoverySaveTimer = null;
+let recoveryRestored = false;
+
+function saveExamRecovery() {
+  if (!examStarted || !studentResponses.length) return;
+  try {
+    const state = {
+      version: RECOVERY_VERSION,
+      savedAt: Date.now(),
+      userProfile: { ...userProfile },
+      currentIndex,
+      studentResponses,
+      examStarted: true,
+      examDeadlineMs,
+      timeElapsedSeconds
+    };
+    localStorage.setItem(RECOVERY_KEY, JSON.stringify(state));
+  } catch (error) {
+    console.warn("Could not save exam recovery state:", error);
+  }
+}
+
+function readExamRecovery() {
+  try {
+    const raw = localStorage.getItem(RECOVERY_KEY);
+    if (!raw) return null;
+    const state = JSON.parse(raw);
+    if (!state || state.version !== RECOVERY_VERSION || !state.examStarted || !state.examDeadlineMs) return null;
+    if (state.examDeadlineMs <= Date.now()) {
+      localStorage.removeItem(RECOVERY_KEY);
+      return null;
+    }
+    return state;
+  } catch (error) {
+    console.warn("Could not read exam recovery state:", error);
+    return null;
+  }
+}
+
+function clearExamRecovery() {
+  try {
+    localStorage.removeItem(RECOVERY_KEY);
+  } catch (error) {
+    console.warn("Could not clear exam recovery state:", error);
+  }
+}
+
+function scheduleRecoverySave() {
+  clearTimeout(recoverySaveTimer);
+  recoverySaveTimer = setTimeout(saveExamRecovery, 100);
+}
+
+function restoreExamState(state) {
+  if (!state || !Array.isArray(state.studentResponses) || state.studentResponses.length !== QUESTIONS.length) return false;
+
+  Object.assign(userProfile, state.userProfile || {});
+  studentResponses = state.studentResponses.map((resp, idx) => ({
+    id: QUESTIONS[idx].id,
+    selectedOption: resp.selectedOption ?? null,
+    writtenInCopy: Boolean(resp.writtenInCopy),
+    status: resp.status || "not-visited"
+  }));
+  currentIndex = Math.min(Math.max(Number(state.currentIndex) || 0, 0), QUESTIONS.length - 1);
+  examDeadlineMs = Number(state.examDeadlineMs);
+  timeElapsedSeconds = Math.max(0, Number(state.timeElapsedSeconds) || 0);
+  totalSeconds = Math.max(0, Math.ceil((examDeadlineMs - Date.now()) / 1000));
+  examStarted = true;
+  recoveryRestored = true;
+  return true;
+}
+
+// Initialize responses once QUESTIONS array is available from questions.js.
+// If an unfinished exam exists, restore it instead of creating a blank attempt.
 window.onload = () => {
-  studentResponses = QUESTIONS.map(q => ({ id: q.id, selectedOption: null, writtenInCopy: false, status: 'not-visited' }));
+  const savedState = readExamRecovery();
+  if (savedState && restoreExamState(savedState)) {
+    document.getElementById('examHeaderName').innerText = userProfile.name || "छात्र का नाम";
+    const recoveryNotice = document.getElementById('recoveryNotice');
+    if (recoveryNotice) recoveryNotice.style.display = 'block';
+  } else {
+    studentResponses = QUESTIONS.map(q => ({ id: q.id, selectedOption: null, writtenInCopy: false, status: 'not-visited' }));
+  }
 };
 
 // परीक्षा अवधि: 3 घंटे = 180 मिनट
@@ -33,12 +117,34 @@ function handleRegistration(e) {
   userProfile.location = document.getElementById('liveLocation').value;
   userProfile.roll = document.getElementById('rollNo').value;
   userProfile.mobile = document.getElementById('mobileNo').value;
-  
+
+  // If an unfinished exam is already present, do not overwrite it with a new registration.
+  const savedState = readExamRecovery();
+  if (savedState && recoveryRestored) {
+    document.getElementById('examHeaderName').innerText = userProfile.name;
+    goToScreen('screen-instructions');
+    return;
+  }
+
   document.getElementById('examHeaderName').innerText = userProfile.name;
   goToScreen('screen-instructions');
 }
 
 function startTest() {
+  if (recoveryRestored && examStarted) {
+    resumeTest();
+    return;
+  }
+
+  studentResponses = QUESTIONS.map(q => ({ id: q.id, selectedOption: null, writtenInCopy: false, status: 'not-visited' }));
+  currentIndex = 0;
+  timeElapsedSeconds = 0;
+  totalSeconds = 3 * 60 * 60;
+  examDeadlineMs = Date.now() + totalSeconds * 1000;
+  examStarted = true;
+  recoveryRestored = false;
+  saveExamRecovery();
+
   goToScreen('screen-exam');
   buildSubjectPills();
   buildPaletteGrid();
@@ -46,15 +152,44 @@ function startTest() {
   startTimer();
 }
 
+function resumeTest() {
+  if (!examStarted || !examDeadlineMs) return startTest();
+  totalSeconds = Math.max(0, Math.ceil((examDeadlineMs - Date.now()) / 1000));
+  if (totalSeconds <= 0) {
+    finalizeSubmission();
+    return;
+  }
+  document.getElementById('examHeaderName').innerText = userProfile.name || "छात्र का नाम";
+  goToScreen('screen-exam');
+  buildSubjectPills();
+  buildPaletteGrid();
+  loadQuestion(currentIndex);
+  startTimer();
+  recoveryRestored = false;
+}
+
 function startTimer() {
+  clearInterval(timerInterval);
+  totalSeconds = Math.max(0, Math.ceil((examDeadlineMs - Date.now()) / 1000));
+  updateTimerDisplay();
   timerInterval = setInterval(() => {
-    if (totalSeconds <= 0) { clearInterval(timerInterval); finalizeSubmission(); return; }
-    totalSeconds--; timeElapsedSeconds++;
-    const hrs = Math.floor(totalSeconds / 3600);
-    const mins = Math.floor((totalSeconds % 3600) / 60);
-    const secs = totalSeconds % 60;
-    document.getElementById('timerDisplay').innerText = `${String(hrs).padStart(2,'0')}:${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
+    totalSeconds = Math.max(0, Math.ceil((examDeadlineMs - Date.now()) / 1000));
+    timeElapsedSeconds = Math.max(0, Math.floor((Date.now() - (examDeadlineMs - 3 * 60 * 60 * 1000)) / 1000));
+    updateTimerDisplay();
+    saveExamRecovery();
+    if (totalSeconds <= 0) {
+      clearInterval(timerInterval);
+      finalizeSubmission();
+    }
   }, 1000);
+}
+
+function updateTimerDisplay() {
+  const hrs = Math.floor(totalSeconds / 3600);
+  const mins = Math.floor((totalSeconds % 3600) / 60);
+  const secs = totalSeconds % 60;
+  const timer = document.getElementById('timerDisplay');
+  if (timer) timer.innerText = `${String(hrs).padStart(2,'0')}:${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
 }
 
 function buildSubjectPills() {
@@ -149,30 +284,36 @@ function loadQuestion(index) {
   }
   document.getElementById('prevBtn').disabled = (currentIndex === 0);
   buildPaletteGrid();
+  scheduleRecoverySave();
 }
 
 function selectOption(optIdx) {
   studentResponses[currentIndex].selectedOption = optIdx;
   studentResponses[currentIndex].status = 'answered';
+  scheduleRecoverySave();
   loadQuestion(currentIndex);
 }
 
 function toggleWrittenInCopy(isChecked) {
   studentResponses[currentIndex].writtenInCopy = isChecked;
   studentResponses[currentIndex].status = isChecked ? 'answered' : 'unanswered';
+  scheduleRecoverySave();
   buildPaletteGrid();
 }
 
 function saveAndNext() {
+  scheduleRecoverySave();
   if (currentIndex < QUESTIONS.length - 1) loadQuestion(currentIndex + 1);
 }
 
 function navigateQuestion(delta) {
+  scheduleRecoverySave();
   if (currentIndex + delta >= 0 && currentIndex + delta < QUESTIONS.length) loadQuestion(currentIndex + delta);
 }
 
 function markForReview() {
   studentResponses[currentIndex].status = 'review';
+  scheduleRecoverySave();
   if (currentIndex < QUESTIONS.length - 1) loadQuestion(currentIndex + 1);
   else buildPaletteGrid();
 }
@@ -181,6 +322,7 @@ function clearCurrentResponse() {
   studentResponses[currentIndex].status = 'unanswered';
   studentResponses[currentIndex].selectedOption = null;
   studentResponses[currentIndex].writtenInCopy = false;
+  scheduleRecoverySave();
   loadQuestion(currentIndex);
 }
 
@@ -253,6 +395,7 @@ async function submitObjectiveAnswersAutomatically() {
 
 function finalizeSubmission() {
   clearInterval(timerInterval);
+  clearTimeout(recoverySaveTimer);
 
   const objectiveQuestions = QUESTIONS.filter(q => q.type === "mcq");
   let mcqScore = 0;
@@ -261,6 +404,11 @@ function finalizeSubmission() {
       mcqScore += q.marks;
     }
   });
+
+  // Mark the attempt as submitted by removing the active recovery state.
+  clearExamRecovery();
+  examStarted = false;
+  examDeadlineMs = null;
 
   goToScreen('screen-summary');
 
