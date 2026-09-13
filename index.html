@@ -68,6 +68,7 @@
   <div id="screen-exam" class="screen">
     <header class="exam-header">
       <div style="font-size: 15px; font-weight: 700;" id="examHeaderName">छात्र का नाम</div>
+      <div id="connectionStatus" style="font-size:12px; font-weight:700; padding:5px 9px; border-radius:999px; background:#dcfce7; color:#166534;">🟢 Online</div>
       <div class="timer-container" id="timerDisplay">03:00:00</div>
     </header>
     <div class="exam-body">
@@ -112,23 +113,47 @@
   <script src="questions.js"></script>
   <script src="app.js"></script>
   <script>
-    // Fill the registration form from the recovered attempt so required fields
-    // do not force the student to re-enter their identity after an accidental exit.
+    // Fill the registration form from the recovered attempt.
     window.addEventListener('load', () => {
       try {
         const raw = localStorage.getItem('class9_cbt_active_exam_v1');
-        if (!raw) return;
-        const state = JSON.parse(raw);
-        if (!state || !state.userProfile || !state.examDeadlineMs || state.examDeadlineMs <= Date.now()) return;
-        const p = state.userProfile;
-        if (p.name) document.getElementById('candidateName').value = p.name;
-        if (p.parent) document.getElementById('parentName').value = p.parent;
-        if (p.location) document.getElementById('liveLocation').value = p.location;
-        if (p.roll) document.getElementById('rollNo').value = p.roll;
-        if (p.mobile) document.getElementById('mobileNo').value = p.mobile;
+        if (raw) {
+          const state = JSON.parse(raw);
+          if (state && state.userProfile && state.examDeadlineMs && state.examDeadlineMs > Date.now()) {
+            const p = state.userProfile;
+            if (p.name) document.getElementById('candidateName').value = p.name;
+            if (p.parent) document.getElementById('parentName').value = p.parent;
+            if (p.location) document.getElementById('liveLocation').value = p.location;
+            if (p.roll) document.getElementById('rollNo').value = p.roll;
+            if (p.mobile) document.getElementById('mobileNo').value = p.mobile;
+          }
+        }
       } catch (error) {
         console.warn('Could not prefill recovered registration:', error);
       }
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./service-worker.js').catch(error => {
+          console.warn('Offline app shell registration failed:', error);
+        });
+      }
+
+      const updateConnectionStatus = () => {
+        const el = document.getElementById('connectionStatus');
+        if (!el) return;
+        if (navigator.onLine) {
+          el.innerText = '🟢 Online';
+          el.style.background = '#dcfce7';
+          el.style.color = '#166534';
+        } else {
+          el.innerText = '🟠 Offline — उत्तर सुरक्षित हैं';
+          el.style.background = '#ffedd5';
+          el.style.color = '#9a3412';
+        }
+      };
+      window.addEventListener('online', updateConnectionStatus);
+      window.addEventListener('offline', updateConnectionStatus);
+      updateConnectionStatus();
     });
   </script>
 </body>
