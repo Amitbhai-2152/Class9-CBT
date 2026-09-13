@@ -111,5 +111,25 @@
 
   <script src="questions.js"></script>
   <script src="app.js"></script>
+  <script>
+    // Fill the registration form from the recovered attempt so required fields
+    // do not force the student to re-enter their identity after an accidental exit.
+    window.addEventListener('load', () => {
+      try {
+        const raw = localStorage.getItem('class9_cbt_active_exam_v1');
+        if (!raw) return;
+        const state = JSON.parse(raw);
+        if (!state || !state.userProfile || !state.examDeadlineMs || state.examDeadlineMs <= Date.now()) return;
+        const p = state.userProfile;
+        if (p.name) document.getElementById('candidateName').value = p.name;
+        if (p.parent) document.getElementById('parentName').value = p.parent;
+        if (p.location) document.getElementById('liveLocation').value = p.location;
+        if (p.roll) document.getElementById('rollNo').value = p.roll;
+        if (p.mobile) document.getElementById('mobileNo').value = p.mobile;
+      } catch (error) {
+        console.warn('Could not prefill recovered registration:', error);
+      }
+    });
+  </script>
 </body>
 </html>
