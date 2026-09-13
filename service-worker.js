@@ -1,10 +1,11 @@
-const CACHE_NAME = "class9-cbt-offline-v1";
+const CACHE_NAME = "class9-cbt-offline-v2";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./app.js",
   "./questions.js",
-  "./style.css"
+  "./style.css",
+  "./submission-queue.js"
 ];
 
 self.addEventListener("install", event => {
@@ -27,9 +28,41 @@ self.addEventListener("activate", event => {
   );
 });
 
+async function getAppHtml(request) {
+  const cached = await caches.match(request);
+  const response = cached || await fetch(request);
+  const html = await response.clone().text();
+
+  // index.html does not need to be edited directly: the service worker injects
+  // the Phase 3 queue script after app.js has loaded.
+  if (!html.includes("submission-queue.js")) {
+    const injected = html.replace(
+      /<\/body>/i,
+      '<script src="./submission-queue.js"></script></body>'
+    );
+    return new Response(injected, {
+      status: response.status,
+      statusText: response.statusText,
+      headers: { "Content-Type": "text/html; charset=utf-8" }
+    });
+  }
+  return response;
+}
+
 self.addEventListener("fetch", event => {
   const request = event.request;
   if (request.method !== "GET") return;
+
+  const url = new URL(request.url);
+  const isAppDocument = url.origin === self.location.origin &&
+    (request.mode === "navigate" || url.pathname.endsWith("/index.html") || url.pathname.endsWith("/"));
+
+  if (isAppDocument) {
+    event.respondWith(
+      getAppHtml(request).catch(() => caches.match("./index.html"))
+    );
+    return;
+  }
 
   event.respondWith(
     caches.match(request).then(cached => {
