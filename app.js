@@ -393,16 +393,58 @@ async function submitObjectiveAnswersAutomatically() {
   }
 }
 
+function notifyParentOfResult({ correctAnswers, questionsTotal, scorePercent }) {
+  if (window.parent === window) return;
+
+  let parentOrigin = null;
+  try {
+    const referrer = String(document.referrer || '').trim();
+    if (referrer) {
+      parentOrigin = new URL(referrer).origin;
+    } else if (window.location.ancestorOrigins && window.location.ancestorOrigins.length) {
+      parentOrigin = window.location.ancestorOrigins[window.location.ancestorOrigins.length - 1];
+    }
+  } catch (error) {
+    console.warn("Could not resolve Learning Hub parent origin:", error);
+  }
+
+  if (!parentOrigin) return;
+
+  try {
+    window.parent.postMessage({
+      type: "class9-cbt-result",
+      activityId: "cbt-bseb",
+      correctAnswers,
+      questionsTotal,
+      scorePercent
+    }, parentOrigin);
+  } catch (error) {
+    console.warn("Could not report CBT result to Learning Hub:", error);
+  }
+}
+
 function finalizeSubmission() {
   clearInterval(timerInterval);
   clearTimeout(recoverySaveTimer);
 
   const objectiveQuestions = QUESTIONS.filter(q => q.type === "mcq");
   let mcqScore = 0;
+  let mcqCorrectAnswers = 0;
   QUESTIONS.forEach((q, i) => {
     if (q.type === "mcq" && studentResponses[i].selectedOption === q.correct) {
       mcqScore += q.marks;
+      mcqCorrectAnswers += 1;
     }
+  });
+
+  const totalMcqMarks = objectiveQuestions.reduce((sum, q) => sum + q.marks, 0);
+  const scorePercent = totalMcqMarks > 0 ? Math.round((mcqScore / totalMcqMarks) * 100) : 0;
+
+  // The Learning Hub listens for this message and awards Test XP through its normal XP engine.
+  notifyParentOfResult({
+    correctAnswers: mcqCorrectAnswers,
+    questionsTotal: objectiveQuestions.length,
+    scorePercent
   });
 
   // Mark the attempt as submitted by removing the active recovery state.
@@ -411,8 +453,6 @@ function finalizeSubmission() {
   examDeadlineMs = null;
 
   goToScreen('screen-summary');
-
-  const totalMcqMarks = objectiveQuestions.reduce((sum, q) => sum + q.marks, 0);
   document.getElementById('statMcqScore').innerText = `${mcqScore} / ${totalMcqMarks}`;
 
   const m = Math.floor(timeElapsedSeconds / 60);
