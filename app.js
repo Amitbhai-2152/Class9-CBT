@@ -97,13 +97,14 @@ window.onload = () => {
   }
 };
 
-// परीक्षा अवधि: 3 घंटे = 180 मिनट
-let totalSeconds = 3 * 60 * 60;
+// JNVST Mock Test duration: 2 घंटे 30 मिनट = 150 मिनट
+const TEST_DURATION_SECONDS = 2.5 * 60 * 60;
+let totalSeconds = TEST_DURATION_SECONDS;
 let timerInterval = null;
 let timeElapsedSeconds = 0;
 let selectedSubjectFilter = "All";
 
-const subjectsList = ["All", "गणित", "विज्ञान", "सामाजिक विज्ञान", "हिन्दी", "संस्कृत", "English", "तार्किक क्षमता"];
+const subjectsList = ["All", "गणित", "सामान्य विज्ञान", "English", "हिंदी"];
 
 function goToScreen(screenId) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -139,7 +140,7 @@ function startTest() {
   studentResponses = QUESTIONS.map(q => ({ id: q.id, selectedOption: null, writtenInCopy: false, status: 'not-visited' }));
   currentIndex = 0;
   timeElapsedSeconds = 0;
-  totalSeconds = 3 * 60 * 60;
+  totalSeconds = TEST_DURATION_SECONDS;
   examDeadlineMs = Date.now() + totalSeconds * 1000;
   examStarted = true;
   recoveryRestored = false;
@@ -174,7 +175,7 @@ function startTimer() {
   updateTimerDisplay();
   timerInterval = setInterval(() => {
     totalSeconds = Math.max(0, Math.ceil((examDeadlineMs - Date.now()) / 1000));
-    timeElapsedSeconds = Math.max(0, Math.floor((Date.now() - (examDeadlineMs - 3 * 60 * 60 * 1000)) / 1000));
+    timeElapsedSeconds = Math.max(0, Math.floor((Date.now() - (examDeadlineMs - TEST_DURATION_SECONDS * 1000)) / 1000));
     updateTimerDisplay();
     saveExamRecovery();
     if (totalSeconds <= 0) {
@@ -352,7 +353,7 @@ function buildSubmissionPayload() {
   const score = answers.reduce((sum, a) => sum + (a.isCorrect ? a.marks : 0), 0);
 
   return {
-    testName: "कक्षा 9 BSEB Foundation + Challenge Test 2026",
+    testName: "JNVST कक्षा 9 मॉक टेस्ट 2027–28",
     submittedAt: new Date().toISOString(),
     candidate: {
       name: userProfile.name,
