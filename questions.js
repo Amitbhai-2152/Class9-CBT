@@ -1,5 +1,7 @@
 // JNVST Class 9 Mock Test 2027–28 — Hindi Medium
-// Complete 100-question diagnostic bank based on Class VIII difficulty.
+// Complete 100-question diagnostic bank.
+// Options are deterministically shuffled to reduce position-pattern guessing.
+// English passage questions use a separate passage block for clean rendering.
 
 const QUESTIONS = [
   {
@@ -11,11 +13,11 @@ const QUESTIONS = [
     "question": "3/4 - 5/6 का मान क्या है?",
     "options": [
       "1/12",
-      "-1/12",
+      "7/12",
       "-7/12",
-      "7/12"
+      "-1/12"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "id": 2,
@@ -27,8 +29,8 @@ const QUESTIONS = [
     "options": [
       "-3/2",
       "3/2",
-      "-7/6",
-      "7/6"
+      "7/6",
+      "-7/6"
     ],
     "correct": 0
   },
@@ -40,12 +42,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "-5/8 का गुणनात्मक प्रतिलोम क्या है?",
     "options": [
-      "5/8",
       "-5/8",
-      "8/5",
-      "-8/5"
+      "5/8",
+      "-8/5",
+      "8/5"
     ],
-    "correct": 3
+    "correct": 2
   },
   {
     "id": 4,
@@ -55,12 +57,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "35 का वर्ग क्या है?",
     "options": [
-      "1125",
-      "1225",
       "1250",
-      "1325"
+      "1325",
+      "1125",
+      "1225"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "id": 5,
@@ -86,11 +88,11 @@ const QUESTIONS = [
     "question": "√0.0081 का मान क्या है?",
     "options": [
       "0.009",
-      "0.09",
       "0.9",
+      "0.09",
       "0.0009"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
     "id": 7,
@@ -100,12 +102,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "12³ का मान है—",
     "options": [
-      "144",
       "432",
       "1728",
+      "144",
       "1331"
     ],
-    "correct": 2
+    "correct": 1
   },
   {
     "id": 8,
@@ -130,12 +132,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "(-2)⁵ का मान क्या है?",
     "options": [
-      "32",
       "-32",
       "16",
-      "-16"
+      "-16",
+      "32"
     ],
-    "correct": 1
+    "correct": 0
   },
   {
     "id": 10,
@@ -147,10 +149,10 @@ const QUESTIONS = [
     "options": [
       "32",
       "64",
-      "128",
-      "256"
+      "256",
+      "128"
     ],
-    "correct": 2
+    "correct": 3
   },
   {
     "id": 11,
@@ -160,10 +162,10 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "3⁻² का मान है—",
     "options": [
-      "9",
+      "-1/9",
       "-9",
       "1/9",
-      "-1/9"
+      "9"
     ],
     "correct": 2
   },
@@ -175,8 +177,8 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "5 कॉपियों की कीमत ₹60 है। समान दर पर 8 कॉपियों की कीमत कितनी होगी?",
     "options": [
-      "₹84",
       "₹90",
+      "₹84",
       "₹96",
       "₹100"
     ],
@@ -190,12 +192,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "12 मजदूर किसी काम को 15 दिनों में पूरा करते हैं। उसी काम को 20 मजदूर कितने दिनों में पूरा करेंगे?",
     "options": [
+      "10 दिन",
       "8 दिन",
       "9 दिन",
-      "10 दिन",
       "12 दिन"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
     "id": 14,
@@ -205,12 +207,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "240 का 25% कितना है?",
     "options": [
-      "50",
-      "55",
       "60",
+      "55",
+      "50",
       "65"
     ],
-    "correct": 2
+    "correct": 0
   },
   {
     "id": 15,
@@ -221,11 +223,11 @@ const QUESTIONS = [
     "question": "किसी वस्तु का क्रय मूल्य ₹800 और विक्रय मूल्य ₹920 है। लाभ प्रतिशत कितना है?",
     "options": [
       "10%",
-      "12%",
       "15%",
-      "20%"
+      "20%",
+      "12%"
     ],
-    "correct": 2
+    "correct": 1
   },
   {
     "id": 16,
@@ -250,12 +252,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "₹5000 पर 8% वार्षिक दर से 2 वर्षों का साधारण ब्याज कितना होगा?",
     "options": [
-      "₹400",
-      "₹600",
+      "₹1000",
       "₹800",
-      "₹1000"
+      "₹600",
+      "₹400"
     ],
-    "correct": 2
+    "correct": 1
   },
   {
     "id": 18,
@@ -265,12 +267,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "₹10,000 पर 10% वार्षिक चक्रवृद्धि ब्याज की दर से 2 वर्षों में चक्रवृद्धि ब्याज कितना होगा?",
     "options": [
-      "₹2000",
-      "₹2100",
       "₹2200",
-      "₹2500"
+      "₹2500",
+      "₹2000",
+      "₹2100"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "id": 19,
@@ -282,8 +284,8 @@ const QUESTIONS = [
     "options": [
       "8x - 2",
       "8x + 2",
-      "2x - 8",
-      "8x"
+      "8x",
+      "2x - 8"
     ],
     "correct": 0
   },
@@ -296,11 +298,11 @@ const QUESTIONS = [
     "question": "(a + b)² बराबर है—",
     "options": [
       "a² + b²",
-      "a² + 2ab + b²",
       "a² - ab + b²",
-      "a² + ab + b²"
+      "a² + ab + b²",
+      "a² + 2ab + b²"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "id": 21,
@@ -310,10 +312,10 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "x² - 9 का गुणनखंड है—",
     "options": [
-      "(x - 9)(x + 1)",
+      "(x - 1)(x + 9)",
       "(x - 3)(x + 3)",
       "(x - 9)(x + 9)",
-      "(x - 1)(x + 9)"
+      "(x - 9)(x + 1)"
     ],
     "correct": 1
   },
@@ -341,11 +343,11 @@ const QUESTIONS = [
     "question": "3x + 7 = 25 में x का मान क्या है?",
     "options": [
       "5",
-      "6",
       "7",
-      "8"
+      "8",
+      "6"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "id": 24,
@@ -356,11 +358,11 @@ const QUESTIONS = [
     "question": "5(x - 2) = 3x + 14 में x का मान है—",
     "options": [
       "10",
+      "13",
       "11",
-      "12",
-      "13"
+      "12"
     ],
-    "correct": 2
+    "correct": 3
   },
   {
     "id": 25,
@@ -371,11 +373,11 @@ const QUESTIONS = [
     "question": "2x/3 = 10 में x का मान है—",
     "options": [
       "12",
-      "15",
       "18",
+      "15",
       "20"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
     "id": 26,
@@ -385,12 +387,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "एक समांतर चतुर्भुज का एक कोण 110° है। उसके आसन्न कोण का माप होगा—",
     "options": [
-      "60°",
       "70°",
+      "60°",
       "80°",
       "110°"
     ],
-    "correct": 1
+    "correct": 0
   },
   {
     "id": 27,
@@ -400,10 +402,10 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "एक चतुर्भुज के तीन कोण 80°, 90° और 100° हैं। चौथे कोण का माप कितना है?",
     "options": [
-      "80°",
-      "90°",
       "100°",
-      "110°"
+      "90°",
+      "110°",
+      "80°"
     ],
     "correct": 1
   },
@@ -431,11 +433,11 @@ const QUESTIONS = [
     "question": "एक समलंब चतुर्भुज की समानांतर भुजाएँ 10 सेमी और 16 सेमी हैं तथा ऊँचाई 7 सेमी है। उसका क्षेत्रफल कितना होगा?",
     "options": [
       "84 सेमी²",
-      "91 सेमी²",
       "98 सेमी²",
-      "105 सेमी²"
+      "105 सेमी²",
+      "91 सेमी²"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "id": 30,
@@ -460,12 +462,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "6 सेमी भुजा वाले घन का सम्पूर्ण पृष्ठीय क्षेत्रफल कितना होगा?",
     "options": [
-      "144 सेमी²",
-      "180 सेमी²",
       "216 सेमी²",
+      "180 सेमी²",
+      "144 सेमी²",
       "256 सेमी²"
     ],
-    "correct": 2
+    "correct": 0
   },
   {
     "id": 32,
@@ -475,12 +477,12 @@ const QUESTIONS = [
     "difficulty": "challenging",
     "question": "एक बेलन की त्रिज्या 7 सेमी और ऊँचाई 10 सेमी है। π = 22/7 लेने पर उसका आयतन कितना होगा?",
     "options": [
-      "1540 सेमी³",
       "3080 सेमी³",
       "440 सेमी³",
-      "770 सेमी³"
+      "770 सेमी³",
+      "1540 सेमी³"
     ],
-    "correct": 0
+    "correct": 3
   },
   {
     "id": 33,
@@ -491,11 +493,11 @@ const QUESTIONS = [
     "question": "किसी कक्षा में चार दिनों में उपस्थित विद्यार्थियों की संख्या क्रमशः 20, 25, 30 और 35 थी। इन चार दिनों का औसत उपस्थित विद्यार्थियों की संख्या कितनी है?",
     "options": [
       "25",
-      "26.5",
       "27.5",
+      "26.5",
       "30"
     ],
-    "correct": 2
+    "correct": 1
   },
   {
     "id": 34,
@@ -505,12 +507,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "किसी वृत्त-चित्र (Pie Chart) में किसी भाग का कोण 90° है। वह पूरे आँकड़े का कितने प्रतिशत दर्शाता है?",
     "options": [
-      "20%",
-      "25%",
       "30%",
-      "40%"
+      "40%",
+      "20%",
+      "25%"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "id": 35,
@@ -520,12 +522,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "एक थैले में 5 लाल और 3 नीली गेंदें हैं। बिना देखे एक गेंद निकाली जाती है। नीली गेंद निकलने की प्रायिकता क्या है?",
     "options": [
-      "3/5",
       "3/8",
-      "5/8",
-      "1/3"
+      "3/5",
+      "1/3",
+      "5/8"
     ],
-    "correct": 1
+    "correct": 0
   },
   {
     "id": 36,
@@ -535,9 +537,9 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "निम्नलिखित में से कौन-सी फसल सामान्यतः खरीफ फसल है?",
     "options": [
-      "गेहूँ",
-      "धान",
       "चना",
+      "धान",
+      "गेहूँ",
       "सरसों"
     ],
     "correct": 1
@@ -550,12 +552,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "मिट्टी को पलटने और ढीला करने के लिए किस कृषि उपकरण का उपयोग किया जाता है?",
     "options": [
-      "हल",
-      "खुरपी",
       "दरांती",
+      "खुरपी",
+      "हल",
       "थ्रेशर"
     ],
-    "correct": 0
+    "correct": 2
   },
   {
     "id": 38,
@@ -565,10 +567,10 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "वायुमंडलीय नाइट्रोजन को पौधों के लिए उपयोगी रूप में बदलने में कौन-सा जीवाणु सहायक है?",
     "options": [
-      "लैक्टोबैसिलस",
+      "पेनिसिलियम",
       "राइजोबियम",
       "यीस्ट",
-      "पेनिसिलियम"
+      "लैक्टोबैसिलस"
     ],
     "correct": 1
   },
@@ -581,11 +583,11 @@ const QUESTIONS = [
     "question": "दूध से दही बनाने में कौन-सा सूक्ष्मजीव मुख्य रूप से सहायक होता है?",
     "options": [
       "राइजोबियम",
-      "लैक्टोबैसिलस",
       "प्लाज्मोडियम",
-      "यीस्ट"
+      "यीस्ट",
+      "लैक्टोबैसिलस"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "id": 40,
@@ -595,8 +597,8 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "लकड़ी के गूदे से बनाए जाने वाले कृत्रिम रेशे को क्या कहते हैं?",
     "options": [
-      "नायलॉन",
       "पॉलिएस्टर",
+      "नायलॉन",
       "रेयॉन",
       "ऐक्रिलिक"
     ],
@@ -610,12 +612,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "निम्नलिखित में से कौन-सा थर्मोसेटिंग प्लास्टिक है?",
     "options": [
-      "पॉलीथीन",
-      "PVC",
       "बेकेलाइट",
+      "PVC",
+      "पॉलीथीन",
       "पॉलिप्रोपिलीन"
     ],
-    "correct": 2
+    "correct": 0
   },
   {
     "id": 42,
@@ -625,12 +627,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "निम्नलिखित में से कौन-सी धातु विद्युत की अच्छी चालक है?",
     "options": [
+      "कार्बन",
       "तांबा",
       "गंधक",
-      "फॉस्फोरस",
-      "कार्बन"
+      "फॉस्फोरस"
     ],
-    "correct": 0
+    "correct": 1
   },
   {
     "id": 43,
@@ -640,12 +642,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "कोयला और पेट्रोलियम किस प्रकार के ईंधन हैं?",
     "options": [
-      "जैव ईंधन",
-      "जीवाश्म ईंधन",
+      "कृत्रिम ईंधन",
       "सौर ईंधन",
-      "कृत्रिम ईंधन"
+      "जीवाश्म ईंधन",
+      "जैव ईंधन"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
     "id": 44,
@@ -671,11 +673,11 @@ const QUESTIONS = [
     "question": "वन्यजीव अभयारण्य का मुख्य उद्देश्य क्या है?",
     "options": [
       "केवल लकड़ी प्राप्त करना",
+      "शहर बसाना",
       "वन्य जीवों की सुरक्षा करना",
-      "खेती बढ़ाना",
-      "शहर बसाना"
+      "खेती बढ़ाना"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
     "id": 46,
@@ -685,12 +687,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "वनों की कटाई से निम्नलिखित में से कौन-सी समस्या बढ़ सकती है?",
     "options": [
-      "मृदा अपरदन",
+      "जैव विविधता में वृद्धि",
       "वर्षा जल का संचयन",
-      "मिट्टी की उर्वरता में हमेशा वृद्धि",
-      "जैव विविधता में वृद्धि"
+      "मृदा अपरदन",
+      "मिट्टी की उर्वरता में हमेशा वृद्धि"
     ],
-    "correct": 0
+    "correct": 2
   },
   {
     "id": 47,
@@ -700,12 +702,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "नर और मादा युग्मकों के संलयन की प्रक्रिया को क्या कहते हैं?",
     "options": [
-      "निषेचन",
-      "परागण",
       "अंकुरण",
-      "द्विखंडन"
+      "द्विखंडन",
+      "परागण",
+      "निषेचन"
     ],
-    "correct": 0
+    "correct": 3
   },
   {
     "id": 48,
@@ -716,9 +718,9 @@ const QUESTIONS = [
     "question": "किशोरावस्था सामान्यतः किस आयु अवधि को कहा जाता है?",
     "options": [
       "1 से 5 वर्ष",
-      "6 से 10 वर्ष",
+      "20 से 30 वर्ष",
       "11 से 19 वर्ष",
-      "20 से 30 वर्ष"
+      "6 से 10 वर्ष"
     ],
     "correct": 2
   },
@@ -730,9 +732,9 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "यीस्ट में अलैंगिक जनन सामान्यतः किस विधि से होता है?",
     "options": [
-      "खंडन",
-      "कलिकाजनन",
       "बीजाणु निर्माण",
+      "कलिकाजनन",
+      "खंडन",
       "परागण"
     ],
     "correct": 1
@@ -745,12 +747,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "मलेरिया रोग किस सूक्ष्मजीव के कारण होता है?",
     "options": [
-      "बैक्टीरिया",
+      "कवक",
       "विषाणु",
-      "प्लाज्मोडियम नामक प्रोटोजोआ",
-      "कवक"
+      "बैक्टीरिया",
+      "प्लाज्मोडियम नामक प्रोटोजोआ"
     ],
-    "correct": 2
+    "correct": 3
   },
   {
     "id": 51,
@@ -760,12 +762,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "दाब (Pressure) किसके बराबर होता है?",
     "options": [
+      "बल + क्षेत्रफल",
       "बल × क्षेत्रफल",
       "बल ÷ क्षेत्रफल",
-      "क्षेत्रफल ÷ बल",
-      "बल + क्षेत्रफल"
+      "क्षेत्रफल ÷ बल"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
     "id": 52,
@@ -775,10 +777,10 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "हम बिना फिसले जमीन पर चल पाते हैं। इसमें मुख्य रूप से किसका योगदान है?",
     "options": [
-      "गुरुत्वाकर्षण की अनुपस्थिति",
-      "घर्षण",
       "चुंबकत्व",
-      "ध्वनि"
+      "घर्षण",
+      "ध्वनि",
+      "गुरुत्वाकर्षण की अनुपस्थिति"
     ],
     "correct": 1
   },
@@ -791,11 +793,11 @@ const QUESTIONS = [
     "question": "ध्वनि उत्पन्न होने का मूल कारण क्या है?",
     "options": [
       "प्रकाश",
+      "दाब का अभाव",
       "कंपन",
-      "ऊष्मा",
-      "दाब का अभाव"
+      "ऊष्मा"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
     "id": 54,
@@ -805,12 +807,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "ध्वनि का तारत्व (Pitch) मुख्य रूप से किस पर निर्भर करता है?",
     "options": [
-      "आवृत्ति",
+      "माध्यम के रंग",
       "आयाम",
       "ध्वनि की चाल",
-      "माध्यम के रंग"
+      "आवृत्ति"
     ],
-    "correct": 0
+    "correct": 3
   },
   {
     "id": 55,
@@ -820,12 +822,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "किसी धातु की वस्तु पर दूसरी धातु की पतली परत चढ़ाने की प्रक्रिया कहलाती है—",
     "options": [
-      "विद्युत अपघटन",
       "विद्युतलेपन (Electroplating)",
-      "वाष्पीकरण",
-      "आसवन"
+      "विद्युत अपघटन",
+      "आसवन",
+      "वाष्पीकरण"
     ],
-    "correct": 1
+    "correct": 0
   },
   {
     "id": 56,
@@ -850,12 +852,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "परावर्तन के नियम के अनुसार आपतन कोण और परावर्तन कोण में क्या संबंध है?",
     "options": [
-      "दोनों हमेशा अलग होते हैं",
-      "आपतन कोण परावर्तन कोण के बराबर होता है",
       "आपतन कोण दोगुना होता है",
-      "परावर्तन कोण शून्य होता है"
+      "दोनों हमेशा अलग होते हैं",
+      "परावर्तन कोण शून्य होता है",
+      "आपतन कोण परावर्तन कोण के बराबर होता है"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "id": 58,
@@ -865,12 +867,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "प्रिज्म से गुजरते समय श्वेत प्रकाश का कई रंगों में विभाजित होना कहलाता है—",
     "options": [
-      "परावर्तन",
       "विसरण (Dispersion)",
-      "वाष्पीकरण",
-      "चालन"
+      "परावर्तन",
+      "चालन",
+      "वाष्पीकरण"
     ],
-    "correct": 1
+    "correct": 0
   },
   {
     "id": 59,
@@ -880,12 +882,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "मानव शरीर में निषेचन के बाद भ्रूण का विकास मुख्य रूप से किस अंग में होता है?",
     "options": [
-      "हृदय",
       "गर्भाशय",
       "फेफड़ा",
+      "हृदय",
       "गुर्दा"
     ],
-    "correct": 1
+    "correct": 0
   },
   {
     "id": 60,
@@ -896,11 +898,11 @@ const QUESTIONS = [
     "question": "किसी वस्तु पर लगाया गया बल उसकी गति के साथ-साथ उसके आकार में भी क्या कर सकता है?",
     "options": [
       "केवल रंग बदल सकता है",
+      "कुछ नहीं कर सकता",
       "परिवर्तन कर सकता है",
-      "हमेशा तापमान घटा सकता है",
-      "कुछ नहीं कर सकता"
+      "हमेशा तापमान घटा सकता है"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
     "id": 61,
@@ -910,12 +912,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "किसी द्रव द्वारा लगाया गया दाब गहराई बढ़ने पर सामान्यतः क्या होता है?",
     "options": [
-      "घटता है",
       "बढ़ता है",
+      "घटता है",
       "हमेशा शून्य हो जाता है",
       "बदलता नहीं है"
     ],
-    "correct": 1
+    "correct": 0
   },
   {
     "id": 62,
@@ -926,11 +928,11 @@ const QUESTIONS = [
     "question": "गर्मियों में मिट्टी के घड़े का पानी ठंडा क्यों रहता है?",
     "options": [
       "घड़ा पानी को गर्म करता है",
+      "घड़े में प्रकाश नहीं पहुँचता",
       "पानी जम जाता है",
-      "घड़े की सतह से पानी का वाष्पीकरण ऊष्मा ले जाता है",
-      "घड़े में प्रकाश नहीं पहुँचता"
+      "घड़े की सतह से पानी का वाष्पीकरण ऊष्मा ले जाता है"
     ],
-    "correct": 2
+    "correct": 3
   },
   {
     "id": 63,
@@ -940,10 +942,10 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "दलहनी फसल को फसल चक्र में शामिल करने से मिट्टी की उर्वरता बनाए रखने में क्यों मदद मिलती है?",
     "options": [
-      "वे मिट्टी से सारा नाइट्रोजन निकाल लेती हैं",
-      "उनकी जड़ों में राइजोबियम नाइट्रोजन स्थिरीकरण में मदद करता है",
       "वे मिट्टी को पूरी तरह सूखा देती हैं",
-      "वे सूर्य के प्रकाश को रोकती हैं"
+      "उनकी जड़ों में राइजोबियम नाइट्रोजन स्थिरीकरण में मदद करता है",
+      "वे सूर्य के प्रकाश को रोकती हैं",
+      "वे मिट्टी से सारा नाइट्रोजन निकाल लेती हैं"
     ],
     "correct": 1
   },
@@ -955,12 +957,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "एक किसान बहुत अधिक रासायनिक उर्वरक के बजाय जैविक खाद का प्रयोग करता है। खाद का एक प्रमुख लाभ क्या है?",
     "options": [
-      "यह तुरंत सभी कीटों को समाप्त कर देती है",
       "यह मिट्टी में ह्यूमस बढ़ाकर उसकी जलधारण क्षमता सुधार सकती है",
+      "यह मिट्टी को हमेशा अम्लीय बना देती है",
       "यह पौधों को प्रकाश से मुक्त कर देती है",
-      "यह मिट्टी को हमेशा अम्लीय बना देती है"
+      "यह तुरंत सभी कीटों को समाप्त कर देती है"
     ],
-    "correct": 1
+    "correct": 0
   },
   {
     "id": 65,
@@ -972,8 +974,8 @@ const QUESTIONS = [
     "options": [
       "कुछ कवक",
       "केवल शैवाल",
-      "केवल प्रोटोजोआ",
-      "केवल कीट"
+      "केवल कीट",
+      "केवल प्रोटोजोआ"
     ],
     "correct": 0
   },
@@ -985,12 +987,12 @@ const QUESTIONS = [
     "difficulty": "challenging",
     "question": "सोडियम जैसी अत्यधिक क्रियाशील धातु को मिट्टी के तेल (केरोसिन) में क्यों रखा जाता है?",
     "options": [
-      "उसे ठंडा रखने के लिए",
       "हवा और नमी के साथ तीव्र अभिक्रिया से बचाने के लिए",
-      "उसका रंग बदलने के लिए",
-      "उसकी विद्युत चालकता बढ़ाने के लिए"
+      "उसे ठंडा रखने के लिए",
+      "उसकी विद्युत चालकता बढ़ाने के लिए",
+      "उसका रंग बदलने के लिए"
     ],
-    "correct": 1
+    "correct": 0
   },
   {
     "id": 67,
@@ -1000,12 +1002,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "तेल की आग पर पानी डालना खतरनाक हो सकता है। ऐसी आग को बुझाने में रेत या उपयुक्त अग्निशामक क्यों अधिक उपयोगी है?",
     "options": [
+      "वे तेल को अधिक ज्वलनशील बनाते हैं",
       "वे आग को अधिक ऑक्सीजन देते हैं",
-      "वे आग और वायु के संपर्क को कम करते हैं",
       "वे तेल का तापमान बढ़ाते हैं",
-      "वे तेल को अधिक ज्वलनशील बनाते हैं"
+      "वे आग और वायु के संपर्क को कम करते हैं"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "id": 68,
@@ -1015,10 +1017,10 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "लुप्तप्राय और संकटग्रस्त प्रजातियों के बारे में जानकारी दर्ज करने वाली पुस्तक को क्या कहा जाता है?",
     "options": [
-      "ग्रीन बुक",
       "ब्लू बुक",
+      "व्हाइट बुक",
       "रेड डेटा बुक",
-      "व्हाइट बुक"
+      "ग्रीन बुक"
     ],
     "correct": 2
   },
@@ -1030,12 +1032,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "प्लेसेंटा (अपरा) का प्रमुख कार्य क्या है?",
     "options": [
-      "केवल भ्रूण को गति देना",
-      "माँ से भ्रूण तक पोषक तत्व और ऑक्सीजन पहुँचाने तथा अपशिष्ट हटाने में सहायता करना",
+      "केवल रक्त को जमाना",
       "भ्रूण के बालों का रंग बदलना",
-      "केवल रक्त को जमाना"
+      "माँ से भ्रूण तक पोषक तत्व और ऑक्सीजन पहुँचाने तथा अपशिष्ट हटाने में सहायता करना",
+      "केवल भ्रूण को गति देना"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
     "id": 70,
@@ -1045,12 +1047,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "आकाश में बिजली चमकने के कुछ समय बाद गरज सुनाई देती है। इसका मुख्य कारण क्या है?",
     "options": [
-      "ध्वनि प्रकाश से तेज चलती है",
-      "प्रकाश ध्वनि की तुलना में बहुत तेज चलता है",
+      "ध्वनि हवा में नहीं चलती",
       "बिजली केवल रात में बनती है",
-      "ध्वनि हवा में नहीं चलती"
+      "ध्वनि प्रकाश से तेज चलती है",
+      "प्रकाश ध्वनि की तुलना में बहुत तेज चलता है"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "id": 71,
@@ -1058,14 +1060,15 @@ const QUESTIONS = [
     "type": "mcq",
     "marks": 1,
     "difficulty": "easy",
-    "question": "Read the passage and answer the question.\\n\\nRiya enjoys reading books in her free time. She visits the school library every Friday and usually borrows one storybook. Reading has helped her learn many new words and ideas.\\n\\nWhy does Riya visit the school library?",
+    "question": "Why does Riya visit the school library?",
     "options": [
-      "To play games",
+      "To complete a science experiment",
       "To borrow a storybook",
-      "To meet her friends",
-      "To complete a science experiment"
+      "To play games",
+      "To meet her friends"
     ],
-    "correct": 1
+    "correct": 1,
+    "passage": "Riya enjoys reading books in her free time. She visits the school library every Friday and usually borrows one storybook. Reading has helped her learn many new words and ideas."
   },
   {
     "id": 72,
@@ -1075,12 +1078,13 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "According to the passage, how has reading helped Riya?",
     "options": [
-      "It has helped her learn new words and ideas",
       "It has made her sleep more",
+      "It has helped her learn new words and ideas",
       "It has taught her to play football",
       "It has reduced her school time"
     ],
-    "correct": 0
+    "correct": 1,
+    "passage": "Riya enjoys reading books in her free time. She visits the school library every Friday and usually borrows one storybook. Reading has helped her learn many new words and ideas."
   },
   {
     "id": 73,
@@ -1088,14 +1092,15 @@ const QUESTIONS = [
     "type": "mcq",
     "marks": 1,
     "difficulty": "moderate",
-    "question": "Read the passage.\\n\\nRiya enjoys reading books in her free time. She visits the school library every Friday and usually borrows one storybook. Reading has helped her learn many new words and ideas.\\n\\nWhich statement is true?",
+    "question": "Which statement is true?",
     "options": [
-      "Riya visits the library every Monday",
-      "Riya borrows a newspaper every Friday",
       "Riya usually borrows one storybook",
-      "Riya does not like reading"
+      "Riya does not like reading",
+      "Riya visits the library every Monday",
+      "Riya borrows a newspaper every Friday"
     ],
-    "correct": 2
+    "correct": 0,
+    "passage": "Riya enjoys reading books in her free time. She visits the school library every Friday and usually borrows one storybook. Reading has helped her learn many new words and ideas."
   },
   {
     "id": 74,
@@ -1103,14 +1108,15 @@ const QUESTIONS = [
     "type": "mcq",
     "marks": 1,
     "difficulty": "moderate",
-    "question": "Read the passage and choose the best meaning of the word “usually”.",
+    "question": "Choose the best meaning of the word “usually”.",
     "options": [
       "Never",
       "Normally",
       "Suddenly",
       "Rarely"
     ],
-    "correct": 1
+    "correct": 1,
+    "passage": "Riya enjoys reading books in her free time. She visits the school library every Friday and usually borrows one storybook. Reading has helped her learn many new words and ideas."
   },
   {
     "id": 75,
@@ -1120,12 +1126,13 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "What is the main idea of the passage?",
     "options": [
-      "Riya dislikes books",
+      "Riya wants to become a teacher",
       "The school library is closed on Fridays",
-      "Reading is a useful habit for Riya",
-      "Riya wants to become a teacher"
+      "Riya dislikes books",
+      "Reading is a useful habit for Riya"
     ],
-    "correct": 2
+    "correct": 3,
+    "passage": "Riya enjoys reading books in her free time. She visits the school library every Friday and usually borrows one storybook. Reading has helped her learn many new words and ideas."
   },
   {
     "id": 76,
@@ -1136,11 +1143,11 @@ const QUESTIONS = [
     "question": "Choose the correct option: She ___ to school every day.",
     "options": [
       "go",
-      "goes",
+      "gone",
       "going",
-      "gone"
+      "goes"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "id": 77,
@@ -1150,10 +1157,10 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "Choose the correct sentence using a degree of comparison.",
     "options": [
-      "Of the two brothers, Rohan is tallest.",
-      "Of the two brothers, Rohan is taller.",
       "Of the two brothers, Rohan is more tall.",
-      "Of the two brothers, Rohan is most tall."
+      "Of the two brothers, Rohan is taller.",
+      "Of the two brothers, Rohan is most tall.",
+      "Of the two brothers, Rohan is tallest."
     ],
     "correct": 1
   },
@@ -1165,12 +1172,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "Choose the correct preposition: The book is ___ the table.",
     "options": [
-      "in",
       "on",
       "at",
-      "by"
+      "by",
+      "in"
     ],
-    "correct": 1
+    "correct": 0
   },
   {
     "id": 79,
@@ -1180,12 +1187,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "Choose the correct form: When I reached the station, the train ___.",
     "options": [
-      "leaves",
-      "has left",
       "had left",
-      "will leave"
+      "will leave",
+      "has left",
+      "leaves"
     ],
-    "correct": 2
+    "correct": 0
   },
   {
     "id": 80,
@@ -1195,10 +1202,10 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "Choose the correct passive voice of: “The teacher praised the student.”",
     "options": [
-      "The student is praised by the teacher.",
+      "The student praised by the teacher.",
       "The student was praised by the teacher.",
-      "The student has praised the teacher.",
-      "The student praised by the teacher."
+      "The student is praised by the teacher.",
+      "The student has praised the teacher."
     ],
     "correct": 1
   },
@@ -1210,12 +1217,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "Choose the synonym of “brave”.",
     "options": [
-      "Cowardly",
-      "Clever",
       "Courageous",
-      "Quiet"
+      "Cowardly",
+      "Quiet",
+      "Clever"
     ],
-    "correct": 2
+    "correct": 0
   },
   {
     "id": 82,
@@ -1225,10 +1232,10 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "Choose the correctly spelt word.",
     "options": [
-      "seperate",
+      "seperete",
       "separate",
-      "seprate",
-      "seperete"
+      "seperate",
+      "seprate"
     ],
     "correct": 1
   },
@@ -1240,12 +1247,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "Choose the correct modal auxiliary: You ___ wear a helmet while riding a bicycle.",
     "options": [
-      "must",
-      "might",
       "would",
-      "could"
+      "must",
+      "could",
+      "might"
     ],
-    "correct": 0
+    "correct": 1
   },
   {
     "id": 84,
@@ -1255,10 +1262,10 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "Choose the correctly arranged sentence.",
     "options": [
-      "Always school I on time reach.",
+      "On school I always time reach.",
       "I reach always on time school.",
       "I always reach school on time.",
-      "On school I always time reach."
+      "Always school I on time reach."
     ],
     "correct": 2
   },
@@ -1270,10 +1277,10 @@ const QUESTIONS = [
     "difficulty": "challenging",
     "question": "Choose the correct indirect speech: He said, “I am tired.”",
     "options": [
+      "He said that he has tired.",
       "He said that I am tired.",
-      "He said that he is tired.",
       "He said that he was tired.",
-      "He said that he has tired."
+      "He said that he is tired."
     ],
     "correct": 2
   },
@@ -1285,12 +1292,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "निम्नलिखित गद्यांश को पढ़कर प्रश्न का उत्तर दीजिए।\\n\\nपेड़ हमारे जीवन के लिए बहुत महत्वपूर्ण हैं। वे हमें ऑक्सीजन, फल, छाया और लकड़ी देते हैं। पेड़ मिट्टी के कटाव को रोकने में भी सहायता करते हैं। इसलिए हमें अधिक से अधिक पेड़ लगाकर उनकी रक्षा करनी चाहिए।\\n\\nगद्यांश के अनुसार पेड़ हमें क्या देते हैं?",
     "options": [
-      "केवल लकड़ी",
       "ऑक्सीजन, फल, छाया और लकड़ी",
+      "केवल छाया",
       "केवल फल",
-      "केवल छाया"
+      "केवल लकड़ी"
     ],
-    "correct": 1
+    "correct": 0
   },
   {
     "id": 87,
@@ -1300,12 +1307,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "उपरोक्त गद्यांश का मुख्य संदेश क्या है?",
     "options": [
-      "पेड़ काटने चाहिए",
       "केवल फल देने वाले पेड़ लगाने चाहिए",
-      "पेड़ों को लगाना और उनकी रक्षा करना चाहिए",
-      "पेड़ों की कोई आवश्यकता नहीं है"
+      "पेड़ काटने चाहिए",
+      "पेड़ों की कोई आवश्यकता नहीं है",
+      "पेड़ों को लगाना और उनकी रक्षा करना चाहिए"
     ],
-    "correct": 2
+    "correct": 3
   },
   {
     "id": 88,
@@ -1315,12 +1322,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "‘प्रसन्न’ शब्द का विलोम क्या है?",
     "options": [
-      "आनंदित",
-      "उदास",
+      "खुश",
       "हर्षित",
-      "खुश"
+      "आनंदित",
+      "उदास"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "id": 89,
@@ -1330,12 +1337,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "‘सूर्य’ का पर्यायवाची शब्द कौन-सा है?",
     "options": [
+      "धरती",
       "पवन",
-      "रवि",
       "जलद",
-      "धरती"
+      "रवि"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "id": 90,
@@ -1345,12 +1352,12 @@ const QUESTIONS = [
     "difficulty": "easy",
     "question": "निम्नलिखित में से शुद्ध वर्तनी वाला शब्द कौन-सा है?",
     "options": [
-      "आवश्यक",
+      "आवसयक",
       "अवश्यक",
       "आवशयक",
-      "आवसयक"
+      "आवश्यक"
     ],
-    "correct": 0
+    "correct": 3
   },
   {
     "id": 91,
@@ -1360,12 +1367,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "‘सुंदर फूल खिला है।’ इस वाक्य में ‘सुंदर’ कौन-सा शब्द-भेद है?",
     "options": [
-      "संज्ञा",
       "विशेषण",
-      "क्रिया",
-      "सर्वनाम"
+      "सर्वनाम",
+      "संज्ञा",
+      "क्रिया"
     ],
-    "correct": 1
+    "correct": 0
   },
   {
     "id": 92,
@@ -1375,12 +1382,12 @@ const QUESTIONS = [
     "difficulty": "challenging",
     "question": "‘राम ने आम खाया।’ वाक्य में ‘आम’ का पद-परिचय क्या है?",
     "options": [
-      "संज्ञा, पुल्लिंग, एकवचन, कर्मकारक",
-      "सर्वनाम, स्त्रीलिंग, एकवचन, कर्ताकारक",
       "विशेषण, पुल्लिंग, बहुवचन, करणकारक",
-      "क्रिया, पुल्लिंग, एकवचन, अधिकरणकारक"
+      "संज्ञा, पुल्लिंग, एकवचन, कर्मकारक",
+      "क्रिया, पुल्लिंग, एकवचन, अधिकरणकारक",
+      "सर्वनाम, स्त्रीलिंग, एकवचन, कर्ताकारक"
     ],
-    "correct": 0
+    "correct": 1
   },
   {
     "id": 93,
@@ -1390,12 +1397,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "‘राम ने आम खाया।’ वाक्य में ‘राम’ कौन-सा कारक है?",
     "options": [
-      "कर्म कारक",
       "कर्ता कारक",
       "करण कारक",
-      "अधिकरण कारक"
+      "अधिकरण कारक",
+      "कर्म कारक"
     ],
-    "correct": 1
+    "correct": 0
   },
   {
     "id": 94,
@@ -1405,12 +1412,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "निम्नलिखित में से शुद्ध वाक्य कौन-सा है?",
     "options": [
-      "मुझे हिंदी पढ़ना अच्छा लगती है।",
-      "मुझे हिंदी पढ़ना अच्छा लगता है।",
       "मुझे हिंदी पढ़ना अच्छी लगता है।",
-      "मुझे हिंदी पढ़ना अच्छे लगता है।"
+      "मुझे हिंदी पढ़ना अच्छे लगता है।",
+      "मुझे हिंदी पढ़ना अच्छा लगता है।",
+      "मुझे हिंदी पढ़ना अच्छा लगती है।"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
     "id": 95,
@@ -1420,12 +1427,12 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "‘आँखों का तारा’ मुहावरे का सही अर्थ क्या है?",
     "options": [
-      "बहुत दूर की वस्तु",
-      "बहुत प्रिय व्यक्ति",
+      "बहुत कमजोर व्यक्ति",
       "बहुत क्रोधित व्यक्ति",
-      "बहुत कमजोर व्यक्ति"
+      "बहुत दूर की वस्तु",
+      "बहुत प्रिय व्यक्ति"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "id": 96,
@@ -1436,11 +1443,11 @@ const QUESTIONS = [
     "question": "‘जो मेहनत करता है, वही सफल होता है।’ यह किस प्रकार का वाक्य है?",
     "options": [
       "सरल वाक्य",
-      "संयुक्त वाक्य",
       "मिश्र वाक्य",
+      "संयुक्त वाक्य",
       "विस्मयादिबोधक वाक्य"
     ],
-    "correct": 2
+    "correct": 1
   },
   {
     "id": 97,
@@ -1451,9 +1458,9 @@ const QUESTIONS = [
     "question": "‘राम आया और बैठ गया।’ इस वाक्य का सरल रूप कौन-सा है?",
     "options": [
       "राम आकर बैठ गया।",
+      "राम आया, इसलिए वह बैठ गया।",
       "राम आया क्योंकि वह बैठ गया।",
-      "जब राम आया तब वह बैठ गया।",
-      "राम आया, इसलिए वह बैठ गया।"
+      "जब राम आया तब वह बैठ गया।"
     ],
     "correct": 0
   },
@@ -1466,9 +1473,9 @@ const QUESTIONS = [
     "question": "‘अधजल गगरी छलकत जाए’ लोकोक्ति का सही अर्थ क्या है?",
     "options": [
       "कम ज्ञान वाला व्यक्ति अधिक दिखावा करता है।",
-      "बहुत मेहनत करने वाला व्यक्ति सफल होता है।",
+      "जल्दी काम करने से काम बिगड़ जाता है।",
       "खाली बर्तन हमेशा भारी होता है।",
-      "जल्दी काम करने से काम बिगड़ जाता है।"
+      "बहुत मेहनत करने वाला व्यक्ति सफल होता है।"
     ],
     "correct": 0
   },
@@ -1480,10 +1487,10 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "‘वह बाजार गया और फल खरीद लाया।’ यह किस प्रकार का वाक्य है?",
     "options": [
-      "सरल वाक्य",
+      "प्रश्नवाचक वाक्य",
       "संयुक्त वाक्य",
       "मिश्र वाक्य",
-      "प्रश्नवाचक वाक्य"
+      "सरल वाक्य"
     ],
     "correct": 1
   },
@@ -1495,11 +1502,11 @@ const QUESTIONS = [
     "difficulty": "moderate",
     "question": "‘यदि तुम नियमित अभ्यास करोगे, तो तुम्हारे अंक बेहतर होंगे।’ वाक्य में ‘यदि’ किस प्रकार का अव्यय है?",
     "options": [
-      "समुच्चयबोधक अव्यय",
-      "क्रियाविशेषण",
       "संबंधबोधक अव्यय",
-      "विस्मयादिबोधक अव्यय"
+      "समुच्चयबोधक अव्यय",
+      "विस्मयादिबोधक अव्यय",
+      "क्रियाविशेषण"
     ],
-    "correct": 0
+    "correct": 1
   }
 ];
