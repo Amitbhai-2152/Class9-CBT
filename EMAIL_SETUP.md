@@ -21,3 +21,7 @@
 7. Upload the project to your hosting service.
 
 Important: the ZIP intentionally leaves `EMAIL_ENDPOINT` blank until you deploy the backend. Do not claim email delivery is active until the URL is configured.
+
+
+## Important after backend changes
+After changing `google-apps-script.gs`, redeploy the Google Apps Script Web App so the /exec endpoint uses the updated code. The GitHub file change alone does not update an already deployed Apps Script version.
