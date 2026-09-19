@@ -350,7 +350,10 @@ function buildSubmissionPayload() {
       question: q.question,
       selectedIndex: selected,
       selectedText: selected !== null && selected !== undefined ? q.options[selected] : "",
+      selectedOptionLetter: selected !== null && selected !== undefined ? String.fromCharCode(65 + selected) : "",
       correctIndex: q.correct,
+      correctAnswer: q.options[q.correct],
+      correctOptionLetter: String.fromCharCode(65 + q.correct),
       isCorrect: selected === q.correct,
       marks: q.marks
     };
