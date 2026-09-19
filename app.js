@@ -244,7 +244,10 @@ function loadQuestion(index) {
 
     const passageText = document.createElement('div');
     passageText.className = 'passage-text';
-    passageText.innerText = q.passage;
+    passageText.innerText = String(q.passage || '')
+      .replace(/\\n/g, '\n')
+      .replace(/\\\\n/g, '\n')
+      .replace(/\/n/g, '\n');
 
     passageBox.appendChild(passageLabel);
     passageBox.appendChild(passageText);
@@ -252,7 +255,10 @@ function loadQuestion(index) {
 
     const prompt = document.createElement('div');
     prompt.className = 'question-prompt';
-    prompt.innerText = q.question;
+    prompt.innerText = String(q.question || '')
+      .replace(/\\n/g, '\n')
+      .replace(/\\\\n/g, '\n')
+      .replace(/\/n/g, '\n');
     questionText.appendChild(prompt);
   } else {
     questionText.innerText = q.question;
