@@ -705,4 +705,156 @@ const QUESTIONS = [
     correct: 1
   }
 
+
+  {
+    id: 71,
+    subject: "English",
+    type: "mcq",
+    marks: 1,
+    difficulty: "easy",
+    question: "Read the passage and answer the question.\n\nRiya enjoys reading books in her free time. She visits the school library every Friday and usually borrows one storybook. Reading has helped her learn many new words and ideas.\n\nWhy does Riya visit the school library?",
+    options: ["To play games", "To borrow a storybook", "To meet her friends", "To complete a science experiment"],
+    correct: 1
+  },
+  {
+    id: 72,
+    subject: "English",
+    type: "mcq",
+    marks: 1,
+    difficulty: "easy",
+    question: "According to the passage, how has reading helped Riya?",
+    options: ["It has helped her learn new words and ideas", "It has made her sleep more", "It has taught her to play football", "It has reduced her school time"],
+    correct: 0
+  },
+  {
+    id: 73,
+    subject: "English",
+    type: "mcq",
+    marks: 1,
+    difficulty: "moderate",
+    question: "Read the passage.\n\nRiya enjoys reading books in her free time. She visits the school library every Friday and usually borrows one storybook. Reading has helped her learn many new words and ideas.\n\nWhich statement is true?",
+    options: ["Riya visits the library every Monday", "Riya borrows a newspaper every Friday", "Riya usually borrows one storybook", "Riya does not like reading"],
+    correct: 2
+  },
+  {
+    id: 74,
+    subject: "English",
+    type: "moderate",
+    marks: 1,
+    difficulty: "moderate",
+    question: "Read the passage and choose the best meaning of the word “usually”.",
+    options: ["Never", "Normally", "Suddenly", "Rarely"],
+    correct: 1
+  },
+  {
+    id: 75,
+    subject: "English",
+    type: "mcq",
+    marks: 1,
+    difficulty: "moderate",
+    question: "What is the main idea of the passage?",
+    options: ["Riya dislikes books", "The school library is closed on Fridays", "Reading is a useful habit for Riya", "Riya wants to become a teacher"],
+    correct: 2
+  },
+  {
+    id: 76,
+    subject: "English",
+    type: "mcq",
+    marks: 1,
+    difficulty: "easy",
+    question: "Choose the correct option: She ___ to school every day.",
+    options: ["go", "goes", "going", "gone"],
+    correct: 1
+  },
+  {
+    id: 77,
+    subject: "English",
+    type: "mcq",
+    marks: 1,
+    difficulty: "easy",
+    question: "Choose the correct article: He is ___ honest boy.",
+    options: ["a", "an", "the", "no article"],
+    correct: 1
+  },
+  {
+    id: 78,
+    subject: "English",
+    type: "mcq",
+    marks: 1,
+    difficulty: "moderate",
+    question: "Choose the correct preposition: The book is ___ the table.",
+    options: ["in", "on", "at", "by"],
+    correct: 1
+  },
+  {
+    id: 79,
+    subject: "English",
+    type: "mcq",
+    marks: 1,
+    difficulty: "moderate",
+    question: "Choose the correct form: When I reached the station, the train ___.",
+    options: ["leaves", "has left", "had left", "will leave"],
+    correct: 2
+  },
+  {
+    id: 80,
+    subject: "English",
+    type: "mcq",
+    marks: 1,
+    difficulty: "challenging",
+    question: "Choose the sentence with correct subject–verb agreement.",
+    options: ["The boys plays cricket.", "The boys play cricket.", "The boys playing cricket.", "The boys has played cricket."],
+    correct: 1
+  },
+  {
+    id: 81,
+    subject: "English",
+    type: "mcq",
+    marks: 1,
+    difficulty: "easy",
+    question: "Choose the synonym of “brave”.",
+    options: ["Cowardly", "Clever", "Courageous", "Quiet"],
+    correct: 2
+  },
+  {
+    id: 82,
+    subject: "English",
+    type: "mcq",
+    marks: 1,
+    difficulty: "easy",
+    question: "Choose the antonym of “ancient”.",
+    options: ["Old", "Modern", "Broken", "Large"],
+    correct: 1
+  },
+  {
+    id: 83,
+    subject: "English",
+    type: "mcq",
+    marks: 1,
+    difficulty: "moderate",
+    question: "Choose the word that best completes the sentence: The child was very ___ because he had won the prize.",
+    options: ["sad", "angry", "happy", "careless"],
+    correct: 2
+  },
+  {
+    id: 84,
+    subject: "English",
+    type: "mcq",
+    marks: 1,
+    difficulty: "moderate",
+    question: "Choose the correctly arranged sentence.",
+    options: ["Always school I on time reach.", "I reach always on time school.", "I always reach school on time.", "On school I always time reach."],
+    correct: 2
+  },
+  {
+    id: 85,
+    subject: "English",
+    type: "mcq",
+    marks: 1,
+    difficulty: "challenging",
+    question: "Choose the correct sentence.",
+    options: ["Neither of the boys are ready.", "Neither of the boys is ready.", "Neither of the boys were ready.", "Neither of the boys have ready."],
+    correct: 1
+  }
+
 ];
