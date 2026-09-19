@@ -414,7 +414,37 @@ function finalizeSubmission() {
   goToScreen('screen-summary');
 
   const totalMcqMarks = objectiveQuestions.reduce((sum, q) => sum + q.marks, 0);
+  const attempted = QUESTIONS.reduce((sum, q, i) =>
+    sum + (q.type === "mcq" && studentResponses[i].selectedOption !== null && studentResponses[i].selectedOption !== undefined ? 1 : 0), 0);
+  const wrong = Math.max(0, attempted - mcqScore);
+  const unanswered = QUESTIONS.length - attempted;
+  const percentage = totalMcqMarks ? ((mcqScore / totalMcqMarks) * 100).toFixed(1).replace(/\.0$/, "") : "0";
+
   document.getElementById('statMcqScore').innerText = `${mcqScore} / ${totalMcqMarks}`;
+  document.getElementById('statPercentage').innerText = `${percentage}%`;
+  document.getElementById('statAttempted').innerText = `${attempted} / ${QUESTIONS.length}`;
+  document.getElementById('statUnanswered').innerText = String(unanswered);
+  document.getElementById('statWrong').innerText = String(wrong);
+
+  const subjectScoreBreakdown = document.getElementById('subjectScoreBreakdown');
+  if (subjectScoreBreakdown) {
+    subjectScoreBreakdown.innerHTML = "";
+    const subjectTotals = {};
+    const subjectScores = {};
+    QUESTIONS.forEach((q, i) => {
+      subjectTotals[q.subject] = (subjectTotals[q.subject] || 0) + q.marks;
+      if (q.type === "mcq" && studentResponses[i].selectedOption === q.correct) {
+        subjectScores[q.subject] = (subjectScores[q.subject] || 0) + q.marks;
+      }
+    });
+    Object.keys(subjectTotals).forEach(subject => {
+      const box = document.createElement('div');
+      box.className = 'stat-box';
+      const score = subjectScores[subject] || 0;
+      box.innerHTML = `<div style="font-size:16px;font-weight:800;">${score} / ${subjectTotals[subject]}</div><div style="font-size:12px;margin-top:5px;">${subject}</div>`;
+      subjectScoreBreakdown.appendChild(box);
+    });
+  }
 
   const m = Math.floor(timeElapsedSeconds / 60);
   const s = timeElapsedSeconds % 60;
