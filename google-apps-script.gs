@@ -37,8 +37,12 @@ function doPost(e) {
     answers.forEach(function(a) {
       body += "\nQ" + a.id + " | " + a.subject + "\n";
       body += "Question: " + a.question + "\n";
-      body += "Candidate Answer: " + (a.selectedText || "Unanswered") + "\n";
-      body += "Correct: " + (a.isCorrect ? "YES" : "NO") + "\n";
+      var selectedIndex = (typeof a.selectedIndex === "number") ? a.selectedIndex : null;
+      var correctIndex = (typeof a.correctIndex === "number") ? a.correctIndex : null;
+      var isCorrect = selectedIndex !== null && correctIndex !== null && selectedIndex === correctIndex;
+      body += "Candidate Answer: " + (a.selectedText || "Unanswered") + (a.selectedOptionLetter ? " [" + a.selectedOptionLetter + "]" : "") + "\n";
+      body += "Correct Answer: " + (a.correctAnswer || "Not available") + (a.correctOptionLetter ? " [" + a.correctOptionLetter + "]" : "") + "\n";
+      body += "Result: " + (isCorrect ? "सही" : "गलत") + "\n";
     });
 
     MailApp.sendEmail({
