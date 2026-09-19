@@ -1,4 +1,4 @@
-const CACHE_NAME = "class9-cbt-offline-v7";
+const CACHE_NAME = "class9-cbt-offline-v8";
 const APP_SHELL = [
   "./",
   "./index.html",
