@@ -100,10 +100,22 @@
     <div class="auth-container" style="text-align: center;">
       <h1 style="color: #10b981; font-size: 26px;">🎉 JNVST मॉक टेस्ट सफलतापूर्वक सबमिट हो गया!</h1>
       <p class="subtext">आपके 100 बहुविकल्पीय प्रश्नों के उत्तर दर्ज कर लिए गए हैं।</p>
+      <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px; padding:12px; margin:16px 0; font-size:13px; font-weight:700;">
+        📘 परीक्षा स्तर: कक्षा 8 (JNVST Class IX Lateral Entry standard)
+      </div>
       <div class="stat-row">
-        <div class="stat-box"><div class="num" id="statMcqScore">0 / 100</div><div style="font-size: 12px; margin-top:5px;">सही उत्तर</div></div>
+        <div class="stat-box"><div class="num" id="statMcqScore">0 / 100</div><div style="font-size: 12px; margin-top:5px;">कुल स्कोर</div></div>
+        <div class="stat-box"><div class="num" id="statPercentage">0%</div><div style="font-size: 12px; margin-top:5px;">प्रतिशत</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-box"><div class="num" id="statAttempted">0 / 100</div><div style="font-size: 12px; margin-top:5px;">प्रयास किए</div></div>
+        <div class="stat-box"><div class="num" id="statUnanswered">0</div><div style="font-size: 12px; margin-top:5px;">अनुत्तरित</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-box"><div class="num" id="statWrong">0</div><div style="font-size: 12px; margin-top:5px;">गलत उत्तर</div></div>
         <div class="stat-box"><div class="num" id="statTimeSpent">--:--</div><div style="font-size: 12px; margin-top:5px;">लिया गया समय</div></div>
       </div>
+      <div id="subjectScoreBreakdown" style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:0 0 20px; text-align:center;"></div>
       <div style="text-align: left; background: #f8fafc; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 14px;">⚠️ <strong>महत्वपूर्ण निर्देश:</strong><br>अपने परिणाम की समीक्षा करें और गलत प्रश्नों को दोबारा हल करें।</div>
       <div id="emailStatus" class="email-status">आपके उत्तर शिक्षक के ईमेल पर स्वचालित रूप से भेजे जाएँगे।</div>
     </div>
