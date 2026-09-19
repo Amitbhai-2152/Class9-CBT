@@ -739,7 +739,7 @@ const QUESTIONS = [
   {
     id: 74,
     subject: "English",
-    type: "moderate",
+    type: "mcq",
     marks: 1,
     difficulty: "moderate",
     question: "Read the passage and choose the best meaning of the word “usually”.",
