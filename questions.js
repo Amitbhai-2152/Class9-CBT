@@ -703,8 +703,7 @@ const QUESTIONS = [
     question: "आकाश में बिजली चमकने के कुछ समय बाद गरज सुनाई देती है। इसका मुख्य कारण क्या है?",
     options: ["ध्वनि प्रकाश से तेज चलती है", "प्रकाश ध्वनि की तुलना में बहुत तेज चलता है", "बिजली केवल रात में बनती है", "ध्वनि हवा में नहीं चलती"],
     correct: 1
-  }
-
+  },
 
   {
     id: 71,
@@ -855,8 +854,7 @@ const QUESTIONS = [
     question: "Choose the correct sentence.",
     options: ["Neither of the boys are ready.", "Neither of the boys is ready.", "Neither of the boys were ready.", "Neither of the boys have ready."],
     correct: 1
-  }
-
+  },
 
   {
     id: 86,
