@@ -240,7 +240,7 @@ function loadQuestion(index) {
 
     const passageLabel = document.createElement('div');
     passageLabel.className = 'passage-label';
-    passageLabel.innerText = q.subject === 'हिन्दी' ? 'अपठित गद्यांश' : 'READING PASSAGE';
+    passageLabel.innerText = q.subject === 'हिंदी' ? 'अपठित गद्यांश' : 'READING PASSAGE';
 
     const passageText = document.createElement('div');
     passageText.className = 'passage-text';
