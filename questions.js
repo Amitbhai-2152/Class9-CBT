@@ -329,7 +329,7 @@ const QUESTIONS = [
     "options": [
       "6(x - 2)",
       "6(x + 2)",
-      "3(x + 4)",
+      "3(x + 3)",
       "12(x + 6)"
     ],
     "correct": 1
