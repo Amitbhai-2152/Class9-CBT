@@ -41,10 +41,8 @@ function readExamRecovery() {
     if (!raw) return null;
     const state = JSON.parse(raw);
     if (!state || state.version !== RECOVERY_VERSION || !state.examStarted || !state.examDeadlineMs) return null;
-    if (state.examDeadlineMs <= Date.now()) {
-      localStorage.removeItem(RECOVERY_KEY);
-      return null;
-    }
+    // Keep an expired recovery state long enough to finalize it safely on reload.
+    // This prevents a submission from being lost if the browser was closed near the deadline.
     return state;
   } catch (error) {
     console.warn("Could not read exam recovery state:", error);
@@ -90,6 +88,14 @@ window.onload = () => {
   const savedState = readExamRecovery();
   if (savedState && restoreExamState(savedState)) {
     document.getElementById('examHeaderName').innerText = userProfile.name || "छात्र का नाम";
+
+    // If the recovered attempt already reached its deadline while the tab was closed,
+    // finalize it immediately instead of discarding the attempt.
+    if (examDeadlineMs <= Date.now()) {
+      finalizeSubmission();
+      return;
+    }
+
     const recoveryNotice = document.getElementById('recoveryNotice');
     if (recoveryNotice) recoveryNotice.style.display = 'block';
   } else {
