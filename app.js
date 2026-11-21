@@ -1,16 +1,20 @@
+// Master bank is declared by questions.js; each attempt uses one selected subject only.
+const QUESTION_BANK = QUESTIONS;
+let EXAM_QUESTIONS = [];
+let selectedExamType = "";
 // Google Apps Script Web App endpoint.
 // Deploy the supplied google-apps-script.gs as a Web App and paste its /exec URL here.
 const EMAIL_ENDPOINT = "https://script.google.com/macros/s/AKfycbx341brEbkoRCD-vzkrDtUIGH81NvY7xMoHngv82D0pOJv_ozE5iZlgtuwrzbfdUxAQ/exec";
 let emailSubmissionStatus = "pending";
 
-// यह कोड QUESTIONS एरे के लोड होने के बाद काम करेगा
+// यह कोड EXAM_QUESTIONS एरे के लोड होने के बाद काम करेगा
 const userProfile = { name: "", parent: "", location: "", roll: "", mobile: "" };
 let currentIndex = 0;
 let studentResponses = [];
 
 // Phase 1: local auto-recovery. This keeps an unfinished exam on the same device.
-const RECOVERY_KEY = "class9_cbt_active_exam_v1";
-const RECOVERY_VERSION = 1;
+const RECOVERY_KEY = "class9_cbt_active_exam_v2";
+const RECOVERY_VERSION = 2;
 let examStarted = false;
 let examDeadlineMs = null;
 let recoverySaveTimer = null;
@@ -23,6 +27,7 @@ function saveExamRecovery() {
       version: RECOVERY_VERSION,
       savedAt: Date.now(),
       userProfile: { ...userProfile },
+      selectedExamType,
       currentIndex,
       studentResponses,
       examStarted: true,
@@ -64,16 +69,16 @@ function scheduleRecoverySave() {
 }
 
 function restoreExamState(state) {
-  if (!state || !Array.isArray(state.studentResponses) || state.studentResponses.length !== QUESTIONS.length) return false;
+  if (!state || !Array.isArray(state.studentResponses) || state.studentResponses.length !== EXAM_QUESTIONS.length) return false;
 
   Object.assign(userProfile, state.userProfile || {});
   studentResponses = state.studentResponses.map((resp, idx) => ({
-    id: QUESTIONS[idx].id,
+    id: EXAM_QUESTIONS[idx].id,
     selectedOption: resp.selectedOption ?? null,
     writtenInCopy: Boolean(resp.writtenInCopy),
     status: resp.status || "not-visited"
   }));
-  currentIndex = Math.min(Math.max(Number(state.currentIndex) || 0, 0), QUESTIONS.length - 1);
+  currentIndex = Math.min(Math.max(Number(state.currentIndex) || 0, 0), EXAM_QUESTIONS.length - 1);
   examDeadlineMs = Number(state.examDeadlineMs);
   timeElapsedSeconds = Math.max(0, Number(state.timeElapsedSeconds) || 0);
   totalSeconds = Math.max(0, Math.ceil((examDeadlineMs - Date.now()) / 1000));
@@ -82,15 +87,24 @@ function restoreExamState(state) {
   return true;
 }
 
-// Initialize responses once QUESTIONS array is available from questions.js.
+// Initialize responses once EXAM_QUESTIONS array is available from questions.js.
 // If an unfinished exam exists, restore it instead of creating a blank attempt.
 window.onload = () => {
   const savedState = readExamRecovery();
+  if (savedState && savedState.selectedExamType) {
+    selectedExamType = savedState.selectedExamType;
+    EXAM_QUESTIONS = QUESTION_BANK.filter(q => q.subject === selectedExamType);
+    const selector = document.getElementById('examType');
+    if (selector) {
+      selector.value = selectedExamType;
+      selector.disabled = true;
+    }
+  }
+
   if (savedState && restoreExamState(savedState)) {
     document.getElementById('examHeaderName').innerText = userProfile.name || "छात्र का नाम";
 
-    // If the recovered attempt already reached its deadline while the tab was closed,
-    // finalize it immediately instead of discarding the attempt.
+    // Restore an unfinished attempt without changing its selected subject or deadline.
     if (examDeadlineMs <= Date.now()) {
       finalizeSubmission();
       return;
@@ -99,18 +113,16 @@ window.onload = () => {
     const recoveryNotice = document.getElementById('recoveryNotice');
     if (recoveryNotice) recoveryNotice.style.display = 'block';
   } else {
-    studentResponses = QUESTIONS.map(q => ({ id: q.id, selectedOption: null, writtenInCopy: false, status: 'not-visited' }));
+    studentResponses = [];
   }
 };
 
-// JNVST Mock Test duration: 2 घंटे 30 मिनट = 150 मिनट
-const TEST_DURATION_SECONDS = 2.5 * 60 * 60;
+// Each selected talent-search paper: 25 MCQs in 60 minutes.
+const TEST_DURATION_SECONDS = 60 * 60;
 let totalSeconds = TEST_DURATION_SECONDS;
 let timerInterval = null;
 let timeElapsedSeconds = 0;
-let selectedSubjectFilter = "All";
 
-const subjectsList = ["All", "गणित", "सामान्य विज्ञान", "English", "हिंदी"];
 
 function goToScreen(screenId) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -119,17 +131,19 @@ function goToScreen(screenId) {
 
 function handleRegistration(e) {
   e.preventDefault();
-  userProfile.name = document.getElementById('candidateName').value;
-  userProfile.parent = document.getElementById('parentName').value;
-  userProfile.location = document.getElementById('liveLocation').value;
-  userProfile.roll = document.getElementById('rollNo').value;
-  userProfile.mobile = document.getElementById('mobileNo').value;
+  userProfile.name = document.getElementById('candidateName').value.trim();
+  userProfile.parent = document.getElementById('parentName').value.trim();
+  userProfile.location = document.getElementById('liveLocation').value.trim();
+  userProfile.roll = document.getElementById('rollNo').value.trim();
+  userProfile.mobile = document.getElementById('mobileNo').value.trim();
 
-  // If an unfinished exam is already present, do not overwrite it with a new registration.
-  const savedState = readExamRecovery();
-  if (savedState && recoveryRestored) {
-    document.getElementById('examHeaderName').innerText = userProfile.name;
-    goToScreen('screen-instructions');
+  // A recovered attempt keeps its original subject. New attempts select one subject.
+  if (!recoveryRestored) {
+    selectedExamType = document.getElementById('examType').value;
+    EXAM_QUESTIONS = QUESTION_BANK.filter(q => q.subject === selectedExamType);
+  }
+  if (EXAM_QUESTIONS.length !== 25) {
+    alert("कृपया गणित या विज्ञान में से एक परीक्षा चुनें।");
     return;
   }
 
@@ -142,8 +156,12 @@ function startTest() {
     resumeTest();
     return;
   }
+  if (EXAM_QUESTIONS.length !== 25) {
+    alert("परीक्षा शुरू करने से पहले गणित या विज्ञान का पेपर चुनें।");
+    return;
+  }
 
-  studentResponses = QUESTIONS.map(q => ({ id: q.id, selectedOption: null, writtenInCopy: false, status: 'not-visited' }));
+  studentResponses = EXAM_QUESTIONS.map(q => ({ id: q.id, selectedOption: null, writtenInCopy: false, status: 'not-visited' }));
   currentIndex = 0;
   timeElapsedSeconds = 0;
   totalSeconds = TEST_DURATION_SECONDS;
@@ -202,24 +220,18 @@ function updateTimerDisplay() {
 function buildSubjectPills() {
   const container = document.getElementById('sectionPillsContainer');
   container.innerHTML = "";
-  subjectsList.forEach(sub => {
-    const btn = document.createElement('button');
-    btn.className = `pill-btn ${sub === selectedSubjectFilter ? 'active' : ''}`;
-    btn.innerText = sub === "All" ? "सभी विषय" : sub;
-    btn.onclick = () => {
-      selectedSubjectFilter = sub;
-      buildSubjectPills(); buildPaletteGrid();
-      if(sub !== "All") loadQuestion(QUESTIONS.findIndex(q => q.subject === sub));
-    };
-    container.appendChild(btn);
-  });
+  const btn = document.createElement('span');
+  btn.className = "pill-btn active";
+  btn.textContent = selectedExamType === "गणित"
+    ? "श्रीनिवास रामानुजन — गणित"
+    : "डॉ. सी. वी. रमन — विज्ञान";
+  container.appendChild(btn);
 }
 
 function buildPaletteGrid() {
   const grid = document.getElementById('paletteGrid');
   grid.innerHTML = "";
-  QUESTIONS.forEach((q, idx) => {
-    if (selectedSubjectFilter !== "All" && q.subject !== selectedSubjectFilter) return;
+  EXAM_QUESTIONS.forEach((q, idx) => {
     const btn = document.createElement('button');
     btn.className = `palette-btn status-${studentResponses[idx].status} ${idx === currentIndex ? 'active-q' : ''}`;
     btn.innerText = q.id;
@@ -231,12 +243,12 @@ function buildPaletteGrid() {
 function loadQuestion(index) {
   if (studentResponses[currentIndex].status === 'not-visited') studentResponses[currentIndex].status = 'unanswered';
   currentIndex = index;
-  const q = QUESTIONS[currentIndex];
+  const q = EXAM_QUESTIONS[currentIndex];
   const resp = studentResponses[currentIndex];
   if (resp.status === 'not-visited') resp.status = 'unanswered';
 
   document.getElementById('questionTitle').innerText = `प्रश्न ${q.id} [${q.subject}]`;
-  document.getElementById('questionMarksTag').innerText = `${q.marks} अंक`;
+  document.getElementById('questionMarksTag').innerText = `${q.marks} अंक | सही +4, गलत −1`;
 
   const questionText = document.getElementById('questionText');
   questionText.innerHTML = "";
@@ -316,18 +328,18 @@ function toggleWrittenInCopy(isChecked) {
 
 function saveAndNext() {
   scheduleRecoverySave();
-  if (currentIndex < QUESTIONS.length - 1) loadQuestion(currentIndex + 1);
+  if (currentIndex < EXAM_QUESTIONS.length - 1) loadQuestion(currentIndex + 1);
 }
 
 function navigateQuestion(delta) {
   scheduleRecoverySave();
-  if (currentIndex + delta >= 0 && currentIndex + delta < QUESTIONS.length) loadQuestion(currentIndex + delta);
+  if (currentIndex + delta >= 0 && currentIndex + delta < EXAM_QUESTIONS.length) loadQuestion(currentIndex + delta);
 }
 
 function markForReview() {
   studentResponses[currentIndex].status = 'review';
   scheduleRecoverySave();
-  if (currentIndex < QUESTIONS.length - 1) loadQuestion(currentIndex + 1);
+  if (currentIndex < EXAM_QUESTIONS.length - 1) loadQuestion(currentIndex + 1);
   else buildPaletteGrid();
 }
 
@@ -344,31 +356,46 @@ function confirmSubmitTest() {
 }
 
 function buildSubmissionPayload() {
-  const objectiveQuestions = QUESTIONS.filter(q => q.type === "mcq");
+  const objectiveQuestions = EXAM_QUESTIONS.filter(q => q.type === "mcq");
   const answers = objectiveQuestions.map(q => {
-    const idx = QUESTIONS.findIndex(item => item.id === q.id);
+    // Use the question's position within the selected 25-question paper, not its repeated subject-local ID.
+    const idx = EXAM_QUESTIONS.indexOf(q);
     const selected = studentResponses[idx]?.selectedOption;
+    const attempted = selected !== null && selected !== undefined;
+    const isCorrect = attempted && selected === q.correct;
+    const awardedMarks = !attempted ? 0 : (isCorrect ? q.marks : -(q.negativeMarks || 1));
     return {
       id: q.id,
+      questionNumber: q.id,
       subject: q.subject,
       section: q.section || "",
       passage: q.passage || "",
       question: q.question,
       selectedIndex: selected,
-      selectedText: selected !== null && selected !== undefined ? q.options[selected] : "",
-      selectedOptionLetter: selected !== null && selected !== undefined ? String.fromCharCode(65 + selected) : "",
+      selectedText: attempted ? q.options[selected] : "",
+      selectedOptionLetter: attempted ? String.fromCharCode(65 + selected) : "",
       correctIndex: q.correct,
       correctAnswer: q.options[q.correct],
       correctOptionLetter: String.fromCharCode(65 + q.correct),
-      isCorrect: selected === q.correct,
-      marks: q.marks
+      isAttempted: attempted,
+      isCorrect,
+      marks: q.marks,
+      negativeMarks: q.negativeMarks || 1,
+      awardedMarks,
+      explanation: q.explanation || ""
     };
   });
 
-  const score = answers.reduce((sum, a) => sum + (a.isCorrect ? a.marks : 0), 0);
+  const score = answers.reduce((sum, a) => sum + a.awardedMarks, 0);
+  const correctCount = answers.filter(a => a.isCorrect).length;
+  const wrongCount = answers.filter(a => a.isAttempted && !a.isCorrect).length;
+  const unansweredCount = answers.filter(a => !a.isAttempted).length;
 
   return {
-    testName: "JNVST कक्षा 9 मॉक टेस्ट 2027–28",
+    testName: selectedExamType === "गणित"
+      ? "श्रीनिवास रामानुजन प्रतिभा खोज परीक्षा — कक्षा 9 गणित मॉडल CBT"
+      : "डॉ. सी. वी. रमन प्रतिभा खोज परीक्षा — कक्षा 9 विज्ञान मॉडल CBT",
+    selectedSubject: selectedExamType,
     submittedAt: new Date().toISOString(),
     candidate: {
       name: userProfile.name,
@@ -381,6 +408,10 @@ function buildSubmissionPayload() {
     objective: {
       score,
       totalMarks: objectiveQuestions.reduce((sum, q) => sum + q.marks, 0),
+      correctCount,
+      wrongCount,
+      unansweredCount,
+      markingScheme: { correct: 4, incorrect: -1, unanswered: 0 },
       answers
     }
   };
@@ -409,15 +440,90 @@ async function submitObjectiveAnswersAutomatically() {
   }
 }
 
+function renderSolutionReview() {
+  const container = document.getElementById('solutionReview');
+  if (!container) return;
+  container.innerHTML = "";
+
+  const heading = document.createElement('h2');
+  heading.className = 'solution-heading';
+  heading.textContent = 'उत्तर एवं विस्तृत समाधान';
+  container.appendChild(heading);
+
+  const intro = document.createElement('p');
+  intro.className = 'solution-intro';
+  intro.textContent = 'हर प्रश्न का सही उत्तर, आपका चुना हुआ विकल्प और उसका स्पष्टीकरण देखें।';
+  container.appendChild(intro);
+
+  EXAM_QUESTIONS.forEach((q, i) => {
+    const selected = studentResponses[i]?.selectedOption;
+    const attempted = selected !== null && selected !== undefined;
+    const isCorrect = attempted && selected === q.correct;
+    const awarded = !attempted ? 0 : (isCorrect ? q.marks : -(q.negativeMarks || 1));
+
+    const card = document.createElement('article');
+    card.className = 'solution-card';
+
+    const top = document.createElement('div');
+    top.className = 'solution-card-top';
+    const questionNo = document.createElement('strong');
+    questionNo.textContent = 'प्रश्न ' + q.id;
+    const status = document.createElement('span');
+    status.className = 'solution-status ' + (isCorrect ? 'correct' : attempted ? 'wrong' : 'skipped');
+    status.textContent = isCorrect ? 'सही उत्तर · +' + awarded : attempted ? 'गलत उत्तर · ' + awarded : 'अनुत्तरित · 0';
+    top.append(questionNo, status);
+    card.appendChild(top);
+
+    const prompt = document.createElement('p');
+    prompt.className = 'solution-question';
+    prompt.textContent = q.question;
+    card.appendChild(prompt);
+
+    const choices = document.createElement('ol');
+    choices.className = 'solution-options';
+    q.options.forEach((option, optionIndex) => {
+      const item = document.createElement('li');
+      item.textContent = String.fromCharCode(65 + optionIndex) + '. ' + option;
+      if (optionIndex === q.correct) item.classList.add('solution-correct-option');
+      if (attempted && optionIndex === selected && optionIndex !== q.correct) item.classList.add('solution-wrong-option');
+      choices.appendChild(item);
+    });
+    card.appendChild(choices);
+
+    const correct = document.createElement('p');
+    correct.className = 'solution-answer';
+    correct.textContent = 'सही उत्तर: ' + String.fromCharCode(65 + q.correct) + '. ' + q.options[q.correct];
+    card.appendChild(correct);
+
+    const explanation = document.createElement('p');
+    explanation.className = 'solution-explanation';
+    explanation.textContent = 'समाधान: ' + (q.explanation || 'इस प्रश्न का विस्तृत समाधान उपलब्ध नहीं है।');
+    card.appendChild(explanation);
+
+    container.appendChild(card);
+  });
+}
+
 function finalizeSubmission() {
   clearInterval(timerInterval);
   clearTimeout(recoverySaveTimer);
 
-  const objectiveQuestions = QUESTIONS.filter(q => q.type === "mcq");
+  const objectiveQuestions = EXAM_QUESTIONS.filter(q => q.type === "mcq");
   let mcqScore = 0;
-  QUESTIONS.forEach((q, i) => {
-    if (q.type === "mcq" && studentResponses[i].selectedOption === q.correct) {
+  let correctCount = 0;
+  let wrongCount = 0;
+  let attempted = 0;
+
+  EXAM_QUESTIONS.forEach((q, i) => {
+    const selected = studentResponses[i]?.selectedOption;
+    if (selected === null || selected === undefined) return;
+    attempted += 1;
+    if (selected === q.correct) {
+      correctCount += 1;
       mcqScore += q.marks;
+    } else {
+      wrongCount += 1;
+      mcqScore -= (q.negativeMarks || 1);
     }
   });
 
@@ -429,36 +535,22 @@ function finalizeSubmission() {
   goToScreen('screen-summary');
 
   const totalMcqMarks = objectiveQuestions.reduce((sum, q) => sum + q.marks, 0);
-  const attempted = QUESTIONS.reduce((sum, q, i) =>
-    sum + (q.type === "mcq" && studentResponses[i].selectedOption !== null && studentResponses[i].selectedOption !== undefined ? 1 : 0), 0);
-  const wrong = Math.max(0, attempted - mcqScore);
-  const unanswered = QUESTIONS.length - attempted;
-  const percentage = totalMcqMarks ? ((mcqScore / totalMcqMarks) * 100).toFixed(1).replace(/\.0$/, "") : "0";
+  const unanswered = EXAM_QUESTIONS.length - attempted;
+  const percentage = totalMcqMarks ? ((mcqScore / totalMcqMarks) * 100).toFixed(1).replace(/\\.0$/, "") : "0";
 
   document.getElementById('statMcqScore').innerText = `${mcqScore} / ${totalMcqMarks}`;
   document.getElementById('statPercentage').innerText = `${percentage}%`;
-  document.getElementById('statAttempted').innerText = `${attempted} / ${QUESTIONS.length}`;
+  document.getElementById('statAttempted').innerText = `${attempted} / ${EXAM_QUESTIONS.length}`;
   document.getElementById('statUnanswered').innerText = String(unanswered);
-  document.getElementById('statWrong').innerText = String(wrong);
+  document.getElementById('statWrong').innerText = String(wrongCount);
 
   const subjectScoreBreakdown = document.getElementById('subjectScoreBreakdown');
   if (subjectScoreBreakdown) {
     subjectScoreBreakdown.innerHTML = "";
-    const subjectTotals = {};
-    const subjectScores = {};
-    QUESTIONS.forEach((q, i) => {
-      subjectTotals[q.subject] = (subjectTotals[q.subject] || 0) + q.marks;
-      if (q.type === "mcq" && studentResponses[i].selectedOption === q.correct) {
-        subjectScores[q.subject] = (subjectScores[q.subject] || 0) + q.marks;
-      }
-    });
-    Object.keys(subjectTotals).forEach(subject => {
-      const box = document.createElement('div');
-      box.className = 'stat-box';
-      const score = subjectScores[subject] || 0;
-      box.innerHTML = `<div style="font-size:16px;font-weight:800;">${score} / ${subjectTotals[subject]}</div><div style="font-size:12px;margin-top:5px;">${subject}</div>`;
-      subjectScoreBreakdown.appendChild(box);
-    });
+    const box = document.createElement('div');
+    box.className = 'stat-box';
+    box.innerHTML = `<div style="font-size:16px;font-weight:800;">${mcqScore} / ${totalMcqMarks}</div><div style="font-size:12px;margin-top:5px;">${selectedExamType === "गणित" ? "गणित" : "सामान्य विज्ञान"}</div>`;
+    subjectScoreBreakdown.appendChild(box);
   }
 
   const m = Math.floor(timeElapsedSeconds / 60);
@@ -470,7 +562,9 @@ function finalizeSubmission() {
     statusEl.innerText = "आपके ऑब्जेक्टिव उत्तर सुरक्षित रूप से दर्ज किए जा रहे हैं…";
   }
 
-  // Email submission happens automatically; there is no student-facing email button.
+  renderSolutionReview();
+
+  // Email submission contract is unchanged; the existing endpoint receives the expanded result fields.
   submitObjectiveAnswersAutomatically().then(() => {
     if (!statusEl) return;
 
