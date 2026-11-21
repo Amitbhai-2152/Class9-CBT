@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>JNVST कक्षा 9 मॉक टेस्ट 2027–28</title>
+  <title>बिहार प्रतिभा खोज परीक्षा – कक्षा 9 मॉडल CBT</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,8 +14,8 @@
   <div id="screen-registration" class="screen active">
     <div class="auth-container">
       <div class="brand-header">
-        <h1>JNVST कक्षा 9 मॉक टेस्ट 2027–28</h1>
-        <p class="subtext">कक्षा 9 प्रवेश परीक्षा — हिंदी माध्यम</p>
+        <h1>बिहार प्रतिभा खोज परीक्षा – कक्षा 9 मॉडल CBT</h1>
+        <p class="subtext">श्रीनिवास रामानुजन गणित एवं डॉ. सी. वी. रमन विज्ञान — हिंदी माध्यम</p>
       </div>
       <div id="recoveryNotice" style="display:none; background:#fff7ed; border:1px solid #fed7aa; color:#9a3412; padding:12px 14px; border-radius:8px; margin-bottom:16px; font-size:14px; text-align:left;">
         <strong>↩️ पिछली परीक्षा मिली है</strong><br>
@@ -27,6 +27,14 @@
         <div class="form-group"><label>आप कहाँ रहते हैं? (शहर / जिला) *</label><input type="text" id="liveLocation" required /></div>
         <div class="form-group"><label>रोल नंबर (अनुक्रमांक) *</label><input type="text" id="rollNo" required /></div>
         <div class="form-group"><label>मोबाइल नंबर *</label><input type="tel" id="mobileNo" pattern="[0-9]{10}" required /></div>
+        <div class="form-group">
+          <label for="examType">परीक्षा चुनें *</label>
+          <select id="examType" required>
+            <option value="" selected disabled>अपनी परीक्षा चुनें</option>
+            <option value="गणित">श्रीनिवास रामानुजन प्रतिभा खोज परीक्षा — गणित</option>
+            <option value="सामान्य विज्ञान">डॉ. सी. वी. रमन प्रतिभा खोज परीक्षा — विज्ञान</option>
+          </select>
+        </div>
         <button type="submit" class="btn btn-primary">निर्देश पढ़ें &rarr;</button>
       </form>
     </div>
@@ -38,15 +46,14 @@
       <div class="instruction-card">
         <strong>परीक्षा का विवरण:</strong>
         <ul class="instruction-list">
-          <li><strong>कुल समय:</strong> 2 घंटे 30 मिनट (150 मिनट)</li>
-          <li><strong>कुल प्रश्न:</strong> 100 बहुविकल्पीय प्रश्न</li>
-          <li><strong>कुल अंक:</strong> 100 अंक</li>
-          <li><strong>गणित:</strong> 35 प्रश्न × 1 अंक = 35 अंक</li>
-          <li><strong>सामान्य विज्ञान:</strong> 35 प्रश्न × 1 अंक = 35 अंक</li>
-          <li><strong>English:</strong> 15 प्रश्न × 1 अंक = 15 अंक</li>
-          <li><strong>हिंदी:</strong> 15 प्रश्न × 1 अंक = 15 अंक</li>
-          <li><strong>प्रश्न का प्रकार:</strong> प्रत्येक प्रश्न में केवल एक सही विकल्प चुनें।</li>
-          <li><strong>नकारात्मक अंकन:</strong> गलत उत्तर के लिए कोई नकारात्मक अंक नहीं है।</li>
+          <li><strong>चयनित परीक्षा:</strong> गणित या विज्ञान — पंजीकरण में चुने गए विषय के अनुसार</li>
+          <li><strong>कुल समय:</strong> 60 मिनट (1 घंटा)</li>
+          <li><strong>कुल प्रश्न:</strong> 25 बहुविकल्पीय प्रश्न</li>
+          <li><strong>अधिकतम अंक:</strong> 100 अंक</li>
+          <li><strong>सही उत्तर:</strong> +4 अंक</li>
+          <li><strong>गलत उत्तर:</strong> −1 अंक</li>
+          <li><strong>अनुत्तरित प्रश्न:</strong> 0 अंक (कोई कटौती नहीं)</li>
+          <li><strong>प्रश्न का प्रकार:</strong> प्रत्येक प्रश्न में चार विकल्प होंगे; केवल एक विकल्प सही है।</li>
           <li><strong>उत्तर सेव करें:</strong> अगला प्रश्न खोलने से पहले अपना चुना हुआ विकल्प जाँच लें।</li>
           <li><strong>रिव्यू:</strong> संदेह वाले प्रश्न को “रिव्यू के लिए मार्क करें” करके बाद में वापस आ सकते हैं।</li>
           <li><strong>उत्तर मिटाना:</strong> “उत्तर मिटाएं” से वर्तमान प्रश्न का चयन हटाया जा सकता है।</li>
@@ -54,7 +61,7 @@
           <li><strong>सबमिशन:</strong> समय पूरा होने पर परीक्षा स्वतः सबमिट हो सकती है।</li>
           <li><strong>ईमेल:</strong> सबमिट करते ही आपके उत्तर निर्धारित शिक्षक ईमेल पर स्वचालित रूप से भेजे जाएँगे; अलग ईमेल बटन की आवश्यकता नहीं है।</li>
         </ul>
-        <div class="highlight-rule">💡 यह एक अभ्यास/डायग्नोस्टिक मॉक टेस्ट है। प्रत्येक प्रश्न के चार विकल्पों में से एक सही उत्तर चुनें।</div>
+        <div class="highlight-rule">💡 यह कक्षा 9 के लिए अभ्यास मॉडल CBT है। गणित और विज्ञान की परीक्षाएँ अलग-अलग दी जा सकती हैं। परीक्षा शुरू होने के बाद विषय नहीं बदला जा सकता।</div>
       </div>
       <label class="checkbox-agree"><input type="checkbox" id="agreeRules" onchange="document.getElementById('startTestBtn').disabled = !this.checked;" /><span>मैंने सभी निर्देश पढ़ लिए हैं और परीक्षा शुरू करने के लिए तैयार हूँ।</span></label>
       <div class="btn-row">
@@ -68,7 +75,7 @@
     <header class="exam-header">
       <div style="font-size: 15px; font-weight: 700;" id="examHeaderName">छात्र का नाम</div>
       <div id="connectionStatus" style="font-size:12px; font-weight:700; padding:5px 9px; border-radius:999px; background:#dcfce7; color:#166534;">🟢 Online</div>
-      <div class="timer-container" id="timerDisplay">02:30:00</div>
+      <div class="timer-container" id="timerDisplay">01:00:00</div>
     </header>
     <div class="exam-body">
       <main class="exam-main">
@@ -98,10 +105,10 @@
 
   <div id="screen-summary" class="screen">
     <div class="auth-container" style="text-align: center;">
-      <h1 style="color: #10b981; font-size: 26px;">🎉 JNVST मॉक टेस्ट सफलतापूर्वक सबमिट हो गया!</h1>
-      <p class="subtext">आपके 100 बहुविकल्पीय प्रश्नों के उत्तर दर्ज कर लिए गए हैं।</p>
+      <h1 style="color: #10b981; font-size: 26px;">🎉 प्रतिभा खोज मॉडल परीक्षा सफलतापूर्वक सबमिट हो गई!</h1>
+      <p class="subtext">आपके चयनित विषय के 25 बहुविकल्पीय प्रश्नों के उत्तर दर्ज कर लिए गए हैं।</p>
       <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px; padding:12px; margin:16px 0; font-size:13px; font-weight:700;">
-        📘 परीक्षा स्तर: कक्षा 8 (JNVST Class IX Lateral Entry standard)
+        📘 परीक्षा स्तर: कक्षा 9 — रामानुजन गणित / सी. वी. रमन विज्ञान मॉडल पेपर
       </div>
       <div class="stat-row">
         <div class="stat-box"><div class="num" id="statMcqScore">0 / 100</div><div style="font-size: 12px; margin-top:5px;">कुल स्कोर</div></div>
@@ -118,6 +125,7 @@
       <div id="subjectScoreBreakdown" style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:0 0 20px; text-align:center;"></div>
       <div style="text-align: left; background: #f8fafc; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 14px;">⚠️ <strong>महत्वपूर्ण निर्देश:</strong><br>अपने परिणाम की समीक्षा करें और गलत प्रश्नों को दोबारा हल करें।</div>
       <div id="emailStatus" class="email-status">आपके उत्तर शिक्षक के ईमेल पर स्वचालित रूप से भेजे जाएँगे।</div>
+      <section id="solutionReview" class="solution-review" aria-live="polite"></section>
     </div>
   </div>
 
