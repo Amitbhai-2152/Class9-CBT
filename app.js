@@ -357,7 +357,7 @@ function confirmSubmitTest() {
 
 function buildSubmissionPayload() {
   const objectiveQuestions = EXAM_QUESTIONS.filter(q => q.type === "mcq");
-  const answers = objectiveQuestions.map(q => {
+  const allAnswers = objectiveQuestions.map(q => {
     // Use the question's position within the selected 25-question paper, not its repeated subject-local ID.
     const idx = EXAM_QUESTIONS.indexOf(q);
     const selected = studentResponses[idx]?.selectedOption;
@@ -386,10 +386,13 @@ function buildSubmissionPayload() {
     };
   });
 
-  const score = answers.reduce((sum, a) => sum + a.awardedMarks, 0);
-  const correctCount = answers.filter(a => a.isCorrect).length;
-  const wrongCount = answers.filter(a => a.isAttempted && !a.isCorrect).length;
-  const unansweredCount = answers.filter(a => !a.isAttempted).length;
+  // The existing email receiver labels every submitted record as correct/incorrect.
+  // Send only attempted answers so unanswered questions are not misreported as wrong.
+  const answers = allAnswers.filter(a => a.isAttempted);
+  const score = allAnswers.reduce((sum, a) => sum + a.awardedMarks, 0);
+  const correctCount = allAnswers.filter(a => a.isCorrect).length;
+  const wrongCount = allAnswers.filter(a => a.isAttempted && !a.isCorrect).length;
+  const unansweredCount = allAnswers.filter(a => !a.isAttempted).length;
 
   return {
     testName: selectedExamType === "गणित"
