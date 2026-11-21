@@ -136,7 +136,7 @@
     // Fill the registration form from the recovered attempt.
     window.addEventListener('load', () => {
       try {
-        const raw = localStorage.getItem('class9_cbt_active_exam_v1');
+        const raw = localStorage.getItem('class9_cbt_active_exam_v2');
         if (raw) {
           const state = JSON.parse(raw);
           if (state && state.userProfile && state.examDeadlineMs && state.examDeadlineMs > Date.now()) {
