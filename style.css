@@ -46,7 +46,24 @@ p.subtext { color: var(--text-muted); font-size: 13px; margin-top: 6px; }
 .form-group { margin-bottom: 16px; }
 .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
 .form-group input { width: 100%; padding: 12px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 14px; }
-.form-group input:focus { outline: none; border-color: var(--primary); }
+.form-group input:focus, .form-group select:focus { outline: none; border-color: var(--primary); }
+.form-group select { width: 100%; padding: 12px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 14px; background: #fff; color: var(--text-main); }
+.solution-review { margin-top: 24px; text-align: left; }
+.solution-heading { font-size: 22px; margin: 10px 0 6px; }
+.solution-intro { color: var(--text-muted); font-size: 13px; margin-bottom: 14px; }
+.solution-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 15px; margin: 12px 0; }
+.solution-card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.solution-status { border-radius: 999px; padding: 4px 9px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.solution-status.correct { color: #166534; background: #dcfce7; }
+.solution-status.wrong { color: #991b1b; background: #fee2e2; }
+.solution-status.skipped { color: #475569; background: #e2e8f0; }
+.solution-question { font-weight: 700; line-height: 1.6; margin-bottom: 10px; }
+.solution-options { padding-left: 24px; line-height: 1.65; font-size: 13px; }
+.solution-options li { padding: 3px 6px; border-radius: 5px; }
+.solution-correct-option { color: #166534; background: #dcfce7; font-weight: 700; }
+.solution-wrong-option { color: #991b1b; background: #fee2e2; text-decoration: line-through; }
+.solution-answer { margin-top: 10px; color: #166534; font-weight: 700; font-size: 13px; }
+.solution-explanation { margin-top: 7px; padding: 10px; background: #f8fafc; border-left: 3px solid var(--primary); border-radius: 5px; font-size: 13px; line-height: 1.7; }
 .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 20px; font-size: 15px; font-weight: 600; border-radius: 8px; border: none; cursor: pointer; transition: 0.2s; width: 100%; }
 .btn-primary { background: var(--primary); color: #fff; }
 .btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--text-main); }
@@ -112,7 +129,7 @@ input { min-height: 44px; }
   h1 { font-size: 20px; }
   p.subtext { font-size: 12px; }
   .form-group { margin-bottom: 13px; }
-  .form-group input { font-size: 16px; padding: 11px; }
+  .form-group input, .form-group select { font-size: 16px; padding: 11px; }
   .instruction-card { font-size: 13px; padding: 13px; line-height: 1.55; }
   .checkbox-agree { font-size: 12px; line-height: 1.45; }
   .exam-header { padding: 9px 10px; gap: 8px; }
@@ -133,6 +150,9 @@ input { min-height: 44px; }
   .palette-grid { grid-template-columns: repeat(10, minmax(30px, 1fr)); gap: 5px; max-height: 130px; }
   .palette-btn { min-height: 34px; font-size: 11px; }
   .stat-row { flex-direction: column; }
+  .solution-card { padding: 12px; }
+  .solution-heading { font-size: 19px; }
+  .solution-card-top { align-items: flex-start; }
   .screen.active { min-height: 100dvh; }
 }
 @media (max-width: 380px) {
