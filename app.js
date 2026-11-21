@@ -536,7 +536,7 @@ function finalizeSubmission() {
 
   const totalMcqMarks = objectiveQuestions.reduce((sum, q) => sum + q.marks, 0);
   const unanswered = EXAM_QUESTIONS.length - attempted;
-  const percentage = totalMcqMarks ? ((mcqScore / totalMcqMarks) * 100).toFixed(1).replace(/\\.0$/, "") : "0";
+  const percentage = totalMcqMarks ? ((mcqScore / totalMcqMarks) * 100).toFixed(1).replace(/\.0$/, "") : "0";
 
   document.getElementById('statMcqScore').innerText = `${mcqScore} / ${totalMcqMarks}`;
   document.getElementById('statPercentage').innerText = `${percentage}%`;
