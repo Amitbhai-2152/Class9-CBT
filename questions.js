@@ -1,1514 +1,854 @@
-// JNVST Class 9 Mock Test 2027–28 — Hindi Medium
-// Complete 100-question diagnostic bank.
-// Answer options are balanced across A/B/C/D with no run longer than 2.
-// English and Hindi passage questions use separate passage blocks for clean rendering.
-
+// कक्षा 9 मॉडल प्रश्न बैंक: रामानुजन गणित (2026) और सी. वी. रमन विज्ञान (2027)।
+// प्रत्येक विषय का अलग पेपर: 25 प्रश्न, +4 सही, -1 गलत, 0 अनुत्तरित।
 const QUESTIONS = [
   {
     "id": 1,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "3/4 - 5/6 का मान क्या है?",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "moderate",
+    "question": "संख्या 72a5b, 5 और 9 दोनों से विभाजित होती है। ऐसे कितने अलग-अलग (a, b) के जोड़े संभव हैं?",
     "options": [
-      "-7/12",
-      "7/12",
-      "1/12",
-      "-1/12"
+      "1",
+      "2",
+      "3",
+      "4"
     ],
-    "correct": 3
+    "correct": 1,
+    "explanation": "5 से विभाज्यता के लिए अंतिम अंक b = 0 या 5 होगा। 9 से विभाज्यता के लिए अंकों का योग 14 + a + b, 9 का गुणज होना चाहिए। b = 0 होने पर a = 4; b = 5 होने पर a = 8। अतः (a,b) के दो जोड़े हैं: (4,0) और (8,5)।"
   },
   {
     "id": 2,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "moderate",
-    "question": "(-7/9) × (27/14) का मान है—",
+    "question": "निम्नलिखित का परिमेयकरण करने पर क्या प्राप्त होगा? 1/(√7 − √5)",
     "options": [
-      "7/6",
-      "-7/6",
-      "-3/2",
-      "3/2"
+      "(√7 + √5)/2",
+      "(√7 − √5)/2",
+      "(√7 + √5)/12",
+      "√7 + √5"
     ],
-    "correct": 2
+    "correct": 0,
+    "explanation": "हर के परिमेयकरण के लिए अंश और हर को संयुग्मी (√7 + √5) से गुणा करें। प्राप्त हर (√7)² − (√5)² = 7 − 5 = 2 होगा। इसलिए उत्तर (√7 + √5)/2 है।"
   },
   {
     "id": 3,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "-5/8 का गुणनात्मक प्रतिलोम क्या है?",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "challenging",
+    "question": "7²⁰²⁶ के इकाई अंक का मान क्या होगा?",
     "options": [
-      "-5/8",
-      "8/5",
-      "-8/5",
-      "5/8"
+      "1",
+      "3",
+      "7",
+      "9"
     ],
-    "correct": 2
+    "correct": 3,
+    "explanation": "7 की घातों के इकाई अंक क्रमशः 7, 9, 3, 1 और फिर यही क्रम दोहराते हैं। यह क्रम 4 घातों के बाद दोहरता है। 2026 को 4 से भाग देने पर शेष 2 आता है, इसलिए इकाई अंक दूसरे स्थान वाला 9 होगा।"
   },
   {
     "id": 4,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "easy",
-    "question": "35 का वर्ग क्या है?",
+    "question": "एक समकोण त्रिभुज की दो लम्बवत भुजाएँ 9 cm और 12 cm हैं। इसका क्षेत्रफल कितना होगा?",
     "options": [
-      "1225",
-      "1250",
-      "1125",
-      "1325"
+      "42 cm²",
+      "48 cm²",
+      "54 cm²",
+      "60 cm²"
     ],
-    "correct": 0
+    "correct": 2,
+    "explanation": "समकोण त्रिभुज का क्षेत्रफल = ½ × आधार × ऊँचाई। यहाँ दोनों लम्बवत भुजाएँ आधार और ऊँचाई हैं। क्षेत्रफल = ½ × 9 × 12 = 54 cm²।"
   },
   {
     "id": 5,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "easy",
-    "question": "√1764 का मान है—",
+    "question": "यदि P(x) = x² − 4x + k और P(2) = 0, तो k का मान क्या होगा?",
     "options": [
-      "40",
-      "38",
-      "44",
-      "42"
+      "2",
+      "4",
+      "6",
+      "8"
     ],
-    "correct": 3
+    "correct": 1,
+    "explanation": "P(2) = 0 में x = 2 रखें: 2² − 4(2) + k = 0। इससे 4 − 8 + k = 0, अतः k = 4।"
   },
   {
     "id": 6,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "moderate",
-    "question": "√0.0081 का मान क्या है?",
+    "question": "यदि a + b = 9 और a − b = 5, तो (a + b)² − (a − b)² का मान क्या होगा?",
     "options": [
-      "0.0009",
-      "0.9",
-      "0.09",
-      "0.009"
+      "28",
+      "36",
+      "56",
+      "72"
     ],
-    "correct": 2
+    "correct": 2,
+    "explanation": "दिए गए मान सीधे रखें: (a+b)² − (a−b)² = 9² − 5² = 81 − 25 = 56।"
   },
   {
     "id": 7,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "12³ का मान है—",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "moderate",
+    "question": "यदि x + y = 8 और x − y = 2, तो xy का मान क्या होगा?",
     "options": [
-      "1728",
-      "144",
-      "1331",
-      "432"
+      "12",
+      "15",
+      "18",
+      "20"
     ],
-    "correct": 0
+    "correct": 1,
+    "explanation": "दोनों समीकरण जोड़ने पर 2x = 10, इसलिए x = 5। अब x + y = 8 से y = 3। अतः xy = 5 × 3 = 15।"
   },
   {
     "id": 8,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "moderate",
-    "question": "∛3375 का मान है—",
+    "question": "बिंदु A(−1, 2) और B(5, 10) के बीच की दूरी कितनी है?",
     "options": [
-      "12",
-      "15",
-      "25",
-      "18"
+      "8",
+      "9",
+      "10",
+      "12"
     ],
-    "correct": 1
+    "correct": 2,
+    "explanation": "दूरी = √[(x₂−x₁)² + (y₂−y₁)²] = √[(5+1)² + (10−2)²] = √(36+64) = √100 = 10 इकाई।"
   },
   {
     "id": 9,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "easy",
-    "question": "(-2)⁵ का मान क्या है?",
+    "question": "बिंदुओं (−2, 4) तथा (6, −2) का मध्यबिंदु क्या होगा?",
     "options": [
-      "16",
-      "-16",
-      "-32",
-      "32"
+      "(1, 2)",
+      "(2, 1)",
+      "(3, 1)",
+      "(4, 2)"
     ],
-    "correct": 2
+    "correct": 1,
+    "explanation": "मध्यबिंदु = ((x₁+x₂)/2, (y₁+y₂)/2)। इसलिए x-निर्देशांक = (−2+6)/2 = 2 तथा y-निर्देशांक = (4−2)/2 = 1। उत्तर (2,1) है।"
   },
   {
     "id": 10,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "2³ × 2⁴ का मान है—",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "moderate",
+    "question": "एक त्रिभुज के शीर्ष (0,0), (6,0) और (2,4) हैं। इसका क्षेत्रफल कितना होगा?",
     "options": [
-      "256",
-      "128",
-      "32",
-      "64"
+      "10 वर्ग इकाई",
+      "12 वर्ग इकाई",
+      "14 वर्ग इकाई",
+      "16 वर्ग इकाई"
     ],
-    "correct": 1
+    "correct": 1,
+    "explanation": "(0,0) और (6,0) x-अक्ष पर हैं, इसलिए आधार 6 इकाई है। तीसरे शीर्ष की y-निर्देशांक 4 है, इसलिए ऊँचाई 4 इकाई है। क्षेत्रफल = ½ × 6 × 4 = 12 वर्ग इकाई।"
   },
   {
     "id": 11,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "3⁻² का मान है—",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "easy",
+    "question": "दो समानांतर रेखाओं को एक तिर्यक रेखा काटती है। यदि एक संगत कोण 110° है, तो दूसरा संगत कोण कितना होगा?",
     "options": [
-      "-1/9",
-      "-9",
-      "9",
-      "1/9"
+      "70°",
+      "90°",
+      "110°",
+      "180°"
     ],
-    "correct": 3
+    "correct": 2,
+    "explanation": "समानांतर रेखाओं को तिर्यक रेखा काटने पर संगत कोण बराबर होते हैं। इसलिए दूसरा संगत कोण भी 110° होगा।"
   },
   {
     "id": 12,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "easy",
-    "question": "5 कॉपियों की कीमत ₹60 है। समान दर पर 8 कॉपियों की कीमत कितनी होगी?",
+    "question": "दो त्रिभुजों की सर्वांगसमता के लिए कौन-सी शर्त SSS कहलाती है?",
     "options": [
-      "₹100",
-      "₹84",
-      "₹96",
-      "₹90"
+      "दो कोण और एक भुजा बराबर",
+      "दो भुजाएँ और बीच का कोण बराबर",
+      "तीनों संगत भुजाएँ बराबर",
+      "कर्ण और एक भुजा बराबर"
     ],
-    "correct": 2
+    "correct": 2,
+    "explanation": "SSS का पूरा नाम Side-Side-Side है। यदि दो त्रिभुजों की तीनों संगत भुजाएँ बराबर हों, तो वे SSS नियम से सर्वांगसम होते हैं।"
   },
   {
     "id": 13,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "12 मजदूर किसी काम को 15 दिनों में पूरा करते हैं। उसी काम को 20 मजदूर कितने दिनों में पूरा करेंगे?",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "challenging",
+    "question": "दो समरूप त्रिभुजों की संगत भुजाओं का अनुपात 3 : 5 है। यदि छोटे त्रिभुज का क्षेत्रफल 27 cm² है, तो बड़े त्रिभुज का क्षेत्रफल क्या होगा?",
     "options": [
-      "9 दिन",
-      "10 दिन",
-      "8 दिन",
-      "12 दिन"
+      "45 cm²",
+      "60 cm²",
+      "75 cm²",
+      "90 cm²"
     ],
-    "correct": 0
+    "correct": 2,
+    "explanation": "समरूप त्रिभुजों के क्षेत्रफलों का अनुपात संगत भुजाओं के अनुपात के वर्ग के बराबर होता है। इसलिए क्षेत्रफल अनुपात = 3²:5² = 9:25। बड़ा क्षेत्रफल = 27 × 25/9 = 75 cm²।"
   },
   {
     "id": 14,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "240 का 25% कितना है?",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "moderate",
+    "question": "ABCD एक चक्रीय चतुर्भुज है। यदि ∠A = 78°, तो ∠C कितना होगा?",
     "options": [
-      "65",
-      "55",
-      "60",
-      "50"
+      "78°",
+      "92°",
+      "102°",
+      "108°"
     ],
-    "correct": 2
+    "correct": 2,
+    "explanation": "चक्रीय चतुर्भुज के सम्मुख कोणों का योग 180° होता है। इसलिए ∠C = 180° − 78° = 102°।"
   },
   {
     "id": 15,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "किसी वस्तु का क्रय मूल्य ₹800 और विक्रय मूल्य ₹920 है। लाभ प्रतिशत कितना है?",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "challenging",
+    "question": "एक त्रिभुज की भुजाएँ 13 cm, 14 cm और 15 cm हैं। हीरोन सूत्र से इसका क्षेत्रफल ज्ञात कीजिए।",
     "options": [
-      "20%",
-      "15%",
-      "10%",
-      "12%"
+      "72 cm²",
+      "78 cm²",
+      "84 cm²",
+      "90 cm²"
     ],
-    "correct": 1
+    "correct": 2,
+    "explanation": "अर्द्धपरिमाप s = (13+14+15)/2 = 21 cm। हीरोन सूत्र से क्षेत्रफल = √[s(s−a)(s−b)(s−c)] = √[21×8×7×6] = √7056 = 84 cm²।"
   },
   {
     "id": 16,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "किसी वस्तु का अंकित मूल्य ₹1500 है और उस पर 12% की छूट दी गई। विक्रय मूल्य क्या होगा?",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "easy",
+    "question": "एक समांतर चतुर्भुज का आधार 15 cm और संगत ऊँचाई 8 cm है। इसका क्षेत्रफल कितना होगा?",
     "options": [
-      "₹1350",
-      "₹1380",
-      "₹1280",
-      "₹1320"
+      "100 cm²",
+      "110 cm²",
+      "120 cm²",
+      "130 cm²"
     ],
-    "correct": 3
+    "correct": 2,
+    "explanation": "समांतर चतुर्भुज का क्षेत्रफल = आधार × संगत ऊँचाई = 15 × 8 = 120 cm²।"
   },
   {
     "id": 17,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "₹5000 पर 8% वार्षिक दर से 2 वर्षों का साधारण ब्याज कितना होगा?",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "moderate",
+    "question": "एक शंकु की त्रिज्या 3 cm तथा ऊँचाई 7 cm है। इसका आयतन ज्ञात कीजिए।",
     "options": [
-      "₹800",
-      "₹1000",
-      "₹600",
-      "₹400"
+      "7π cm³",
+      "14π cm³",
+      "21π cm³",
+      "28π cm³"
     ],
-    "correct": 0
+    "correct": 2,
+    "explanation": "शंकु का आयतन V = ⅓πr²h। r = 3 और h = 7 रखने पर V = ⅓ × π × 9 × 7 = 21π cm³।"
   },
   {
     "id": 18,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "moderate",
-    "question": "₹10,000 पर 10% वार्षिक चक्रवृद्धि ब्याज की दर से 2 वर्षों में चक्रवृद्धि ब्याज कितना होगा?",
+    "question": "7 cm त्रिज्या वाले गोले का संपूर्ण पृष्ठीय क्षेत्रफल कितना होगा?",
     "options": [
-      "₹2000",
-      "₹2100",
-      "₹2200",
-      "₹2500"
+      "49π cm²",
+      "98π cm²",
+      "154π cm²",
+      "196π cm²"
     ],
-    "correct": 1
+    "correct": 3,
+    "explanation": "गोले का संपूर्ण पृष्ठीय क्षेत्रफल = 4πr²। r = 7 रखने पर 4 × π × 7² = 196π cm²।"
   },
   {
     "id": 19,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "easy",
-    "question": "3x + 5x - 2 का सरल रूप है—",
+    "question": "पाँच संख्याओं 6, 8, 10, 12 और x का माध्य 10 है। x का मान ज्ञात कीजिए।",
     "options": [
-      "8x - 2",
-      "8x",
-      "8x + 2",
-      "2x - 8"
+      "12",
+      "13",
+      "14",
+      "15"
     ],
-    "correct": 0
+    "correct": 2,
+    "explanation": "माध्य = कुल योग/संख्याओं की संख्या। 10 = (6+8+10+12+x)/5। इसलिए 50 = 36+x और x = 14।"
   },
   {
     "id": 20,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "easy",
-    "question": "(a + b)² बराबर है—",
+    "question": "निम्नलिखित आँकड़ों 4, 6, 8, 10, 12, 14 की माध्यिका (Median) क्या होगी?",
     "options": [
-      "a² + b²",
-      "a² + 2ab + b²",
-      "a² + ab + b²",
-      "a² - ab + b²"
+      "7",
+      "8",
+      "9",
+      "10"
     ],
-    "correct": 1
+    "correct": 2,
+    "explanation": "कुल 6 पद हैं, इसलिए माध्यिका बीच के दो पदों का औसत होगी। तीसरा पद 8 और चौथा पद 10 है। माध्यिका = (8+10)/2 = 9।"
   },
   {
     "id": 21,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "moderate",
-    "question": "x² - 9 का गुणनखंड है—",
+    "question": "एक निष्पक्ष पासे को फेंकने पर 3 या 5 से विभाजित होने वाली संख्या आने की प्रायिकता क्या होगी?",
     "options": [
-      "(x - 9)(x + 1)",
-      "(x - 9)(x + 9)",
-      "(x - 1)(x + 9)",
-      "(x - 3)(x + 3)"
+      "1/6",
+      "1/3",
+      "1/2",
+      "2/3"
     ],
-    "correct": 3
+    "correct": 2,
+    "explanation": "पासे के संभावित परिणाम 1,2,3,4,5,6 हैं। 3 या 5 से विभाजित संख्याएँ 3, 5 और 6 हैं। अनुकूल परिणाम 3 तथा कुल परिणाम 6 हैं। प्रायिकता = 3/6 = 1/2।"
   },
   {
     "id": 22,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "6x + 12 का गुणनखंड रूप है—",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "challenging",
+    "question": "यदि tan θ = 5/12 तथा θ एक न्यून कोण है, तो cos θ का मान क्या होगा?",
     "options": [
-      "6(x - 2)",
-      "6(x + 2)",
-      "3(x + 3)",
-      "12(x + 6)"
+      "5/13",
+      "12/13",
+      "5/12",
+      "13/12"
     ],
-    "correct": 1
+    "correct": 1,
+    "explanation": "tan θ = लंब/आधार = 5/12। अतः समकोण त्रिभुज में लंब 5 और आधार 12 मान सकते हैं। पाइथागोरस प्रमेय से कर्ण = √(25+144) = 13। cos θ = आधार/कर्ण = 12/13।"
   },
   {
     "id": 23,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "3x + 7 = 25 में x का मान क्या है?",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "moderate",
+    "question": "log₃ 81 का मान ज्ञात कीजिए।",
     "options": [
-      "8",
-      "6",
-      "7",
+      "2",
+      "3",
+      "4",
       "5"
     ],
-    "correct": 1
+    "correct": 2,
+    "explanation": "यदि log₃ 81 = x, तो परिभाषा के अनुसार 3ˣ = 81। चूँकि 3⁴ = 81, इसलिए x = 4।"
   },
   {
     "id": 24,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "5(x - 2) = 3x + 14 में x का मान है—",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "challenging",
+    "question": "विल्सन प्रमेय के अनुसार 10! को 11 से भाग देने पर शेषफल क्या होगा?",
     "options": [
-      "11",
-      "13",
-      "12",
-      "10"
+      "1",
+      "5",
+      "10",
+      "11"
     ],
-    "correct": 2
+    "correct": 2,
+    "explanation": "विल्सन प्रमेय कहता है कि अभाज्य संख्या p के लिए (p−1)! को p से भाग देने पर शेषफल p−1 होता है। यहाँ p = 11 है, इसलिए 10! को 11 से भाग देने पर शेषफल 10 होगा।"
   },
   {
     "id": 25,
     "subject": "गणित",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "moderate",
-    "question": "2x/3 = 10 में x का मान है—",
+    "question": "एक सम नियमित दशभुज (Regular Decagon) के सभी अंतःकोणों का योग कितना होगा?",
     "options": [
-      "15",
-      "18",
-      "20",
-      "12"
-    ],
-    "correct": 0
-  },
-  {
-    "id": 26,
-    "subject": "गणित",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "एक समांतर चतुर्भुज का एक कोण 110° है। उसके आसन्न कोण का माप होगा—",
-    "options": [
-      "110°",
-      "70°",
-      "60°",
-      "80°"
-    ],
-    "correct": 1
-  },
-  {
-    "id": 27,
-    "subject": "गणित",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "एक चतुर्भुज के तीन कोण 80°, 90° और 100° हैं। चौथे कोण का माप कितना है?",
-    "options": [
-      "80°",
-      "100°",
-      "90°",
-      "110°"
-    ],
-    "correct": 2
-  },
-  {
-    "id": 28,
-    "subject": "गणित",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "समांतर चतुर्भुज की कौन-सी बात सदैव सत्य है?",
-    "options": [
-      "विकर्ण सदैव लंबवत होते हैं",
-      "सभी भुजाएँ बराबर होती हैं",
-      "विपरीत भुजाएँ बराबर और समांतर होती हैं",
-      "सभी कोण 90° होते हैं"
-    ],
-    "correct": 2
-  },
-  {
-    "id": 29,
-    "subject": "गणित",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "एक समलंब चतुर्भुज की समानांतर भुजाएँ 10 सेमी और 16 सेमी हैं तथा ऊँचाई 7 सेमी है। उसका क्षेत्रफल कितना होगा?",
-    "options": [
-      "91 सेमी²",
-      "84 सेमी²",
-      "105 सेमी²",
-      "98 सेमी²"
-    ],
-    "correct": 0
-  },
-  {
-    "id": 30,
-    "subject": "गणित",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "एक घनाभ की लंबाई 12 सेमी, चौड़ाई 5 सेमी और ऊँचाई 4 सेमी है। उसका आयतन कितना है?",
-    "options": [
-      "220 सेमी³",
-      "240 सेमी³",
-      "200 सेमी³",
-      "260 सेमी³"
-    ],
-    "correct": 1
-  },
-  {
-    "id": 31,
-    "subject": "गणित",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "6 सेमी भुजा वाले घन का सम्पूर्ण पृष्ठीय क्षेत्रफल कितना होगा?",
-    "options": [
-      "180 सेमी²",
-      "144 सेमी²",
-      "256 सेमी²",
-      "216 सेमी²"
-    ],
-    "correct": 3
-  },
-  {
-    "id": 32,
-    "subject": "गणित",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "challenging",
-    "question": "एक बेलन की त्रिज्या 7 सेमी और ऊँचाई 10 सेमी है। π = 22/7 लेने पर उसका आयतन कितना होगा?",
-    "options": [
-      "3080 सेमी³",
-      "770 सेमी³",
-      "440 सेमी³",
-      "1540 सेमी³"
-    ],
-    "correct": 3
-  },
-  {
-    "id": 33,
-    "subject": "गणित",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "किसी कक्षा में चार दिनों में उपस्थित विद्यार्थियों की संख्या क्रमशः 20, 25, 30 और 35 थी। इन चार दिनों का औसत उपस्थित विद्यार्थियों की संख्या कितनी है?",
-    "options": [
-      "26.5",
-      "27.5",
-      "30",
-      "25"
-    ],
-    "correct": 1
-  },
-  {
-    "id": 34,
-    "subject": "गणित",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "किसी वृत्त-चित्र (Pie Chart) में किसी भाग का कोण 90° है। वह पूरे आँकड़े का कितने प्रतिशत दर्शाता है?",
-    "options": [
-      "30%",
-      "20%",
-      "25%",
-      "40%"
-    ],
-    "correct": 2
-  },
-  {
-    "id": 35,
-    "subject": "गणित",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "एक थैले में 5 लाल और 3 नीली गेंदें हैं। बिना देखे एक गेंद निकाली जाती है। नीली गेंद निकलने की प्रायिकता क्या है?",
-    "options": [
-      "3/8",
-      "5/8",
-      "1/3",
-      "3/5"
-    ],
-    "correct": 0
-  },
-  {
-    "id": 36,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "निम्नलिखित में से कौन-सी फसल सामान्यतः खरीफ फसल है?",
-    "options": [
-      "गेहूँ",
-      "धान",
-      "सरसों",
-      "चना"
-    ],
-    "correct": 1
-  },
-  {
-    "id": 37,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "मिट्टी को पलटने और ढीला करने के लिए किस कृषि उपकरण का उपयोग किया जाता है?",
-    "options": [
-      "खुरपी",
-      "थ्रेशर",
-      "दरांती",
-      "हल"
-    ],
-    "correct": 3
-  },
-  {
-    "id": 38,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "वायुमंडलीय नाइट्रोजन को पौधों के लिए उपयोगी रूप में बदलने में कौन-सा जीवाणु सहायक है?",
-    "options": [
-      "राइजोबियम",
-      "यीस्ट",
-      "पेनिसिलियम",
-      "लैक्टोबैसिलस"
-    ],
-    "correct": 0
-  },
-  {
-    "id": 39,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "दूध से दही बनाने में कौन-सा सूक्ष्मजीव मुख्य रूप से सहायक होता है?",
-    "options": [
-      "यीस्ट",
-      "राइजोबियम",
-      "प्लाज्मोडियम",
-      "लैक्टोबैसिलस"
-    ],
-    "correct": 3
-  },
-  {
-    "id": 40,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "लकड़ी के गूदे से बनाए जाने वाले कृत्रिम रेशे को क्या कहते हैं?",
-    "options": [
-      "रेयॉन",
-      "नायलॉन",
-      "ऐक्रिलिक",
-      "पॉलिएस्टर"
-    ],
-    "correct": 0
-  },
-  {
-    "id": 41,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "निम्नलिखित में से कौन-सा थर्मोसेटिंग प्लास्टिक है?",
-    "options": [
-      "पॉलिप्रोपिलीन",
-      "PVC",
-      "बेकेलाइट",
-      "पॉलीथीन"
-    ],
-    "correct": 2
-  },
-  {
-    "id": 42,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "निम्नलिखित में से कौन-सी धातु विद्युत की अच्छी चालक है?",
-    "options": [
-      "गंधक",
-      "फॉस्फोरस",
-      "कार्बन",
-      "तांबा"
-    ],
-    "correct": 3
-  },
-  {
-    "id": 43,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "कोयला और पेट्रोलियम किस प्रकार के ईंधन हैं?",
-    "options": [
-      "सौर ईंधन",
-      "कृत्रिम ईंधन",
-      "जीवाश्म ईंधन",
-      "जैव ईंधन"
-    ],
-    "correct": 2
-  },
-  {
-    "id": 44,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "वह न्यूनतम तापमान जिस पर कोई पदार्थ आग पकड़ लेता है, कहलाता है—",
-    "options": [
-      "प्रज्वलन तापमान",
-      "उबलने का तापमान",
-      "गलनांक",
-      "कमरे का तापमान"
-    ],
-    "correct": 0
-  },
-  {
-    "id": 45,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "वन्यजीव अभयारण्य का मुख्य उद्देश्य क्या है?",
-    "options": [
-      "केवल लकड़ी प्राप्त करना",
-      "शहर बसाना",
-      "खेती बढ़ाना",
-      "वन्य जीवों की सुरक्षा करना"
-    ],
-    "correct": 3
-  },
-  {
-    "id": 46,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "वनों की कटाई से निम्नलिखित में से कौन-सी समस्या बढ़ सकती है?",
-    "options": [
-      "जैव विविधता में वृद्धि",
-      "मृदा अपरदन",
-      "वर्षा जल का संचयन",
-      "मिट्टी की उर्वरता में हमेशा वृद्धि"
-    ],
-    "correct": 1
-  },
-  {
-    "id": 47,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "नर और मादा युग्मकों के संलयन की प्रक्रिया को क्या कहते हैं?",
-    "options": [
-      "परागण",
-      "द्विखंडन",
-      "निषेचन",
-      "अंकुरण"
-    ],
-    "correct": 2
-  },
-  {
-    "id": 48,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "किशोरावस्था सामान्यतः किस आयु अवधि को कहा जाता है?",
-    "options": [
-      "1 से 5 वर्ष",
-      "6 से 10 वर्ष",
-      "20 से 30 वर्ष",
-      "11 से 19 वर्ष"
-    ],
-    "correct": 3
-  },
-  {
-    "id": 49,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "यीस्ट में अलैंगिक जनन सामान्यतः किस विधि से होता है?",
-    "options": [
-      "कलिकाजनन",
-      "परागण",
-      "बीजाणु निर्माण",
-      "खंडन"
-    ],
-    "correct": 0
-  },
-  {
-    "id": 50,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "मलेरिया रोग किस सूक्ष्मजीव के कारण होता है?",
-    "options": [
-      "प्लाज्मोडियम नामक प्रोटोजोआ",
-      "बैक्टीरिया",
-      "कवक",
-      "विषाणु"
-    ],
-    "correct": 0
-  },
-  {
-    "id": 51,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "दाब (Pressure) किसके बराबर होता है?",
-    "options": [
-      "क्षेत्रफल ÷ बल",
-      "बल × क्षेत्रफल",
-      "बल ÷ क्षेत्रफल",
-      "बल + क्षेत्रफल"
-    ],
-    "correct": 2
-  },
-  {
-    "id": 52,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "हम बिना फिसले जमीन पर चल पाते हैं। इसमें मुख्य रूप से किसका योगदान है?",
-    "options": [
-      "घर्षण",
-      "गुरुत्वाकर्षण की अनुपस्थिति",
-      "ध्वनि",
-      "चुंबकत्व"
-    ],
-    "correct": 0
-  },
-  {
-    "id": 53,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "ध्वनि उत्पन्न होने का मूल कारण क्या है?",
-    "options": [
-      "दाब का अभाव",
-      "प्रकाश",
-      "ऊष्मा",
-      "कंपन"
-    ],
-    "correct": 3
-  },
-  {
-    "id": 54,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "ध्वनि का तारत्व (Pitch) मुख्य रूप से किस पर निर्भर करता है?",
-    "options": [
-      "माध्यम के रंग",
-      "आवृत्ति",
-      "ध्वनि की चाल",
-      "आयाम"
-    ],
-    "correct": 1
-  },
-  {
-    "id": 55,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "किसी धातु की वस्तु पर दूसरी धातु की पतली परत चढ़ाने की प्रक्रिया कहलाती है—",
-    "options": [
-      "वाष्पीकरण",
-      "आसवन",
-      "विद्युतलेपन (Electroplating)",
-      "विद्युत अपघटन"
-    ],
-    "correct": 2
-  },
-  {
-    "id": 56,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "आकाश में बिजली चमकने के समय खुले मैदान में होने पर सबसे सुरक्षित व्यवहार क्या है?",
-    "options": [
-      "धातु की वस्तु पकड़ना",
-      "नीचे झुककर शरीर को जितना संभव हो छोटा रखना",
-      "पेड़ के नीचे खड़ा होना",
-      "जमीन पर सीधा लेट जाना"
-    ],
-    "correct": 1
-  },
-  {
-    "id": 57,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "परावर्तन के नियम के अनुसार आपतन कोण और परावर्तन कोण में क्या संबंध है?",
-    "options": [
-      "आपतन कोण परावर्तन कोण के बराबर होता है",
-      "आपतन कोण दोगुना होता है",
-      "दोनों हमेशा अलग होते हैं",
-      "परावर्तन कोण शून्य होता है"
-    ],
-    "correct": 0
-  },
-  {
-    "id": 58,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "प्रिज्म से गुजरते समय श्वेत प्रकाश का कई रंगों में विभाजित होना कहलाता है—",
-    "options": [
-      "विसरण (Dispersion)",
-      "चालन",
-      "वाष्पीकरण",
-      "परावर्तन"
-    ],
-    "correct": 0
-  },
-  {
-    "id": 59,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "मानव शरीर में निषेचन के बाद भ्रूण का विकास मुख्य रूप से किस अंग में होता है?",
-    "options": [
-      "गुर्दा",
-      "हृदय",
-      "गर्भाशय",
-      "फेफड़ा"
-    ],
-    "correct": 2
-  },
-  {
-    "id": 60,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "किसी वस्तु पर लगाया गया बल उसकी गति के साथ-साथ उसके आकार में भी क्या कर सकता है?",
-    "options": [
-      "परिवर्तन कर सकता है",
-      "केवल रंग बदल सकता है",
-      "हमेशा तापमान घटा सकता है",
-      "कुछ नहीं कर सकता"
-    ],
-    "correct": 0
-  },
-  {
-    "id": 61,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "किसी द्रव द्वारा लगाया गया दाब गहराई बढ़ने पर सामान्यतः क्या होता है?",
-    "options": [
-      "बढ़ता है",
-      "बदलता नहीं है",
-      "घटता है",
-      "हमेशा शून्य हो जाता है"
-    ],
-    "correct": 0
-  },
-  {
-    "id": 62,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "गर्मियों में मिट्टी के घड़े का पानी ठंडा क्यों रहता है?",
-    "options": [
-      "घड़े में प्रकाश नहीं पहुँचता",
-      "घड़े की सतह से पानी का वाष्पीकरण ऊष्मा ले जाता है",
-      "पानी जम जाता है",
-      "घड़ा पानी को गर्म करता है"
-    ],
-    "correct": 1
-  },
-  {
-    "id": 63,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "दलहनी फसल को फसल चक्र में शामिल करने से मिट्टी की उर्वरता बनाए रखने में क्यों मदद मिलती है?",
-    "options": [
-      "वे मिट्टी को पूरी तरह सूखा देती हैं",
-      "वे सूर्य के प्रकाश को रोकती हैं",
-      "वे मिट्टी से सारा नाइट्रोजन निकाल लेती हैं",
-      "उनकी जड़ों में राइजोबियम नाइट्रोजन स्थिरीकरण में मदद करता है"
-    ],
-    "correct": 3
-  },
-  {
-    "id": 64,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "एक किसान बहुत अधिक रासायनिक उर्वरक के बजाय जैविक खाद का प्रयोग करता है। खाद का एक प्रमुख लाभ क्या है?",
-    "options": [
-      "यह पौधों को प्रकाश से मुक्त कर देती है",
-      "यह तुरंत सभी कीटों को समाप्त कर देती है",
-      "यह मिट्टी को हमेशा अम्लीय बना देती है",
-      "यह मिट्टी में ह्यूमस बढ़ाकर उसकी जलधारण क्षमता सुधार सकती है"
-    ],
-    "correct": 3
-  },
-  {
-    "id": 65,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "पेनिसिलिन जैसे कुछ एंटीबायोटिक किस प्रकार के सूक्ष्मजीव से प्राप्त किए जाते हैं?",
-    "options": [
-      "कुछ कवक",
-      "केवल शैवाल",
-      "केवल प्रोटोजोआ",
-      "केवल कीट"
-    ],
-    "correct": 0
-  },
-  {
-    "id": 66,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "challenging",
-    "question": "सोडियम जैसी अत्यधिक क्रियाशील धातु को मिट्टी के तेल (केरोसिन) में क्यों रखा जाता है?",
-    "options": [
-      "उसकी विद्युत चालकता बढ़ाने के लिए",
-      "उसका रंग बदलने के लिए",
-      "हवा और नमी के साथ तीव्र अभिक्रिया से बचाने के लिए",
-      "उसे ठंडा रखने के लिए"
-    ],
-    "correct": 2
-  },
-  {
-    "id": 67,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "तेल की आग पर पानी डालना खतरनाक हो सकता है। ऐसी आग को बुझाने में रेत या उपयुक्त अग्निशामक क्यों अधिक उपयोगी है?",
-    "options": [
-      "वे तेल का तापमान बढ़ाते हैं",
-      "वे आग को अधिक ऑक्सीजन देते हैं",
-      "वे आग और वायु के संपर्क को कम करते हैं",
-      "वे तेल को अधिक ज्वलनशील बनाते हैं"
-    ],
-    "correct": 2
-  },
-  {
-    "id": 68,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "लुप्तप्राय और संकटग्रस्त प्रजातियों के बारे में जानकारी दर्ज करने वाली पुस्तक को क्या कहा जाता है?",
-    "options": [
-      "ब्लू बुक",
-      "व्हाइट बुक",
-      "ग्रीन बुक",
-      "रेड डेटा बुक"
-    ],
-    "correct": 3
-  },
-  {
-    "id": 69,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "प्लेसेंटा (अपरा) का प्रमुख कार्य क्या है?",
-    "options": [
-      "भ्रूण के बालों का रंग बदलना",
-      "माँ से भ्रूण तक पोषक तत्व और ऑक्सीजन पहुँचाने तथा अपशिष्ट हटाने में सहायता करना",
-      "केवल भ्रूण को गति देना",
-      "केवल रक्त को जमाना"
-    ],
-    "correct": 1
-  },
-  {
-    "id": 70,
-    "subject": "सामान्य विज्ञान",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "आकाश में बिजली चमकने के कुछ समय बाद गरज सुनाई देती है। इसका मुख्य कारण क्या है?",
-    "options": [
-      "ध्वनि हवा में नहीं चलती",
-      "बिजली केवल रात में बनती है",
-      "ध्वनि प्रकाश से तेज चलती है",
-      "प्रकाश ध्वनि की तुलना में बहुत तेज चलता है"
-    ],
-    "correct": 3
-  },
-  {
-    "id": 71,
-    "subject": "English",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "Why does Riya visit the school library?",
-    "options": [
-      "To complete a science experiment",
-      "To meet her friends",
-      "To borrow a storybook",
-      "To play games"
+      "1260°",
+      "1350°",
+      "1440°",
+      "1620°"
     ],
     "correct": 2,
-    "passage": "Riya enjoys reading books in her free time. She visits the school library every Friday and usually borrows one storybook. Reading has helped her learn many new words and ideas."
+    "explanation": "n भुजाओं वाले बहुभुज के अंतःकोणों का योग (n−2)×180° होता है। दशभुज में n = 10, इसलिए योग = (10−2)×180° = 1440°।"
   },
   {
-    "id": 72,
-    "subject": "English",
+    "id": 1,
+    "subject": "सामान्य विज्ञान",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "easy",
-    "question": "According to the passage, how has reading helped Riya?",
+    "question": "एक वस्तु 12 सेकंड में 180 मीटर की दूरी तय करती है। उसकी औसत चाल कितनी होगी?",
     "options": [
-      "It has taught her to play football",
-      "It has reduced her school time",
-      "It has made her sleep more",
-      "It has helped her learn new words and ideas"
-    ],
-    "correct": 3,
-    "passage": "Riya enjoys reading books in her free time. She visits the school library every Friday and usually borrows one storybook. Reading has helped her learn many new words and ideas."
-  },
-  {
-    "id": 73,
-    "subject": "English",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "Which statement is true?",
-    "options": [
-      "Riya visits the library every Monday",
-      "Riya usually borrows one storybook",
-      "Riya does not like reading",
-      "Riya borrows a newspaper every Friday"
-    ],
-    "correct": 1,
-    "passage": "Riya enjoys reading books in her free time. She visits the school library every Friday and usually borrows one storybook. Reading has helped her learn many new words and ideas."
-  },
-  {
-    "id": 74,
-    "subject": "English",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "Choose the best meaning of the word “usually”.",
-    "options": [
-      "Suddenly",
-      "Never",
-      "Rarely",
-      "Normally"
-    ],
-    "correct": 3,
-    "passage": "Riya enjoys reading books in her free time. She visits the school library every Friday and usually borrows one storybook. Reading has helped her learn many new words and ideas."
-  },
-  {
-    "id": 75,
-    "subject": "English",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "What is the main idea of the passage?",
-    "options": [
-      "Riya wants to become a teacher",
-      "Riya dislikes books",
-      "The school library is closed on Fridays",
-      "Reading is a useful habit for Riya"
-    ],
-    "correct": 3,
-    "passage": "Riya enjoys reading books in her free time. She visits the school library every Friday and usually borrows one storybook. Reading has helped her learn many new words and ideas."
-  },
-  {
-    "id": 76,
-    "subject": "English",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "Choose the correct option: She ___ to school every day.",
-    "options": [
-      "gone",
-      "goes",
-      "going",
-      "go"
-    ],
-    "correct": 1
-  },
-  {
-    "id": 77,
-    "subject": "English",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "Choose the correct sentence using a degree of comparison.",
-    "options": [
-      "Of the two brothers, Rohan is more tall.",
-      "Of the two brothers, Rohan is taller.",
-      "Of the two brothers, Rohan is tallest.",
-      "Of the two brothers, Rohan is most tall."
-    ],
-    "correct": 1
-  },
-  {
-    "id": 78,
-    "subject": "English",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "Choose the correct preposition: The book is ___ the table.",
-    "options": [
-      "at",
-      "in",
-      "on",
-      "by"
-    ],
-    "correct": 2
-  },
-  {
-    "id": 79,
-    "subject": "English",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "Choose the correct form: When I reached the station, the train ___.",
-    "options": [
-      "will leave",
-      "leaves",
-      "has left",
-      "had left"
-    ],
-    "correct": 3
-  },
-  {
-    "id": 80,
-    "subject": "English",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "Choose the correct passive voice of: “The teacher praised the student.”",
-    "options": [
-      "The student has praised the teacher.",
-      "The student praised by the teacher.",
-      "The student was praised by the teacher.",
-      "The student is praised by the teacher."
-    ],
-    "correct": 2
-  },
-  {
-    "id": 81,
-    "subject": "English",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "Choose the synonym of “brave”.",
-    "options": [
-      "Courageous",
-      "Cowardly",
-      "Quiet",
-      "Clever"
-    ],
-    "correct": 0
-  },
-  {
-    "id": 82,
-    "subject": "English",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "Choose the correctly spelt word.",
-    "options": [
-      "seperete",
-      "separate",
-      "seperate",
-      "seprate"
-    ],
-    "correct": 1
-  },
-  {
-    "id": 83,
-    "subject": "English",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "Choose the correct modal auxiliary: You ___ wear a helmet while riding a bicycle.",
-    "options": [
-      "might",
-      "would",
-      "could",
-      "must"
-    ],
-    "correct": 3
-  },
-  {
-    "id": 84,
-    "subject": "English",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "Choose the correctly arranged sentence.",
-    "options": [
-      "Always school I on time reach.",
-      "I always reach school on time.",
-      "I reach always on time school.",
-      "On school I always time reach."
-    ],
-    "correct": 1
-  },
-  {
-    "id": 85,
-    "subject": "English",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "challenging",
-    "question": "Choose the correct indirect speech: He said, “I am tired.”",
-    "options": [
-      "He said that he is tired.",
-      "He said that I am tired.",
-      "He said that he has tired.",
-      "He said that he was tired."
-    ],
-    "correct": 3
-  },
-  {
-    "id": 86,
-    "subject": "हिंदी",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "गद्यांश के अनुसार पेड़ हमें क्या देते हैं?",
-    "options": [
-      "केवल छाया",
-      "ऑक्सीजन, फल, छाया और लकड़ी",
-      "केवल फल",
-      "केवल लकड़ी"
-    ],
-    "correct": 1,
-    "passage": "पेड़ हमारे जीवन के लिए बहुत महत्वपूर्ण हैं। वे हमें ऑक्सीजन, फल, छाया और लकड़ी देते हैं। पेड़ मिट्टी के कटाव को रोकने में भी सहायता करते हैं। इसलिए हमें अधिक से अधिक पेड़ लगाकर उनकी रक्षा करनी चाहिए।"
-  },
-  {
-    "id": 87,
-    "subject": "हिंदी",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "उपरोक्त गद्यांश का मुख्य संदेश क्या है?",
-    "options": [
-      "पेड़ काटने चाहिए",
-      "पेड़ों की कोई आवश्यकता नहीं है",
-      "पेड़ों को लगाना और उनकी रक्षा करना चाहिए",
-      "केवल फल देने वाले पेड़ लगाने चाहिए"
+      "10 m/s",
+      "12 m/s",
+      "15 m/s",
+      "18 m/s"
     ],
     "correct": 2,
-    "passage": "पेड़ हमारे जीवन के लिए बहुत महत्वपूर्ण हैं। वे हमें ऑक्सीजन, फल, छाया और लकड़ी देते हैं। पेड़ मिट्टी के कटाव को रोकने में भी सहायता करते हैं। इसलिए हमें अधिक से अधिक पेड़ लगाकर उनकी रक्षा करनी चाहिए।"
+    "explanation": "औसत चाल = कुल दूरी/कुल समय = 180/12 = 15 m/s।"
   },
   {
-    "id": 88,
-    "subject": "हिंदी",
+    "id": 2,
+    "subject": "सामान्य विज्ञान",
     "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "‘प्रसन्न’ शब्द का विलोम क्या है?",
-    "options": [
-      "उदास",
-      "हर्षित",
-      "खुश",
-      "आनंदित"
-    ],
-    "correct": 0
-  },
-  {
-    "id": 89,
-    "subject": "हिंदी",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "‘सूर्य’ का पर्यायवाची शब्द कौन-सा है?",
-    "options": [
-      "रवि",
-      "पवन",
-      "जलद",
-      "धरती"
-    ],
-    "correct": 0
-  },
-  {
-    "id": 90,
-    "subject": "हिंदी",
-    "type": "mcq",
-    "marks": 1,
-    "difficulty": "easy",
-    "question": "निम्नलिखित में से शुद्ध वर्तनी वाला शब्द कौन-सा है?",
-    "options": [
-      "अवश्यक",
-      "आवश्यक",
-      "आवसयक",
-      "आवशयक"
-    ],
-    "correct": 1
-  },
-  {
-    "id": 91,
-    "subject": "हिंदी",
-    "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "moderate",
-    "question": "‘सुंदर फूल खिला है।’ इस वाक्य में ‘सुंदर’ कौन-सा शब्द-भेद है?",
+    "question": "एक वस्तु का वेग 3 सेकंड में 4 m/s से बढ़कर 16 m/s हो जाता है। उसका त्वरण कितना होगा?",
     "options": [
-      "विशेषण",
-      "सर्वनाम",
-      "क्रिया",
-      "संज्ञा"
+      "3 m/s²",
+      "4 m/s²",
+      "5 m/s²",
+      "6 m/s²"
     ],
-    "correct": 0
+    "correct": 1,
+    "explanation": "त्वरण a = (अंतिम वेग − प्रारंभिक वेग)/समय = (16−4)/3 = 4 m/s²।"
   },
   {
-    "id": 92,
-    "subject": "हिंदी",
+    "id": 3,
+    "subject": "सामान्य विज्ञान",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "easy",
+    "question": "5 kg द्रव्यमान वाली वस्तु में 2 m/s² का त्वरण उत्पन्न किया जाता है। उस पर लगने वाला परिणामी बल कितना होगा?",
+    "options": [
+      "5 N",
+      "7 N",
+      "10 N",
+      "12 N"
+    ],
+    "correct": 2,
+    "explanation": "न्यूटन के दूसरे नियम के अनुसार F = ma। F = 5 × 2 = 10 N।"
+  },
+  {
+    "id": 4,
+    "subject": "सामान्य विज्ञान",
+    "type": "mcq",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "moderate",
+    "question": "न्यूटन के गति के तीसरे नियम के अनुसार क्रिया और प्रतिक्रिया बल:",
+    "options": [
+      "एक ही वस्तु पर लगते हैं।",
+      "समान परिमाण के और विपरीत दिशा में होते हैं तथा अलग-अलग वस्तुओं पर लगते हैं।",
+      "हमेशा एक-दूसरे से अलग परिमाण के होते हैं।",
+      "केवल स्थिर वस्तुओं पर लगते हैं।"
+    ],
+    "correct": 1,
+    "explanation": "न्यूटन के तीसरे नियम के अनुसार प्रत्येक क्रिया के बराबर परिमाण का तथा विपरीत दिशा में प्रतिक्रिया बल होता है। क्रिया और प्रतिक्रिया अलग-अलग वस्तुओं पर लगते हैं, इसलिए वे एक ही वस्तु पर एक-दूसरे को निरस्त नहीं करते।"
+  },
+  {
+    "id": 5,
+    "subject": "सामान्य विज्ञान",
+    "type": "mcq",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "easy",
+    "question": "किसी वस्तु का पृथ्वी पर भार 60 N है। चंद्रमा पर उसका भार लगभग कितना होगा? (चंद्रमा पर गुरुत्वीय त्वरण पृथ्वी का 1/6 है।)",
+    "options": [
+      "5 N",
+      "10 N",
+      "30 N",
+      "60 N"
+    ],
+    "correct": 1,
+    "explanation": "चंद्रमा पर भार पृथ्वी के भार का लगभग 1/6 होता है। Wचंद्रमा = 60/6 = 10 N।"
+  },
+  {
+    "id": 6,
+    "subject": "सामान्य विज्ञान",
+    "type": "mcq",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "easy",
+    "question": "25 N का बल किसी वस्तु को बल की दिशा में 4 मीटर विस्थापित करता है। किया गया कार्य कितना होगा?",
+    "options": [
+      "25 J",
+      "50 J",
+      "100 J",
+      "200 J"
+    ],
+    "correct": 2,
+    "explanation": "जब बल और विस्थापन एक ही दिशा में हों, तो कार्य W = F×s = 25×4 = 100 J।"
+  },
+  {
+    "id": 7,
+    "subject": "सामान्य विज्ञान",
+    "type": "mcq",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "moderate",
+    "question": "2 kg द्रव्यमान की वस्तु 4 m/s के वेग से चल रही है। उसकी गतिज ऊर्जा कितनी होगी?",
+    "options": [
+      "8 J",
+      "12 J",
+      "16 J",
+      "32 J"
+    ],
+    "correct": 2,
+    "explanation": "गतिज ऊर्जा KE = ½mv² = ½×2×4² = 16 J।"
+  },
+  {
+    "id": 8,
+    "subject": "सामान्य विज्ञान",
+    "type": "mcq",
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "challenging",
-    "question": "‘राम ने आम खाया।’ वाक्य में ‘आम’ का पद-परिचय क्या है?",
+    "question": "ध्वनि की चाल वायु में 340 m/s है। किसी व्यक्ति को प्रतिध्वनि 1.5 सेकंड बाद सुनाई देती है। परावर्तक सतह की दूरी कितनी होगी?",
     "options": [
-      "विशेषण, पुल्लिंग, बहुवचन, करणकारक",
-      "संज्ञा, पुल्लिंग, एकवचन, कर्मकारक",
-      "सर्वनाम, स्त्रीलिंग, एकवचन, कर्ताकारक",
-      "क्रिया, पुल्लिंग, एकवचन, अधिकरणकारक"
+      "170 m",
+      "255 m",
+      "340 m",
+      "510 m"
     ],
-    "correct": 1
+    "correct": 1,
+    "explanation": "प्रतिध्वनि में ध्वनि परावर्तक सतह तक जाकर वापस आती है, इसलिए कुल दूरी 2d होती है। d = vt/2 = 340×1.5/2 = 255 m।"
   },
   {
-    "id": 93,
-    "subject": "हिंदी",
+    "id": 9,
+    "subject": "सामान्य विज्ञान",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "moderate",
-    "question": "‘राम ने आम खाया।’ वाक्य में ‘राम’ कौन-सा कारक है?",
+    "question": "वाष्पीकरण के दौरान ठंडक क्यों उत्पन्न होती है?",
     "options": [
-      "कर्ता कारक",
-      "कर्म कारक",
-      "अधिकरण कारक",
-      "करण कारक"
+      "जल के अणुओं की गति पूरी तरह रुक जाती है।",
+      "जल के सभी अणु समान ऊर्जा वाले हो जाते हैं।",
+      "अधिक गतिज ऊर्जा वाले अणु सतह से बाहर निकल जाते हैं।",
+      "वायुमंडल का तापमान हमेशा बढ़ जाता है।"
     ],
-    "correct": 0
+    "correct": 2,
+    "explanation": "वाष्पीकरण के दौरान अधिक गतिज ऊर्जा वाले अणु द्रव की सतह से बाहर निकल जाते हैं। शेष द्रव की औसत गतिज ऊर्जा घटती है, इसलिए उसका तापमान कम हो सकता है और ठंडक महसूस होती है।"
   },
   {
-    "id": 94,
-    "subject": "हिंदी",
+    "id": 10,
+    "subject": "सामान्य विज्ञान",
     "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "निम्नलिखित में से शुद्ध वाक्य कौन-सा है?",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "easy",
+    "question": "निम्नलिखित में से कौन एक शुद्ध यौगिक है?",
     "options": [
-      "मुझे हिंदी पढ़ना अच्छा लगती है।",
-      "मुझे हिंदी पढ़ना अच्छी लगता है।",
-      "मुझे हिंदी पढ़ना अच्छे लगता है।",
-      "मुझे हिंदी पढ़ना अच्छा लगता है।"
+      "वायु",
+      "दूध",
+      "कार्बन डाइऑक्साइड",
+      "पीतल"
     ],
-    "correct": 3
+    "correct": 2,
+    "explanation": "कार्बन डाइऑक्साइड (CO₂) में कार्बन और ऑक्सीजन निश्चित अनुपात में रासायनिक रूप से जुड़े होते हैं, इसलिए यह यौगिक है। वायु, दूध और पीतल मिश्रण हैं।"
   },
   {
-    "id": 95,
-    "subject": "हिंदी",
+    "id": 11,
+    "subject": "सामान्य विज्ञान",
     "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "‘आँखों का तारा’ मुहावरे का सही अर्थ क्या है?",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "easy",
+    "question": "36 ग्राम पानी में कितने मोल पानी उपस्थित होंगे? (पानी का मोलर द्रव्यमान = 18 g/mol)",
     "options": [
-      "बहुत कमजोर व्यक्ति",
-      "बहुत प्रिय व्यक्ति",
-      "बहुत दूर की वस्तु",
-      "बहुत क्रोधित व्यक्ति"
+      "0.5 mol",
+      "1 mol",
+      "2 mol",
+      "4 mol"
     ],
-    "correct": 1
+    "correct": 2,
+    "explanation": "मोल की संख्या = दिया गया द्रव्यमान/मोलर द्रव्यमान = 36/18 = 2 mol।"
   },
   {
-    "id": 96,
-    "subject": "हिंदी",
+    "id": 12,
+    "subject": "सामान्य विज्ञान",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "moderate",
-    "question": "‘जो मेहनत करता है, वही सफल होता है।’ यह किस प्रकार का वाक्य है?",
+    "question": "12 ग्राम कार्बन को 32 ग्राम ऑक्सीजन में पूरी तरह जलाने पर कितने ग्राम कार्बन डाइऑक्साइड बनेगी?",
     "options": [
-      "सरल वाक्य",
-      "विस्मयादिबोधक वाक्य",
-      "मिश्र वाक्य",
-      "संयुक्त वाक्य"
+      "20 g",
+      "32 g",
+      "40 g",
+      "44 g"
     ],
-    "correct": 2
+    "correct": 3,
+    "explanation": "अभिक्रिया C + O₂ → CO₂ है। 12 g कार्बन और 32 g ऑक्सीजन मिलकर 44 g CO₂ बनाते हैं। यह द्रव्यमान संरक्षण के नियम के अनुरूप है।"
   },
   {
-    "id": 97,
-    "subject": "हिंदी",
+    "id": 13,
+    "subject": "सामान्य विज्ञान",
     "type": "mcq",
-    "marks": 1,
-    "difficulty": "moderate",
-    "question": "‘राम आया और बैठ गया।’ इस वाक्य का सरल रूप कौन-सा है?",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "easy",
+    "question": "किसी उदासीन सोडियम परमाणु का परमाणु क्रमांक 11 है। उसमें इलेक्ट्रॉनों की संख्या कितनी होगी?",
     "options": [
-      "राम आया क्योंकि वह बैठ गया।",
-      "जब राम आया तब वह बैठ गया।",
-      "राम आकर बैठ गया।",
-      "राम आया, इसलिए वह बैठ गया।"
+      "10",
+      "11",
+      "12",
+      "23"
     ],
-    "correct": 2
+    "correct": 1,
+    "explanation": "परमाणु क्रमांक = प्रोटॉनों की संख्या। उदासीन परमाणु में प्रोटॉनों और इलेक्ट्रॉनों की संख्या बराबर होती है। अतः इलेक्ट्रॉन = 11।"
   },
   {
-    "id": 98,
-    "subject": "हिंदी",
+    "id": 14,
+    "subject": "सामान्य विज्ञान",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "moderate",
-    "question": "‘अधजल गगरी छलकत जाए’ लोकोक्ति का सही अर्थ क्या है?",
+    "question": "किसी तत्व का इलेक्ट्रॉनिक विन्यास 2, 8, 2 है। उसकी संयोजकता क्या होगी?",
     "options": [
-      "बहुत मेहनत करने वाला व्यक्ति सफल होता है।",
-      "खाली बर्तन हमेशा भारी होता है।",
-      "जल्दी काम करने से काम बिगड़ जाता है।",
-      "कम ज्ञान वाला व्यक्ति अधिक दिखावा करता है।"
+      "1",
+      "2",
+      "3",
+      "8"
     ],
-    "correct": 3
+    "correct": 1,
+    "explanation": "बाहरी कक्षा में 2 इलेक्ट्रॉन हैं। स्थायी इलेक्ट्रॉनिक विन्यास प्राप्त करने के लिए परमाणु 2 इलेक्ट्रॉन त्याग सकता है। इसलिए इसकी संयोजकता 2 है।"
   },
   {
-    "id": 99,
-    "subject": "हिंदी",
+    "id": 15,
+    "subject": "सामान्य विज्ञान",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "moderate",
-    "question": "‘वह बाजार गया और फल खरीद लाया।’ यह किस प्रकार का वाक्य है?",
+    "question": "समस्थानिक (Isotopes) वाले परमाणुओं में क्या समान होता है?",
     "options": [
-      "मिश्र वाक्य",
-      "सरल वाक्य",
-      "संयुक्त वाक्य",
-      "प्रश्नवाचक वाक्य"
+      "न्यूट्रॉनों की संख्या",
+      "प्रोटॉनों की संख्या",
+      "द्रव्यमान संख्या",
+      "न्यूट्रॉन और प्रोटॉन दोनों की संख्या"
     ],
-    "correct": 2
+    "correct": 1,
+    "explanation": "समस्थानिकों का परमाणु क्रमांक और प्रोटॉनों की संख्या समान होती है, लेकिन न्यूट्रॉनों की संख्या तथा द्रव्यमान संख्या अलग होती है।"
   },
   {
-    "id": 100,
-    "subject": "हिंदी",
+    "id": 16,
+    "subject": "सामान्य विज्ञान",
     "type": "mcq",
-    "marks": 1,
+    "marks": 4,
+    "negativeMarks": 1,
     "difficulty": "moderate",
-    "question": "‘यदि तुम नियमित अभ्यास करोगे, तो तुम्हारे अंक बेहतर होंगे।’ वाक्य में ‘यदि’ किस प्रकार का अव्यय है?",
+    "question": "दूध से क्रीम अलग करने के लिए किस विधि का प्रयोग किया जाता है?",
     "options": [
-      "समुच्चयबोधक अव्यय",
-      "विस्मयादिबोधक अव्यय",
-      "क्रियाविशेषण",
-      "संबंधबोधक अव्यय"
+      "निस्यंदन (Filtration)",
+      "उर्ध्वपातन (Sublimation)",
+      "अपकेंद्रण (Centrifugation)",
+      "वर्णलेखन (Chromatography)"
     ],
-    "correct": 0
+    "correct": 2,
+    "explanation": "अपकेंद्रण में मिश्रण को तेजी से घुमाया जाता है। घनत्व के अंतर के कारण घटक अलग हो जाते हैं। दूध से क्रीम अलग करने में इसी विधि का उपयोग होता है।"
+  },
+  {
+    "id": 17,
+    "subject": "सामान्य विज्ञान",
+    "type": "mcq",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "easy",
+    "question": "कोशिका का कौन-सा अंगक ऊर्जा उत्पादन में मुख्य भूमिका निभाता है और उसे कोशिका का पावर हाउस कहा जाता है?",
+    "options": [
+      "केंद्रक",
+      "राइबोसोम",
+      "माइटोकॉन्ड्रिया",
+      "रिक्तिका"
+    ],
+    "correct": 2,
+    "explanation": "माइटोकॉन्ड्रिया कोशिकीय श्वसन का प्रमुख स्थान है। यह ATP के रूप में उपयोगी ऊर्जा उपलब्ध कराने में मदद करता है, इसलिए इसे कोशिका का पावर हाउस कहते हैं।"
+  },
+  {
+    "id": 18,
+    "subject": "सामान्य विज्ञान",
+    "type": "mcq",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "easy",
+    "question": "कोशिका झिल्ली (Cell Membrane) की प्रमुख विशेषता क्या है?",
+    "options": [
+      "यह सभी पदार्थों को स्वतंत्र रूप से गुजरने देती है।",
+      "यह चयनात्मक पारगम्य होती है।",
+      "यह प्रकाश संश्लेषण करती है।",
+      "यह कोशिका का DNA संग्रहित करती है।"
+    ],
+    "correct": 1,
+    "explanation": "कोशिका झिल्ली चयनात्मक पारगम्य होती है। यह कुछ पदार्थों को अंदर-बाहर जाने देती है और अन्य पदार्थों के आवागमन को नियंत्रित करती है।"
+  },
+  {
+    "id": 19,
+    "subject": "सामान्य विज्ञान",
+    "type": "mcq",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "easy",
+    "question": "पौधों में जड़ों से पत्तियों तक जल एवं खनिज लवणों का परिवहन कौन करता है?",
+    "options": [
+      "फ्लोएम",
+      "जाइलम",
+      "एपिडर्मिस",
+      "रंध्र"
+    ],
+    "correct": 1,
+    "explanation": "जाइलम जड़ों से जल और खनिज लवणों को पौधे के अन्य भागों तक पहुँचाता है। फ्लोएम मुख्यतः पत्तियों में बने भोजन का परिवहन करता है।"
+  },
+  {
+    "id": 20,
+    "subject": "सामान्य विज्ञान",
+    "type": "mcq",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "easy",
+    "question": "कौन-सा ऊतक संकुचन एवं शिथिलन के द्वारा शरीर में गति उत्पन्न करता है?",
+    "options": [
+      "उपकला ऊतक",
+      "तंत्रिका ऊतक",
+      "संयोजी ऊतक",
+      "पेशीय ऊतक"
+    ],
+    "correct": 3,
+    "explanation": "पेशीय ऊतक संकुचन और शिथिलन कर सकता है। इसी क्रिया से शरीर के अंगों में गति उत्पन्न होती है।"
+  },
+  {
+    "id": 21,
+    "subject": "सामान्य विज्ञान",
+    "type": "mcq",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "moderate",
+    "question": "प्रोकैरियोटिक कोशिका (Prokaryotic Cell) की प्रमुख विशेषता क्या है?",
+    "options": [
+      "इसमें झिल्ली से घिरा वास्तविक केंद्रक नहीं होता।",
+      "इसमें हमेशा कोशिका भित्ति नहीं होती।",
+      "इसमें माइटोकॉन्ड्रिया अनिवार्य रूप से उपस्थित होता है।",
+      "इसमें DNA नहीं होता।"
+    ],
+    "correct": 0,
+    "explanation": "प्रोकैरियोटिक कोशिका में झिल्ली से घिरा वास्तविक केंद्रक नहीं होता। इसका DNA न्यूक्लियॉइड क्षेत्र में पाया जाता है। उदाहरण: बैक्टीरिया।"
+  },
+  {
+    "id": 22,
+    "subject": "सामान्य विज्ञान",
+    "type": "mcq",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "moderate",
+    "question": "मलेरिया रोग किस प्रकार के रोगजनक के कारण होता है?",
+    "options": [
+      "जीवाणु",
+      "विषाणु",
+      "प्रोटोजोआ",
+      "कवक"
+    ],
+    "correct": 2,
+    "explanation": "मलेरिया Plasmodium नामक प्रोटोजोआ परजीवी से होता है। इसका संचरण संक्रमित मादा एनोफिलीज मच्छर के काटने से होता है।"
+  },
+  {
+    "id": 23,
+    "subject": "सामान्य विज्ञान",
+    "type": "mcq",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "easy",
+    "question": "निम्नलिखित में से कौन-सा गैर-संक्रामक रोग है?",
+    "options": [
+      "मलेरिया",
+      "तपेदिक (TB)",
+      "इन्फ्लुएंजा",
+      "मधुमेह (Diabetes)"
+    ],
+    "correct": 3,
+    "explanation": "मधुमेह एक गैर-संक्रामक रोग है। यह सामान्य संपर्क से एक व्यक्ति से दूसरे व्यक्ति में नहीं फैलता। मलेरिया, TB और इन्फ्लुएंजा संक्रामक रोग हैं।"
+  },
+  {
+    "id": 24,
+    "subject": "सामान्य विज्ञान",
+    "type": "mcq",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "easy",
+    "question": "ओजोन परत का मुख्य कार्य क्या है?",
+    "options": [
+      "पृथ्वी पर ऑक्सीजन का निर्माण करना।",
+      "सूर्य की हानिकारक पराबैंगनी किरणों को अवशोषित करना।",
+      "पृथ्वी को पूरी तरह अंधकारमय बनाना।",
+      "दृश्य प्रकाश को पूरी तरह रोकना।"
+    ],
+    "correct": 1,
+    "explanation": "समतापमंडल की ओजोन परत सूर्य से आने वाली हानिकारक पराबैंगनी (UV) किरणों के अधिकांश भाग को अवशोषित करती है और पृथ्वी पर जीवन की रक्षा करती है।"
+  },
+  {
+    "id": 25,
+    "subject": "सामान्य विज्ञान",
+    "type": "mcq",
+    "marks": 4,
+    "negativeMarks": 1,
+    "difficulty": "moderate",
+    "question": "फसल चक्र में दलहनी फसलों को शामिल करने से मिट्टी की उर्वरता बढ़ने का मुख्य कारण क्या है?",
+    "options": [
+      "उनकी जड़ों में राइजोबियम जीवाणु वायुमंडलीय नाइट्रोजन का स्थिरीकरण करते हैं।",
+      "वे मिट्टी से सभी खनिजों को समाप्त कर देती हैं।",
+      "वे मिट्टी में ऑक्सीजन की मात्रा शून्य कर देती हैं।",
+      "वे वाष्पोत्सर्जन को पूरी तरह रोक देती हैं।"
+    ],
+    "correct": 0,
+    "explanation": "दलहनी पौधों की जड़ों की गांठों में Rhizobium जीवाणु रहते हैं। ये वायुमंडलीय नाइट्रोजन का स्थिरीकरण करते हैं, जिससे मिट्टी में उपयोगी नाइट्रोजन यौगिकों की उपलब्धता बढ़ती है।"
   }
 ];
