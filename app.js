@@ -14,8 +14,8 @@ let currentIndex = 0;
 let studentResponses = [];
 
 // Phase 1: local auto-recovery. This keeps an unfinished exam on the same device.
-const RECOVERY_KEY = "class9_cbt_active_exam_v3";
-const RECOVERY_VERSION = 3;
+const RECOVERY_KEY = "class9_cbt_active_exam_v4";
+const RECOVERY_VERSION = 4;
 let examStarted = false;
 let examDeadlineMs = null;
 let recoverySaveTimer = null;
@@ -127,8 +127,8 @@ window.onload = () => {
   }
 };
 
-// Each selected talent-search paper: 25 MCQs in 60 minutes.
-const TEST_DURATION_SECONDS = 60 * 60;
+// Each selected talent-search paper: 25 MCQs in 30 minutes.
+const TEST_DURATION_SECONDS = 30 * 60;
 let totalSeconds = TEST_DURATION_SECONDS;
 let timerInterval = null;
 let timeElapsedSeconds = 0;
@@ -262,7 +262,7 @@ function loadQuestion(index) {
   if (resp.status === 'not-visited') resp.status = 'unanswered';
 
   document.getElementById('questionTitle').innerText = `प्रश्न ${q.id} [${q.subject}]`;
-  document.getElementById('questionMarksTag').innerText = `${q.marks} अंक | सही +4, गलत/अनुत्तरित 0`;
+  document.getElementById('questionMarksTag').innerText = `${q.marks} अंक | सही +4, गलत −1`;
 
   const questionText = document.getElementById('questionText');
   questionText.innerHTML = "";
@@ -377,7 +377,7 @@ function buildSubmissionPayload() {
     const selected = studentResponses[idx]?.selectedOption;
     const attempted = selected !== null && selected !== undefined;
     const isCorrect = attempted && selected === q.correct;
-    const awardedMarks = isCorrect ? q.marks : 0;
+    const awardedMarks = !attempted ? 0 : (isCorrect ? q.marks : -(q.negativeMarks ?? 1));
     return {
       id: q.id,
       questionNumber: q.id,
@@ -394,7 +394,7 @@ function buildSubmissionPayload() {
       isAttempted: attempted,
       isCorrect,
       marks: q.marks,
-      negativeMarks: 0,
+      negativeMarks: q.negativeMarks ?? 1,
       awardedMarks,
       explanation: q.explanation || ""
     };
@@ -429,7 +429,7 @@ function buildSubmissionPayload() {
       correctCount,
       wrongCount,
       unansweredCount,
-      markingScheme: { correct: 4, incorrect: 0, unanswered: 0 },
+      markingScheme: { correct: 4, incorrect: -1, unanswered: 0 },
       answers
     }
   };
@@ -477,7 +477,7 @@ function renderSolutionReview() {
     const selected = studentResponses[i]?.selectedOption;
     const attempted = selected !== null && selected !== undefined;
     const isCorrect = attempted && selected === q.correct;
-    const awarded = isCorrect ? q.marks : 0;
+    const awarded = !attempted ? 0 : (isCorrect ? q.marks : -(q.negativeMarks ?? 1));
 
     const card = document.createElement('article');
     card.className = 'solution-card';
@@ -541,6 +541,7 @@ function finalizeSubmission() {
       mcqScore += q.marks;
     } else {
       wrongCount += 1;
+      mcqScore -= (q.negativeMarks ?? 1);
     }
   });
 
