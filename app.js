@@ -566,7 +566,7 @@ function finalizeSubmission() {
     subjectScoreBreakdown.innerHTML = "";
     const box = document.createElement('div');
     box.className = 'stat-box';
-    box.innerHTML = `<div style="font-size:16px;font-weight:800;">${mcqScore} / ${totalMcqMarks}</div><div style="font-size:12px;margin-top:5px;">${selectedExamType === "गणित" ? "गणित" : "सामान्य विज्ञान"}</div>`;
+    box.innerHTML = `<div style="font-size:16px;font-weight:800;">${mcqScore} / ${totalMcqMarks}</div><div style="font-size:12px;margin-top:5px;">${selectedExamType === "गणित" ? "गणित" : "सामान्य विज्ञान"} · सेट ${selectedQuestionSet}</div>`;
     subjectScoreBreakdown.appendChild(box);
   }
 
