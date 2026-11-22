@@ -14,8 +14,8 @@ let currentIndex = 0;
 let studentResponses = [];
 
 // Phase 1: local auto-recovery. This keeps an unfinished exam on the same device.
-const RECOVERY_KEY = "class9_cbt_active_exam_v4";
-const RECOVERY_VERSION = 4;
+const RECOVERY_KEY = "class9_cbt_active_exam_v5";
+const RECOVERY_VERSION = 5;
 let examStarted = false;
 let examDeadlineMs = null;
 let recoverySaveTimer = null;
@@ -30,6 +30,7 @@ function saveExamRecovery() {
       userProfile: { ...userProfile },
       selectedExamType,
       selectedQuestionSet,
+      optionOrders: EXAM_QUESTIONS.map(q => q.optionOrder.slice()),
       currentIndex,
       studentResponses,
       examStarted: true,
@@ -71,7 +72,30 @@ function scheduleRecoverySave() {
 }
 
 function restoreExamState(state) {
-  if (!state || !Array.isArray(state.studentResponses) || state.studentResponses.length !== EXAM_QUESTIONS.length) return false;
+  if (!state || !Array.isArray(state.studentResponses) ||
+      state.studentResponses.length !== EXAM_QUESTIONS.length ||
+      !Array.isArray(state.optionOrders) ||
+      state.optionOrders.length !== EXAM_QUESTIONS.length) return false;
+
+  // Restore each question's exact shuffled option order so saved radio indices
+  // continue to refer to the same answers after a reload.
+  const restoredQuestions = [];
+  for (let i = 0; i < EXAM_QUESTIONS.length; i++) {
+    const question = EXAM_QUESTIONS[i];
+    const order = state.optionOrders[i];
+    if (!Array.isArray(order) || order.length !== question.options.length ||
+        new Set(order).size !== question.options.length ||
+        order.some(index => !Number.isInteger(index) || index < 0 || index >= question.options.length)) {
+      return false;
+    }
+    restoredQuestions.push({
+      ...question,
+      options: order.map(originalIndex => question.options[originalIndex]),
+      correct: order.indexOf(question.correct),
+      optionOrder: order.slice()
+    });
+  }
+  EXAM_QUESTIONS = restoredQuestions;
 
   Object.assign(userProfile, state.userProfile || {});
   studentResponses = state.studentResponses.map((resp, idx) => ({
@@ -164,6 +188,29 @@ function handleRegistration(e) {
   goToScreen('screen-instructions');
 }
 
+function shuffleQuestionOptions(question) {
+  const optionOrder = question.options.map((_, index) => index);
+
+  // Fisher–Yates shuffle: randomly reorder all four answer choices.
+  for (let i = optionOrder.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [optionOrder[i], optionOrder[j]] = [optionOrder[j], optionOrder[i]];
+  }
+
+  // Ensure a question does not accidentally retain the original sequence.
+  if (optionOrder.every((originalIndex, index) => originalIndex === index)) {
+    const shift = 1 + Math.floor(Math.random() * (optionOrder.length - 1));
+    optionOrder.push(...optionOrder.splice(0, shift));
+  }
+
+  return {
+    ...question,
+    options: optionOrder.map(originalIndex => question.options[originalIndex]),
+    correct: optionOrder.indexOf(question.correct),
+    optionOrder
+  };
+}
+
 function startTest() {
   if (recoveryRestored && examStarted) {
     resumeTest();
@@ -174,6 +221,9 @@ function startTest() {
     return;
   }
 
+  // Options are re-randomised for each new attempt; the correct answer index
+  // is remapped with the option so scoring and explanations remain accurate.
+  EXAM_QUESTIONS = EXAM_QUESTIONS.map(shuffleQuestionOptions);
   studentResponses = EXAM_QUESTIONS.map(q => ({ id: q.id, selectedOption: null, writtenInCopy: false, status: 'not-visited' }));
   currentIndex = 0;
   timeElapsedSeconds = 0;
