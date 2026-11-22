@@ -61,6 +61,7 @@
           <li><strong>गलत उत्तर:</strong> −1 अंक</li>
           <li><strong>अनुत्तरित प्रश्न:</strong> 0 अंक</li>
           <li><strong>प्रश्न का प्रकार:</strong> प्रत्येक प्रश्न में चार विकल्प होंगे; केवल एक विकल्प सही है।</li>
+          <li><strong>विकल्प क्रम:</strong> विकल्पों का क्रम प्रत्येक नए प्रयास में यादृच्छिक रूप से बदलेगा।</li>
           <li><strong>उत्तर सेव करें:</strong> अगला प्रश्न खोलने से पहले अपना चुना हुआ विकल्प जाँच लें।</li>
           <li><strong>रिव्यू:</strong> संदेह वाले प्रश्न को “रिव्यू के लिए मार्क करें” करके बाद में वापस आ सकते हैं।</li>
           <li><strong>उत्तर मिटाना:</strong> “उत्तर मिटाएं” से वर्तमान प्रश्न का चयन हटाया जा सकता है।</li>
@@ -143,7 +144,7 @@
     // Fill the registration form from the recovered attempt.
     window.addEventListener('load', () => {
       try {
-        const raw = localStorage.getItem('class9_cbt_active_exam_v4');
+        const raw = localStorage.getItem('class9_cbt_active_exam_v5');
         if (raw) {
           const state = JSON.parse(raw);
           if (state && state.userProfile && state.examDeadlineMs && state.examDeadlineMs > Date.now()) {
