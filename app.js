@@ -2,6 +2,7 @@
 const QUESTION_BANK = QUESTIONS;
 let EXAM_QUESTIONS = [];
 let selectedExamType = "";
+let selectedQuestionSet = 1;
 // Google Apps Script Web App endpoint.
 // Deploy the supplied google-apps-script.gs as a Web App and paste its /exec URL here.
 const EMAIL_ENDPOINT = "https://script.google.com/macros/s/AKfycbx341brEbkoRCD-vzkrDtUIGH81NvY7xMoHngv82D0pOJv_ozE5iZlgtuwrzbfdUxAQ/exec";
@@ -13,8 +14,8 @@ let currentIndex = 0;
 let studentResponses = [];
 
 // Phase 1: local auto-recovery. This keeps an unfinished exam on the same device.
-const RECOVERY_KEY = "class9_cbt_active_exam_v2";
-const RECOVERY_VERSION = 2;
+const RECOVERY_KEY = "class9_cbt_active_exam_v3";
+const RECOVERY_VERSION = 3;
 let examStarted = false;
 let examDeadlineMs = null;
 let recoverySaveTimer = null;
@@ -28,6 +29,7 @@ function saveExamRecovery() {
       savedAt: Date.now(),
       userProfile: { ...userProfile },
       selectedExamType,
+      selectedQuestionSet,
       currentIndex,
       studentResponses,
       examStarted: true,
@@ -93,11 +95,19 @@ window.onload = () => {
   const savedState = readExamRecovery();
   if (savedState && savedState.selectedExamType) {
     selectedExamType = savedState.selectedExamType;
-    EXAM_QUESTIONS = QUESTION_BANK.filter(q => q.subject === selectedExamType);
-    const selector = document.getElementById('examType');
-    if (selector) {
-      selector.value = selectedExamType;
-      selector.disabled = true;
+    selectedQuestionSet = Number(savedState.selectedQuestionSet) || 1;
+    EXAM_QUESTIONS = QUESTION_BANK.filter(q =>
+      q.subject === selectedExamType && q.set === selectedQuestionSet
+    );
+    const subjectSelector = document.getElementById('examType');
+    const setSelector = document.getElementById('examSet');
+    if (subjectSelector) {
+      subjectSelector.value = selectedExamType;
+      subjectSelector.disabled = true;
+    }
+    if (setSelector) {
+      setSelector.value = String(selectedQuestionSet);
+      setSelector.disabled = true;
     }
   }
 
@@ -140,10 +150,13 @@ function handleRegistration(e) {
   // A recovered attempt keeps its original subject. New attempts select one subject.
   if (!recoveryRestored) {
     selectedExamType = document.getElementById('examType').value;
-    EXAM_QUESTIONS = QUESTION_BANK.filter(q => q.subject === selectedExamType);
+    selectedQuestionSet = Number(document.getElementById('examSet').value) || 1;
+    EXAM_QUESTIONS = QUESTION_BANK.filter(q =>
+      q.subject === selectedExamType && q.set === selectedQuestionSet
+    );
   }
   if (EXAM_QUESTIONS.length !== 25) {
-    alert("कृपया गणित या विज्ञान में से एक परीक्षा चुनें।");
+    alert("कृपया परीक्षा और वैध अभ्यास सेट चुनें।");
     return;
   }
 
@@ -222,9 +235,10 @@ function buildSubjectPills() {
   container.innerHTML = "";
   const btn = document.createElement('span');
   btn.className = "pill-btn active";
-  btn.textContent = selectedExamType === "गणित"
+  const examLabel = selectedExamType === "गणित"
     ? "श्रीनिवास रामानुजन — गणित"
     : "डॉ. सी. वी. रमन — विज्ञान";
+  btn.textContent = `${examLabel} · अभ्यास सेट ${selectedQuestionSet}`;
   container.appendChild(btn);
 }
 
@@ -248,7 +262,7 @@ function loadQuestion(index) {
   if (resp.status === 'not-visited') resp.status = 'unanswered';
 
   document.getElementById('questionTitle').innerText = `प्रश्न ${q.id} [${q.subject}]`;
-  document.getElementById('questionMarksTag').innerText = `${q.marks} अंक | सही +4, गलत −1`;
+  document.getElementById('questionMarksTag').innerText = `${q.marks} अंक | सही +4, गलत/अनुत्तरित 0`;
 
   const questionText = document.getElementById('questionText');
   questionText.innerHTML = "";
@@ -363,7 +377,7 @@ function buildSubmissionPayload() {
     const selected = studentResponses[idx]?.selectedOption;
     const attempted = selected !== null && selected !== undefined;
     const isCorrect = attempted && selected === q.correct;
-    const awardedMarks = !attempted ? 0 : (isCorrect ? q.marks : -(q.negativeMarks || 1));
+    const awardedMarks = isCorrect ? q.marks : 0;
     return {
       id: q.id,
       questionNumber: q.id,
@@ -380,7 +394,7 @@ function buildSubmissionPayload() {
       isAttempted: attempted,
       isCorrect,
       marks: q.marks,
-      negativeMarks: q.negativeMarks || 1,
+      negativeMarks: 0,
       awardedMarks,
       explanation: q.explanation || ""
     };
@@ -395,10 +409,11 @@ function buildSubmissionPayload() {
   const unansweredCount = allAnswers.filter(a => !a.isAttempted).length;
 
   return {
-    testName: selectedExamType === "गणित"
+    testName: (selectedExamType === "गणित"
       ? "श्रीनिवास रामानुजन प्रतिभा खोज परीक्षा — कक्षा 9 गणित मॉडल CBT"
-      : "डॉ. सी. वी. रमन प्रतिभा खोज परीक्षा — कक्षा 9 विज्ञान मॉडल CBT",
+      : "डॉ. सी. वी. रमन प्रतिभा खोज परीक्षा — कक्षा 9 विज्ञान मॉडल CBT") + ` · अभ्यास सेट ${selectedQuestionSet}`,
     selectedSubject: selectedExamType,
+    selectedSet: selectedQuestionSet,
     submittedAt: new Date().toISOString(),
     candidate: {
       name: userProfile.name,
@@ -414,7 +429,7 @@ function buildSubmissionPayload() {
       correctCount,
       wrongCount,
       unansweredCount,
-      markingScheme: { correct: 4, incorrect: -1, unanswered: 0 },
+      markingScheme: { correct: 4, incorrect: 0, unanswered: 0 },
       answers
     }
   };
@@ -462,7 +477,7 @@ function renderSolutionReview() {
     const selected = studentResponses[i]?.selectedOption;
     const attempted = selected !== null && selected !== undefined;
     const isCorrect = attempted && selected === q.correct;
-    const awarded = !attempted ? 0 : (isCorrect ? q.marks : -(q.negativeMarks || 1));
+    const awarded = isCorrect ? q.marks : 0;
 
     const card = document.createElement('article');
     card.className = 'solution-card';
@@ -526,7 +541,6 @@ function finalizeSubmission() {
       mcqScore += q.marks;
     } else {
       wrongCount += 1;
-      mcqScore -= (q.negativeMarks || 1);
     }
   });
 
