@@ -35,6 +35,13 @@
             <option value="सामान्य विज्ञान">डॉ. सी. वी. रमन प्रतिभा खोज परीक्षा — विज्ञान</option>
           </select>
         </div>
+        <div class="form-group">
+          <label for="examSet">प्रश्नपत्र सेट चुनें *</label>
+          <select id="examSet" required>
+            <option value="1" selected>अभ्यास सेट 1 — पहला प्रश्नपत्र</option>
+            <option value="2">अभ्यास सेट 2 — नया प्रश्नपत्र</option>
+          </select>
+        </div>
         <button type="submit" class="btn btn-primary">निर्देश पढ़ें &rarr;</button>
       </form>
     </div>
@@ -51,8 +58,8 @@
           <li><strong>कुल प्रश्न:</strong> 25 बहुविकल्पीय प्रश्न</li>
           <li><strong>अधिकतम अंक:</strong> 100 अंक</li>
           <li><strong>सही उत्तर:</strong> +4 अंक</li>
-          <li><strong>गलत उत्तर:</strong> −1 अंक</li>
-          <li><strong>अनुत्तरित प्रश्न:</strong> 0 अंक (कोई कटौती नहीं)</li>
+          <li><strong>गलत उत्तर:</strong> 0 अंक (कोई नकारात्मक अंकन नहीं)</li>
+          <li><strong>अनुत्तरित प्रश्न:</strong> 0 अंक</li>
           <li><strong>प्रश्न का प्रकार:</strong> प्रत्येक प्रश्न में चार विकल्प होंगे; केवल एक विकल्प सही है।</li>
           <li><strong>उत्तर सेव करें:</strong> अगला प्रश्न खोलने से पहले अपना चुना हुआ विकल्प जाँच लें।</li>
           <li><strong>रिव्यू:</strong> संदेह वाले प्रश्न को “रिव्यू के लिए मार्क करें” करके बाद में वापस आ सकते हैं।</li>
@@ -61,7 +68,7 @@
           <li><strong>सबमिशन:</strong> समय पूरा होने पर परीक्षा स्वतः सबमिट हो सकती है।</li>
           <li><strong>ईमेल:</strong> सबमिट करते ही आपके उत्तर निर्धारित शिक्षक ईमेल पर स्वचालित रूप से भेजे जाएँगे; अलग ईमेल बटन की आवश्यकता नहीं है।</li>
         </ul>
-        <div class="highlight-rule">💡 यह कक्षा 9 के लिए अभ्यास मॉडल CBT है। गणित और विज्ञान की परीक्षाएँ अलग-अलग दी जा सकती हैं। परीक्षा शुरू होने के बाद विषय नहीं बदला जा सकता।</div>
+        <div class="highlight-rule">💡 यह कक्षा 9 के लिए अभ्यास मॉडल CBT है। गणित और विज्ञान के पेपर अलग-अलग हैं। प्रत्येक विषय में दो स्वतंत्र प्रश्नपत्र सेट उपलब्ध हैं। परीक्षा शुरू होने के बाद विषय या सेट नहीं बदला जा सकता।</div>
       </div>
       <label class="checkbox-agree"><input type="checkbox" id="agreeRules" onchange="document.getElementById('startTestBtn').disabled = !this.checked;" /><span>मैंने सभी निर्देश पढ़ लिए हैं और परीक्षा शुरू करने के लिए तैयार हूँ।</span></label>
       <div class="btn-row">
@@ -82,7 +89,7 @@
         <div class="section-pills" id="sectionPillsContainer"></div>
         <div style="margin-bottom: 10px; display: flex; justify-content: space-between;">
           <span class="q-number" id="questionTitle">प्रश्न 1</span>
-          <span style="font-size: 13px; background:#f1f5f9; padding:4px 8px; border-radius:4px; color: #475569; font-weight:bold;" id="questionMarksTag">1 अंक</span>
+          <span style="font-size: 13px; background:#f1f5f9; padding:4px 8px; border-radius:4px; color: #475569; font-weight:bold;" id="questionMarksTag">4 अंक</span>
         </div>
         <div class="question-content" id="questionText">लोड हो रहा है...</div>
         <div id="answerInteractionArea"></div>
@@ -115,7 +122,7 @@
         <div class="stat-box"><div class="num" id="statPercentage">0%</div><div style="font-size: 12px; margin-top:5px;">प्रतिशत</div></div>
       </div>
       <div class="stat-row">
-        <div class="stat-box"><div class="num" id="statAttempted">0 / 100</div><div style="font-size: 12px; margin-top:5px;">प्रयास किए</div></div>
+        <div class="stat-box"><div class="num" id="statAttempted">0 / 25</div><div style="font-size: 12px; margin-top:5px;">प्रयास किए</div></div>
         <div class="stat-box"><div class="num" id="statUnanswered">0</div><div style="font-size: 12px; margin-top:5px;">अनुत्तरित</div></div>
       </div>
       <div class="stat-row">
@@ -136,7 +143,7 @@
     // Fill the registration form from the recovered attempt.
     window.addEventListener('load', () => {
       try {
-        const raw = localStorage.getItem('class9_cbt_active_exam_v2');
+        const raw = localStorage.getItem('class9_cbt_active_exam_v3');
         if (raw) {
           const state = JSON.parse(raw);
           if (state && state.userProfile && state.examDeadlineMs && state.examDeadlineMs > Date.now()) {
