@@ -1,13 +1,13 @@
 // कक्षा 9 प्रतिभा खोज मॉडल CBT प्रश्न बैंक।
 // प्रत्येक विषय के दो स्वतंत्र सेट; प्रत्येक सेट में 25 MCQs।
-// ATSTMS 2026 Screening: 4 अंक प्रति सही उत्तर, गलत/अनुत्तरित पर कोई कटौती नहीं।
+// निर्देश-पत्र के अनुसार: 4 अंक सही, 1 अंक गलत उत्तर पर कटेगा, अनुत्तरित 0।
 const QUESTIONS = [
   {
     "id": 1,
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "संख्या 72a5b, 5 और 9 दोनों से विभाजित होती है। ऐसे कितने अलग-अलग (a, b) के जोड़े संभव हैं?",
     "options": [
@@ -25,7 +25,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "निम्नलिखित का परिमेयकरण करने पर क्या प्राप्त होगा? 1/(√7 − √5)",
     "options": [
@@ -43,7 +43,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "challenging",
     "question": "7²⁰²⁶ के इकाई अंक का मान क्या होगा?",
     "options": [
@@ -61,7 +61,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "एक समकोण त्रिभुज की दो लम्बवत भुजाएँ 9 cm और 12 cm हैं। इसका क्षेत्रफल कितना होगा?",
     "options": [
@@ -79,7 +79,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "यदि P(x) = x² − 4x + k और P(2) = 0, तो k का मान क्या होगा?",
     "options": [
@@ -97,7 +97,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "यदि a + b = 9 और a − b = 5, तो (a + b)² − (a − b)² का मान क्या होगा?",
     "options": [
@@ -115,7 +115,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "यदि x + y = 8 और x − y = 2, तो xy का मान क्या होगा?",
     "options": [
@@ -133,7 +133,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "बिंदु A(−1, 2) और B(5, 10) के बीच की दूरी कितनी है?",
     "options": [
@@ -151,7 +151,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "बिंदुओं (−2, 4) तथा (6, −2) का मध्यबिंदु क्या होगा?",
     "options": [
@@ -169,7 +169,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "एक त्रिभुज के शीर्ष (0,0), (6,0) और (2,4) हैं। इसका क्षेत्रफल कितना होगा?",
     "options": [
@@ -187,7 +187,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "दो समानांतर रेखाओं को एक तिर्यक रेखा काटती है। यदि एक संगत कोण 110° है, तो दूसरा संगत कोण कितना होगा?",
     "options": [
@@ -205,7 +205,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "दो त्रिभुजों की सर्वांगसमता के लिए कौन-सी शर्त SSS कहलाती है?",
     "options": [
@@ -223,7 +223,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "challenging",
     "question": "दो समरूप त्रिभुजों की संगत भुजाओं का अनुपात 3 : 5 है। यदि छोटे त्रिभुज का क्षेत्रफल 27 cm² है, तो बड़े त्रिभुज का क्षेत्रफल क्या होगा?",
     "options": [
@@ -241,7 +241,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "ABCD एक चक्रीय चतुर्भुज है। यदि ∠A = 78°, तो ∠C कितना होगा?",
     "options": [
@@ -259,7 +259,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "challenging",
     "question": "एक त्रिभुज की भुजाएँ 13 cm, 14 cm और 15 cm हैं। हीरोन सूत्र से इसका क्षेत्रफल ज्ञात कीजिए।",
     "options": [
@@ -277,7 +277,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "एक समांतर चतुर्भुज का आधार 15 cm और संगत ऊँचाई 8 cm है। इसका क्षेत्रफल कितना होगा?",
     "options": [
@@ -295,7 +295,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "एक शंकु की त्रिज्या 3 cm तथा ऊँचाई 7 cm है। इसका आयतन ज्ञात कीजिए।",
     "options": [
@@ -313,7 +313,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "7 cm त्रिज्या वाले गोले का संपूर्ण पृष्ठीय क्षेत्रफल कितना होगा?",
     "options": [
@@ -331,7 +331,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "पाँच संख्याओं 6, 8, 10, 12 और x का माध्य 10 है। x का मान ज्ञात कीजिए।",
     "options": [
@@ -349,7 +349,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "निम्नलिखित आँकड़ों 4, 6, 8, 10, 12, 14 की माध्यिका (Median) क्या होगी?",
     "options": [
@@ -367,7 +367,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "एक निष्पक्ष पासे को फेंकने पर 3 या 5 से विभाजित होने वाली संख्या आने की प्रायिकता क्या होगी?",
     "options": [
@@ -385,7 +385,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "challenging",
     "question": "यदि tan θ = 5/12 तथा θ एक न्यून कोण है, तो cos θ का मान क्या होगा?",
     "options": [
@@ -403,7 +403,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "log₃ 81 का मान ज्ञात कीजिए।",
     "options": [
@@ -421,7 +421,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "challenging",
     "question": "विल्सन प्रमेय के अनुसार 10! को 11 से भाग देने पर शेषफल क्या होगा?",
     "options": [
@@ -439,7 +439,7 @@ const QUESTIONS = [
     "subject": "गणित",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "एक सम नियमित दशभुज (Regular Decagon) के सभी अंतःकोणों का योग कितना होगा?",
     "options": [
@@ -457,7 +457,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "एक वस्तु 12 सेकंड में 180 मीटर की दूरी तय करती है। उसकी औसत चाल कितनी होगी?",
     "options": [
@@ -475,7 +475,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "एक वस्तु का वेग 3 सेकंड में 4 m/s से बढ़कर 16 m/s हो जाता है। उसका त्वरण कितना होगा?",
     "options": [
@@ -493,7 +493,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "5 kg द्रव्यमान वाली वस्तु में 2 m/s² का त्वरण उत्पन्न किया जाता है। उस पर लगने वाला परिणामी बल कितना होगा?",
     "options": [
@@ -511,7 +511,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "न्यूटन के गति के तीसरे नियम के अनुसार क्रिया और प्रतिक्रिया बल:",
     "options": [
@@ -529,7 +529,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "किसी वस्तु का पृथ्वी पर भार 60 N है। चंद्रमा पर उसका भार लगभग कितना होगा? (चंद्रमा पर गुरुत्वीय त्वरण पृथ्वी का 1/6 है।)",
     "options": [
@@ -547,7 +547,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "25 N का बल किसी वस्तु को बल की दिशा में 4 मीटर विस्थापित करता है। किया गया कार्य कितना होगा?",
     "options": [
@@ -565,7 +565,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "2 kg द्रव्यमान की वस्तु 4 m/s के वेग से चल रही है। उसकी गतिज ऊर्जा कितनी होगी?",
     "options": [
@@ -583,7 +583,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "challenging",
     "question": "ध्वनि की चाल वायु में 340 m/s है। किसी व्यक्ति को प्रतिध्वनि 1.5 सेकंड बाद सुनाई देती है। परावर्तक सतह की दूरी कितनी होगी?",
     "options": [
@@ -601,7 +601,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "वाष्पीकरण के दौरान ठंडक क्यों उत्पन्न होती है?",
     "options": [
@@ -619,7 +619,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "निम्नलिखित में से कौन एक शुद्ध यौगिक है?",
     "options": [
@@ -637,7 +637,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "36 ग्राम पानी में कितने मोल पानी उपस्थित होंगे? (पानी का मोलर द्रव्यमान = 18 g/mol)",
     "options": [
@@ -655,7 +655,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "12 ग्राम कार्बन को 32 ग्राम ऑक्सीजन में पूरी तरह जलाने पर कितने ग्राम कार्बन डाइऑक्साइड बनेगी?",
     "options": [
@@ -673,7 +673,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "किसी उदासीन सोडियम परमाणु का परमाणु क्रमांक 11 है। उसमें इलेक्ट्रॉनों की संख्या कितनी होगी?",
     "options": [
@@ -691,7 +691,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "किसी तत्व का इलेक्ट्रॉनिक विन्यास 2, 8, 2 है। उसकी संयोजकता क्या होगी?",
     "options": [
@@ -709,7 +709,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "समस्थानिक (Isotopes) वाले परमाणुओं में क्या समान होता है?",
     "options": [
@@ -727,7 +727,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "दूध से क्रीम अलग करने के लिए किस विधि का प्रयोग किया जाता है?",
     "options": [
@@ -745,7 +745,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "कोशिका का कौन-सा अंगक ऊर्जा उत्पादन में मुख्य भूमिका निभाता है और उसे कोशिका का पावर हाउस कहा जाता है?",
     "options": [
@@ -763,7 +763,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "कोशिका झिल्ली (Cell Membrane) की प्रमुख विशेषता क्या है?",
     "options": [
@@ -781,7 +781,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "पौधों में जड़ों से पत्तियों तक जल एवं खनिज लवणों का परिवहन कौन करता है?",
     "options": [
@@ -799,7 +799,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "कौन-सा ऊतक संकुचन एवं शिथिलन के द्वारा शरीर में गति उत्पन्न करता है?",
     "options": [
@@ -817,7 +817,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "प्रोकैरियोटिक कोशिका (Prokaryotic Cell) की प्रमुख विशेषता क्या है?",
     "options": [
@@ -835,7 +835,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "मलेरिया रोग किस प्रकार के रोगजनक के कारण होता है?",
     "options": [
@@ -853,7 +853,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "निम्नलिखित में से कौन-सा गैर-संक्रामक रोग है?",
     "options": [
@@ -871,7 +871,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "ओजोन परत का मुख्य कार्य क्या है?",
     "options": [
@@ -889,7 +889,7 @@ const QUESTIONS = [
     "subject": "सामान्य विज्ञान",
     "type": "mcq",
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "फसल चक्र में दलहनी फसलों को शामिल करने से मिट्टी की उर्वरता बढ़ने का मुख्य कारण क्या है?",
     "options": [
@@ -908,7 +908,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "challenging",
     "question": "यदि 2¹⁰ को 11 से भाग दिया जाए, तो शेषफल क्या होगा?",
     "options": [
@@ -926,7 +926,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "निम्नलिखित में से कौन-सा पाइथागोरस त्रिक है?",
     "options": [
@@ -944,7 +944,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "बहुपद P(x)=x³−2x+5 को (x−2) से भाग देने पर शेषफल क्या होगा?",
     "options": [
@@ -962,7 +962,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "बहुपद x²−9x+20 का गुणनखंड रूप क्या है?",
     "options": [
@@ -980,7 +980,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "यदि x+y=7 तथा xy=10, तो x²+y² का मान क्या होगा?",
     "options": [
@@ -998,7 +998,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "समीकरण x+y=5 और 2x+3y=13 का हल (x,y) क्या है?",
     "options": [
@@ -1016,7 +1016,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "रेखा 3x−2y=6, y-अक्ष को किस बिंदु पर काटती है?",
     "options": [
@@ -1034,7 +1034,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "challenging",
     "question": "बिंदु A(2,−1) और B(8,5) को मिलाने वाले रेखाखंड को 1:2 के अनुपात में आंतरिक रूप से विभाजित करने वाले बिंदु के निर्देशांक क्या हैं?",
     "options": [
@@ -1052,7 +1052,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "एक समलंब चतुर्भुज के समानांतर आधार 8 cm और 12 cm हैं तथा ऊँचाई 5 cm है। क्षेत्रफल कितना होगा?",
     "options": [
@@ -1070,7 +1070,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "यूक्लिड के ज्यामिति संबंधी कथन 'जो वस्तुएँ एक ही वस्तु के बराबर हैं, वे परस्पर बराबर हैं' किसका उदाहरण है?",
     "options": [
@@ -1088,7 +1088,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "एक त्रिभुज की दो भुजाएँ 6 cm और 9 cm हैं। तीसरी भुजा कितनी हो सकती है? (तीसरी भुजा पूर्णांक है।)",
     "options": [
@@ -1106,7 +1106,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "दो समरूप त्रिभुजों की संगत भुजाओं का अनुपात 2:3 है। यदि छोटे त्रिभुज का परिमाप 24 cm है, तो बड़े त्रिभुज का परिमाप कितना होगा?",
     "options": [
@@ -1124,7 +1124,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "एक समांतर चतुर्भुज के विकर्ण O पर एक-दूसरे को काटते हैं। यदि AO=5 cm है, तो OC कितना होगा?",
     "options": [
@@ -1142,7 +1142,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "एक समचतुर्भुज के विकर्ण 16 cm और 12 cm हैं। उसका क्षेत्रफल कितना होगा?",
     "options": [
@@ -1160,7 +1160,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "challenging",
     "question": "एक सम नियमित बहुभुज का प्रत्येक बाह्य कोण 24° है। उसकी भुजाओं की संख्या कितनी है?",
     "options": [
@@ -1178,7 +1178,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "challenging",
     "question": "13 cm त्रिज्या वाले वृत्त के केंद्र से एक जीवा की दूरी 5 cm है। जीवा की लंबाई कितनी होगी?",
     "options": [
@@ -1196,7 +1196,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "14 cm त्रिज्या वाले वृत्त की परिधि कितनी होगी? π=22/7 लें।",
     "options": [
@@ -1214,7 +1214,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "3 cm त्रिज्या और 10 cm ऊँचाई वाले बेलन का आयतन कितना होगा?",
     "options": [
@@ -1232,7 +1232,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "5 cm भुजा वाले घन का संपूर्ण पृष्ठीय क्षेत्रफल कितना होगा?",
     "options": [
@@ -1250,7 +1250,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "मान x के मान 1, 2, 3 क्रमशः 2, 3, 5 बार आते हैं। इन आँकड़ों का माध्य क्या है?",
     "options": [
@@ -1268,7 +1268,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "एक थैले में 4 लाल, 3 नीली और 5 हरी गेंदें हैं। यादृच्छया एक गेंद निकालने पर नीली न होने की प्रायिकता क्या है?",
     "options": [
@@ -1286,7 +1286,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "यदि θ न्यून कोण है और sin θ=3/5, तो cos θ का मान क्या होगा?",
     "options": [
@@ -1304,7 +1304,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "log₂8 + log₂4 का मान क्या होगा?",
     "options": [
@@ -1322,7 +1322,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "दो निष्पक्ष सिक्कों को एक साथ उछाला जाता है। ठीक एक चित आने की प्रायिकता क्या होगी?",
     "options": [
@@ -1340,7 +1340,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "यदि दो त्रिभुजों की दो-दो संगत भुजाएँ और उनके बीच का कोण बराबर हों, तो कौन-सा सर्वांगसमता नियम लागू होगा?",
     "options": [
@@ -1358,7 +1358,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "एक वेग-समय ग्राफ में 8 सेकंड तक वेग 12 m/s स्थिर है। इस समय में वस्तु का विस्थापन कितना होगा?",
     "options": [
@@ -1376,7 +1376,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "चलती बस अचानक रुकती है तो यात्री आगे की ओर झुक जाते हैं। इसका मुख्य कारण क्या है?",
     "options": [
@@ -1394,7 +1394,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "0.15 kg द्रव्यमान की गेंद 20 m/s के वेग से चल रही है। उसका संवेग कितना होगा?",
     "options": [
@@ -1412,7 +1412,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "10 N का बल किसी वस्तु पर 3 सेकंड तक लगता है। बल का आवेग कितना होगा?",
     "options": [
@@ -1430,7 +1430,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "यदि g=9.8 m/s² हो, तो 2 kg द्रव्यमान वाली वस्तु का भार कितना होगा?",
     "options": [
@@ -1448,7 +1448,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "5 kg द्रव्यमान की वस्तु को 4 m ऊँचाई तक उठाया जाता है। g=10 m/s² लेने पर उसमें कितनी गुरुत्वीय स्थितिज ऊर्जा होगी?",
     "options": [
@@ -1466,7 +1466,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "एक मशीन 20 सेकंड में 600 जूल कार्य करती है। उसकी शक्ति कितनी है?",
     "options": [
@@ -1484,7 +1484,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "यदि किसी ध्वनि तरंग की आवृत्ति 250 Hz है, तो उसका आवर्तकाल कितना होगा?",
     "options": [
@@ -1502,7 +1502,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "वायु में ध्वनि की चाल 330 m/s और आवृत्ति 660 Hz है। तरंगदैर्ध्य कितना होगा?",
     "options": [
@@ -1520,7 +1520,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "किसी शुद्ध पदार्थ को उसके गलनांक पर पिघलाते समय ऊष्मा दी जाती है, फिर भी तापमान कुछ समय तक स्थिर रहता है। इसका कारण क्या है?",
     "options": [
@@ -1538,7 +1538,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "किस प्रकार के मिश्रण में टिंडल प्रभाव सामान्यतः दिखाई देता है?",
     "options": [
@@ -1556,7 +1556,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "समुद्री जल से शुद्ध जल प्राप्त करने के लिए कौन-सी विधि उपयुक्त है?",
     "options": [
@@ -1574,7 +1574,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "तापमान बढ़ाने पर गैसों में विसरण की गति सामान्यतः क्यों बढ़ती है?",
     "options": [
@@ -1592,7 +1592,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "शुद्ध जल में हाइड्रोजन और ऑक्सीजन के द्रव्यमानों का अनुपात कितना होता है?",
     "options": [
@@ -1610,7 +1610,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "सल्फ्यूरिक अम्ल H₂SO₄ का आणविक द्रव्यमान कितना है? (H=1, S=32, O=16)",
     "options": [
@@ -1628,7 +1628,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "किसी क्लोरीन परमाणु की द्रव्यमान संख्या 35 और परमाणु क्रमांक 17 है। उसमें न्यूट्रॉनों की संख्या कितनी होगी?",
     "options": [
@@ -1646,7 +1646,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "गॉल्जी उपकरण (Golgi apparatus) का प्रमुख कार्य क्या है?",
     "options": [
@@ -1664,7 +1664,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "पौधों की कोशिकाओं में प्रकाश संश्लेषण मुख्यतः किस कोशिकांग में होता है?",
     "options": [
@@ -1682,7 +1682,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "पौधे की जड़ और तने की लंबाई में वृद्धि मुख्यतः किस ऊतक के कारण होती है?",
     "options": [
@@ -1700,7 +1700,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "पौधों की बाहरी सतह की रक्षा करने वाला प्रमुख ऊतक कौन-सा है?",
     "options": [
@@ -1718,7 +1718,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "व्हेल को मछली के बजाय स्तनधारी क्यों माना जाता है?",
     "options": [
@@ -1736,7 +1736,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "easy",
     "question": "डेंगू रोग का प्रसार मुख्यतः किस मच्छर के काटने से होता है?",
     "options": [
@@ -1754,7 +1754,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "challenging",
     "question": "एंटीबायोटिक दवाएँ सामान्यतः वायरल सर्दी-जुकाम पर प्रभावी क्यों नहीं होतीं?",
     "options": [
@@ -1772,7 +1772,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "वायुमंडल में कार्बन डाइऑक्साइड की मात्रा बढ़ने से किस प्रभाव में वृद्धि होती है?",
     "options": [
@@ -1790,7 +1790,7 @@ const QUESTIONS = [
     "type": "mcq",
     "set": 2,
     "marks": 4,
-    "negativeMarks": 0,
+    "negativeMarks": 1,
     "difficulty": "moderate",
     "question": "फसल की ऐसी किस्म विकसित करना जो रोगों का बेहतर प्रतिरोध कर सके, किस प्रक्रिया का प्रमुख उद्देश्य है?",
     "options": [
